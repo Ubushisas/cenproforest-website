@@ -1,0 +1,1033 @@
+{
+  "total_trees": 78,
+  "categories": {
+    "forestales": 30,
+    "forrajeras": 36,
+    "ornamentales": 12
+  },
+  "trees": [
+    {
+      "name": "Abarco",
+      "scientific_name": "Cariniana pyriformis",
+      "altitude": "0-1.000",
+      "uses": [
+        "Postes",
+        "Maderable",
+        "Sistemas Agroforestales"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Abarco.jpg"
+    },
+    {
+      "name": "Acacia Amarilla",
+      "scientific_name": "Cassia siamea",
+      "altitude": "0-1.600",
+      "uses": [
+        "Ornamental",
+        "Industrial",
+        "Leña",
+        "Forraje",
+        "Reforestación Ambiental"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Acacia Amarilla.jpg"
+    },
+    {
+      "name": "Acacia Japonesa",
+      "scientific_name": "Acacia melanoxylon",
+      "altitude": "1.800-2.800",
+      "uses": [
+        "Industrial",
+        "Postes",
+        "Tableros",
+        "Leña",
+        "Pulpa",
+        "Forraje",
+        "Ornamental"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Acacia Japonesa.jpg"
+    },
+    {
+      "name": "Acacia Mangium",
+      "scientific_name": "Acacia mangium",
+      "altitude": "0-1.000",
+      "uses": [
+        "Maderable",
+        "Industrial",
+        "Pulpa",
+        "Cercas vivas",
+        "Leña",
+        "Melífera",
+        "Aglomerado",
+        "Forraje"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Acacia Mangium.jpg"
+    },
+    {
+      "name": "Acacia Negra",
+      "scientific_name": "Acacia mearnsii",
+      "altitude": "1.800-3.000",
+      "uses": [
+        "Reforestación Ambiental",
+        "Forraje",
+        "Taninos",
+        "Leña",
+        "Postes",
+        "Pulpa",
+        "Carbón"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Acacia Negra.jpg"
+    },
+    {
+      "name": "Acacia Roja",
+      "scientific_name": "Delonix regia",
+      "altitude": "170-1.200",
+      "uses": [
+        "Ornamental",
+        "Leña",
+        "Sistemas Agroforestales",
+        "Sombrío",
+        "Reforestación Ambiental",
+        "Cercas vivas"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Acacia Roja.jpg"
+    },
+    {
+      "name": "Achiote, Onoto",
+      "scientific_name": "Bixa orellana",
+      "altitude": "0-1.400",
+      "uses": [
+        "Colorantes",
+        "Ornamental",
+        "Forraje",
+        "Industrial"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Achiote, Onoto.jpg"
+    },
+    {
+      "name": "Aliso",
+      "scientific_name": "Alnus acuminata",
+      "altitude": "1.700-3.500",
+      "uses": [
+        "Maderable",
+        "Reforestación Ambiental",
+        "Tableros",
+        "Chapas",
+        "Pulpa",
+        "Cercas vivas"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Aliso.jpg"
+    },
+    {
+      "name": "Almendro",
+      "scientific_name": "Terminalia catappa",
+      "altitude": "0-1.500",
+      "uses": [
+        "Industrial",
+        "Ornamental",
+        "Leña",
+        "Sombrío",
+        "Pilotes",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Almendro.jpg"
+    },
+    {
+      "name": "Arrayán Común",
+      "scientific_name": "Especie forestal",
+      "altitude": "0-2000 m.s.n.m",
+      "uses": [
+        "Ornamental",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Arrayán Común.jpg"
+    },
+    {
+      "name": "Balso",
+      "scientific_name": "Ochroma pyramidale",
+      "altitude": "0-1.800",
+      "uses": [
+        "Maderable",
+        "Pulpa",
+        "Elementos Aislantes",
+        "Embalajes Especiales",
+        "Carpintería",
+        "Cercas vivas"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Balso.jpg"
+    },
+    {
+      "name": "Búcaro",
+      "scientific_name": "Especie forestal",
+      "altitude": "0-2000 m.s.n.m",
+      "uses": [
+        "Ornamental",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Búcaro.jpg"
+    },
+    {
+      "name": "Cajeto",
+      "scientific_name": "Especie forestal",
+      "altitude": "0-2000 m.s.n.m",
+      "uses": [
+        "Ornamental",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Cajeto.jpg"
+    },
+    {
+      "name": "Caoba",
+      "scientific_name": "Swietenia macrophylla",
+      "altitude": "0-1.400",
+      "uses": [
+        "Maderable",
+        "Ornamental",
+        "Sistemas Agroforestales",
+        "Melífera",
+        "Pulpa",
+        "Postes",
+        "Leña"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Caoba.jpg"
+    },
+    {
+      "name": "Caracolí",
+      "scientific_name": "Especie forestal",
+      "altitude": "0-2000 m.s.n.m",
+      "uses": [
+        "Ornamental",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Caracolí.jpg"
+    },
+    {
+      "name": "Casco De Vaca",
+      "scientific_name": "Bauhinia purpurea",
+      "altitude": "0-1.600",
+      "uses": [
+        "Ornamental",
+        "Cercas vivas"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Casco De Vaca.jpg"
+    },
+    {
+      "name": "Cayeno",
+      "scientific_name": "Hibiscus rosasiensis",
+      "altitude": "0-2.600",
+      "uses": [
+        "Ornamental"
+      ],
+      "category": "ornamentales",
+      "image": "assets/Catalogo/Cayeno.jpg"
+    },
+    {
+      "name": "Cedro Rosado",
+      "scientific_name": "Cedrela odorata",
+      "altitude": "0-2.000",
+      "uses": [
+        "Maderable",
+        "Aglomerado",
+        "Chapas",
+        "Reforestación Ambiental",
+        "Ornamental",
+        "Melífera"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Cedro Rosado.jpg"
+    },
+    {
+      "name": "Cedro de Altura",
+      "scientific_name": "Cedrela montana",
+      "altitude": "1.600-3.000",
+      "uses": [
+        "Maderable",
+        "Ornamental",
+        "Leña",
+        "Cercas vivas",
+        "Chapas",
+        "Reforestación Ambiental"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Cedro de Altura.jpg"
+    },
+    {
+      "name": "Ceiba",
+      "scientific_name": "Pachira quinata",
+      "altitude": "0-900",
+      "uses": [
+        "Aglomerado",
+        "Maderable"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Ceiba.jpg"
+    },
+    {
+      "name": "Cerezo",
+      "scientific_name": "Especie forestal",
+      "altitude": "0-2000 m.s.n.m",
+      "uses": [
+        "Ornamental",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Cerezo.jpg"
+    },
+    {
+      "name": "Chicalá",
+      "scientific_name": "Especie forestal",
+      "altitude": "0-2000 m.s.n.m",
+      "uses": [
+        "Ornamental",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Chicalá.jpg"
+    },
+    {
+      "name": "Ciprés",
+      "scientific_name": "Especie forestal",
+      "altitude": "0-2000 m.s.n.m",
+      "uses": [
+        "Ornamental",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Ciprés.jpg"
+    },
+    {
+      "name": "Ciro",
+      "scientific_name": "Baccharis macrantha",
+      "altitude": "1.800-3.200",
+      "uses": [
+        "Leña",
+        "Carbón",
+        "Cercas vivas",
+        "Melífera",
+        "Reforestación Ambiental"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Ciro.jpg"
+    },
+    {
+      "name": "Clavellino",
+      "scientific_name": "Caesalpinia pulcherrima",
+      "altitude": "0-1.600",
+      "uses": [
+        "Ornamental"
+      ],
+      "category": "ornamentales",
+      "image": "assets/Catalogo/Clavellino.jpg"
+    },
+    {
+      "name": "Coral, Coralitos",
+      "scientific_name": "Adenanthera pavonica",
+      "altitude": "0-1.500",
+      "uses": [
+        "Ornamental",
+        "Cercas vivas"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Coral, Coralitos.jpg"
+    },
+    {
+      "name": "Corono",
+      "scientific_name": "Xylosma spiculifera",
+      "altitude": "2.000-3.200",
+      "uses": [
+        "Cercas vivas",
+        "Ornamental"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Corono.jpg"
+    },
+    {
+      "name": "Croton Ornamental",
+      "scientific_name": "Codiaeum variegatum",
+      "altitude": "0-1.500",
+      "uses": [
+        "Ornamental"
+      ],
+      "category": "ornamentales",
+      "image": "assets/Catalogo/Croton Ornamental.jpg"
+    },
+    {
+      "name": "Cucharo",
+      "scientific_name": "Myrsine quinanensis",
+      "altitude": "2.000-2.800",
+      "uses": [
+        "Reforestación Ambiental",
+        "Ornamental"
+      ],
+      "category": "ornamentales",
+      "image": "assets/Catalogo/Cucharo.jpg"
+    },
+    {
+      "name": "Cámbulo",
+      "scientific_name": "Erythrina poeppigiana",
+      "altitude": "400-1.700",
+      "uses": [
+        "Ornamental",
+        "Cercas vivas",
+        "Maderable",
+        "Carpintería",
+        "Sombrío",
+        "Forraje",
+        "Reforestación Ambiental"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Cámbulo.jpg"
+    },
+    {
+      "name": "Dinde Mora",
+      "scientific_name": "Chiorophora tinctoria",
+      "altitude": "0-1.200",
+      "uses": [
+        "Maderable",
+        "Industrial",
+        "Reforestación Ambiental",
+        "Leña",
+        "Sombrío"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Dinde Mora.jpg"
+    },
+    {
+      "name": "Duraznillo",
+      "scientific_name": "Abatia parviflora",
+      "altitude": "2.000-2.900",
+      "uses": [
+        "Maderable",
+        "Reforestación Ambiental",
+        "Maderable",
+        "Cercas vivas"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Duraznillo.jpg"
+    },
+    {
+      "name": "Eucalyptus Globulus",
+      "scientific_name": "Eucalyptus globulus",
+      "altitude": "1.600-2.900",
+      "uses": [
+        "Maderable",
+        "Chapas",
+        "Aglomerado",
+        "Pulpa",
+        "Postes",
+        "Leña",
+        "Carbón",
+        "Cercas vivas"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Eucalyptus Globulus.jpg"
+    },
+    {
+      "name": "Eucalyptus Grandis",
+      "scientific_name": "Eucalyptus grandis",
+      "altitude": "100-2.100",
+      "uses": [
+        "Maderable",
+        "Chapas",
+        "Aglomerado",
+        "Pulpa",
+        "Postes",
+        "Leña",
+        "Carbón",
+        "Cercas vivas"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Eucalyptus Grandis.jpg"
+    },
+    {
+      "name": "Eucalyptus Pellita",
+      "scientific_name": "Eucalyptus pellita",
+      "altitude": "0-600",
+      "uses": [
+        "Maderable",
+        "Industrial",
+        "Sistemas Agroforestales",
+        "Postes",
+        "Leña",
+        "Cercas vivas"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Eucalyptus Pellita.jpg"
+    },
+    {
+      "name": "Eugenia-Arrayán extranjero",
+      "scientific_name": "Eugenia myrtifolia Sims",
+      "altitude": "1.000-2.900",
+      "uses": [
+        "Cercas vivas",
+        "Setos",
+        "Ornamental"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Eugenia-Arrayán extranjero.jpg"
+    },
+    {
+      "name": "Falso Pimiento",
+      "scientific_name": "Shinus molle",
+      "altitude": "1.800-2.800",
+      "uses": [
+        "Ornamental",
+        "Carpintería",
+        "Leña",
+        "Carbón",
+        "Postes",
+        "Cercas vivas",
+        "Reforestación Ambiental",
+        "Melífera"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Falso Pimiento.jpg"
+    },
+    {
+      "name": "Garrocho-Chuque",
+      "scientific_name": "Viburnum triphyllum Bentham",
+      "altitude": "1.700-3.600",
+      "uses": [
+        "Carpintería",
+        "Ornamental",
+        "Cercas vivas"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Garrocho-Chuque.jpg"
+    },
+    {
+      "name": "Gualanday",
+      "scientific_name": "Jacaranda caucana",
+      "altitude": "0-1.500",
+      "uses": [
+        "Ornamental",
+        "Leña",
+        "Maderable",
+        "Reforestación Ambiental",
+        "Carpintería",
+        "Cercas vivas"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Gualanday.jpg"
+    },
+    {
+      "name": "Guayacán Amarillo",
+      "scientific_name": "Tabebuia chrysantha",
+      "altitude": "0-1.800",
+      "uses": [
+        "Maderable",
+        "Leña",
+        "Ornamental",
+        "Carpintería",
+        "Reforestación Ambiental",
+        "Cercas vivas"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Guayacán Amarillo.jpg"
+    },
+    {
+      "name": "Guayacán de Manizales",
+      "scientific_name": "Lafonesia speciosa",
+      "altitude": "1.400-2.800",
+      "uses": [
+        "Leña",
+        "Ornamental",
+        "Setos",
+        "Cercas vivas",
+        "Reforestación Ambiental"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Guayacán de Manizales.jpg"
+    },
+    {
+      "name": "Guácimo",
+      "scientific_name": "Especie forestal",
+      "altitude": "0-2000 m.s.n.m",
+      "uses": [
+        "Ornamental",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Guácimo.jpg"
+    },
+    {
+      "name": "Hayuelo",
+      "scientific_name": "Especie forestal",
+      "altitude": "0-2000 m.s.n.m",
+      "uses": [
+        "Ornamental",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Hayuelo.jpg"
+    },
+    {
+      "name": "Holly Espinoso",
+      "scientific_name": "Pyracantha coccinea",
+      "altitude": "1.800-3.000",
+      "uses": [
+        "Ornamental",
+        "Cercas vivas"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Holly Espinoso.jpg"
+    },
+    {
+      "name": "Holly Liso",
+      "scientific_name": "Especie forestal",
+      "altitude": "0-2000 m.s.n.m",
+      "uses": [
+        "Ornamental",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Holly Liso.jpg"
+    },
+    {
+      "name": "Iguá, Nauno",
+      "scientific_name": "Pseudosamanea guachapele",
+      "altitude": "0-1.500",
+      "uses": [
+        "Maderable",
+        "Sombrío",
+        "Leña",
+        "Industrial",
+        "Cercas vivas",
+        "Forraje"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Iguá, Nauno.jpg"
+    },
+    {
+      "name": "Jazmín del cabo, Laurel Huesito",
+      "scientific_name": "Pittosporum undulatum",
+      "altitude": "1.700-2.800",
+      "uses": [
+        "Ornamental",
+        "Industrial",
+        "Reforestación Ambiental",
+        "Melífera"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Jazmín del cabo, Laurel Huesito.jpg"
+    },
+    {
+      "name": "Laurel del Cera",
+      "scientific_name": "Morella pubescens",
+      "altitude": "1.700-3.900",
+      "uses": [
+        "Ornamental",
+        "Industrial",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Laurel del Cera.jpg"
+    },
+    {
+      "name": "Leucaena",
+      "scientific_name": "Especie forestal",
+      "altitude": "0-2000 m.s.n.m",
+      "uses": [
+        "Ornamental",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Leucaena.jpg"
+    },
+    {
+      "name": "Limón Ornamental",
+      "scientific_name": "Swinglea glutinosa",
+      "altitude": "0-1.700",
+      "uses": [
+        "Ornamental",
+        "Cercas vivas",
+        "Setos"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Limón Ornamental.jpg"
+    },
+    {
+      "name": "Lluvia de Oro",
+      "scientific_name": "Cassia fistula",
+      "altitude": "0-1.500",
+      "uses": [
+        "Ornamental"
+      ],
+      "category": "ornamentales",
+      "image": "assets/Catalogo/Lluvia de Oro.jpg"
+    },
+    {
+      "name": "Mano de Oso, Pata de Gallina",
+      "scientific_name": "Oreopanax floribundum",
+      "altitude": "2.000-2.900",
+      "uses": [
+        "Ornamental",
+        "Reforestación Ambiental",
+        "Cercas vivas",
+        "Sombrío",
+        "Industrial"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Mano de Oso, Pata de Gallina.jpg"
+    },
+    {
+      "name": "Mataratón",
+      "scientific_name": "Gliricidia sepium",
+      "altitude": "0-1.500",
+      "uses": [
+        "Forraje",
+        "Cercas vivas",
+        "Sombrío",
+        "Abono verde",
+        "Industrial",
+        "Postes",
+        "Reforestación Ambiental",
+        "Ornamental"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Mataratón.jpg"
+    },
+    {
+      "name": "Melina",
+      "scientific_name": "Gmelina arborea",
+      "altitude": "0-1.000",
+      "uses": [
+        "Maderable",
+        "Cercas vivas",
+        "Chapas",
+        "Aglomerado",
+        "Pulpa",
+        "Postes",
+        "Leña",
+        "Carbón",
+        "Forraje"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Melina.jpg"
+    },
+    {
+      "name": "Mortiño",
+      "scientific_name": "Especie forestal",
+      "altitude": "0-2000 m.s.n.m",
+      "uses": [
+        "Ornamental",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Mortiño.jpg"
+    },
+    {
+      "name": "Nacedero",
+      "scientific_name": "Especie forestal",
+      "altitude": "0-2000 m.s.n.m",
+      "uses": [
+        "Ornamental",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Nacedero.jpg"
+    },
+    {
+      "name": "Nogal Cafetero, Canalete, Pardillo",
+      "scientific_name": "Cordia alliadora",
+      "altitude": "0-1.900",
+      "uses": [
+        "Maderable",
+        "Leña",
+        "Sombrío",
+        "Industrial",
+        "Ornamental",
+        "Reforestación Ambiental",
+        "Chapas",
+        "Sistemas Agroforestales",
+        "Melífera"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Nogal Cafetero, Canalete, Pardillo.jpg"
+    },
+    {
+      "name": "Ocobo",
+      "scientific_name": "Especie forestal",
+      "altitude": "0-2000 m.s.n.m",
+      "uses": [
+        "Ornamental",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Ocobo.jpg"
+    },
+    {
+      "name": "Oiti",
+      "scientific_name": "Licania tomentosa",
+      "altitude": "0-1.000",
+      "uses": [
+        "Ornamental",
+        "Sombrío"
+      ],
+      "category": "ornamentales",
+      "image": "assets/Catalogo/Oiti.jpg"
+    },
+    {
+      "name": "Orejero",
+      "scientific_name": "Enterolobium cyclocarpum",
+      "altitude": "0-1.200",
+      "uses": [
+        "Maderable",
+        "Sombrío",
+        "Leña",
+        "Reforestación Ambiental",
+        "Carpintería",
+        "Industrial",
+        "Chapas",
+        "Aglomerado"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Orejero.jpg"
+    },
+    {
+      "name": "Palma Abanico",
+      "scientific_name": "Pritchardia pacifica",
+      "altitude": "0-1.500",
+      "uses": [
+        "Ornamental"
+      ],
+      "category": "ornamentales",
+      "image": "assets/Catalogo/Palma Abanico.jpg"
+    },
+    {
+      "name": "Palma Areca",
+      "scientific_name": "Chrysalidocarpus lutescens",
+      "altitude": "0-1.500",
+      "uses": [
+        "Ornamental"
+      ],
+      "category": "ornamentales",
+      "image": "assets/Catalogo/Palma Areca.jpg"
+    },
+    {
+      "name": "Palma Botella, Palma Real",
+      "scientific_name": "Roystonea regia",
+      "altitude": "0-1.500",
+      "uses": [
+        "Ornamental",
+        "Sombrío"
+      ],
+      "category": "ornamentales",
+      "image": "assets/Catalogo/Palma Botella, Palma Real.jpg"
+    },
+    {
+      "name": "Palma Mariposa",
+      "scientific_name": "Caryota mitis",
+      "altitude": "0-1.200",
+      "uses": [
+        "Ornamental"
+      ],
+      "category": "ornamentales",
+      "image": "assets/Catalogo/Palma Mariposa.jpg"
+    },
+    {
+      "name": "Payande",
+      "scientific_name": "Especie forestal",
+      "altitude": "0-2000 m.s.n.m",
+      "uses": [
+        "Ornamental",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Payande.jpg"
+    },
+    {
+      "name": "Pino Pátula",
+      "scientific_name": "Pinus patula",
+      "altitude": "1.400-3.000",
+      "uses": [
+        "Maderable",
+        "Industrial",
+        "Chapas",
+        "Cercas vivas",
+        "Aglomerado",
+        "Pulpa",
+        "Postes",
+        "Leña",
+        "Carbón"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Pino Pátula.jpg"
+    },
+    {
+      "name": "Pomarroso Brasilero",
+      "scientific_name": "Eugenia malaccensis",
+      "altitude": "0-1.500",
+      "uses": [
+        "Ornamental",
+        "Alimento",
+        "Sombrío"
+      ],
+      "category": "ornamentales",
+      "image": "assets/Catalogo/Pomarroso Brasilero.jpg"
+    },
+    {
+      "name": "Roble",
+      "scientific_name": "Quercus humboldtii",
+      "altitude": "1.800-3.500",
+      "uses": [
+        "Aglomerado",
+        "Maderable",
+        "Leña",
+        "Carpintería",
+        "Postes",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Roble.jpg"
+    },
+    {
+      "name": "Saman",
+      "scientific_name": "Especie forestal",
+      "altitude": "0-2000 m.s.n.m",
+      "uses": [
+        "Ornamental",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Saman.jpg"
+    },
+    {
+      "name": "Sauce llorón",
+      "scientific_name": "Salix humboldtii",
+      "altitude": "0-2.800",
+      "uses": [
+        "Carpintería",
+        "Reforestación Ambiental",
+        "Ornamental"
+      ],
+      "category": "ornamentales",
+      "image": "assets/Catalogo/Sauce llorón.jpg"
+    },
+    {
+      "name": "Sauco",
+      "scientific_name": "Sambucus nigra",
+      "altitude": "1.800-3.200",
+      "uses": [
+        "Ornamental",
+        "Cercas vivas"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Sauco.jpg"
+    },
+    {
+      "name": "Suribio",
+      "scientific_name": "Zygia longifolium",
+      "altitude": "0-1.600",
+      "uses": [
+        "Maderable",
+        "Sombrío",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Suribio.jpg"
+    },
+    {
+      "name": "Teca",
+      "scientific_name": "Tectona grandis",
+      "altitude": "0-1.000",
+      "uses": [
+        "Maderable",
+        "Muebles",
+        "Chapas",
+        "Cercas vivas",
+        "Leña"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Teca.jpg"
+    },
+    {
+      "name": "Tulipán Africano",
+      "scientific_name": "Spathodea campanulata",
+      "altitude": "0-1.800",
+      "uses": [
+        "Ornamental",
+        "Reforestación Ambiental",
+        "Abono verde",
+        "Forraje",
+        "Leña",
+        "Maderable",
+        "Muebles",
+        "Postes",
+        "Cercas vivas"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Tulipán Africano.jpg"
+    },
+    {
+      "name": "Urapan",
+      "scientific_name": "Fraxinus chinensis",
+      "altitude": "1.000-3.000",
+      "uses": [
+        "Maderable",
+        "Ornamental",
+        "Chapas",
+        "Pulpa",
+        "Sombrío"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Urapan.jpg"
+    },
+    {
+      "name": "Vainillo",
+      "scientific_name": "Especie forestal",
+      "altitude": "0-2000 m.s.n.m",
+      "uses": [
+        "Ornamental",
+        "Reforestación Ambiental"
+      ],
+      "category": "forestales",
+      "image": "assets/Catalogo/Vainillo.jpg"
+    },
+    {
+      "name": "Yopo Café",
+      "scientific_name": "Piptadenia opacifolia",
+      "altitude": "0-1.000",
+      "uses": [
+        "Maderable",
+        "Ornamental",
+        "Leña",
+        "Postes",
+        "Cercas vivas",
+        "Reforestación Ambiental",
+        "Sombrío"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Yopo Café.jpg"
+    },
+    {
+      "name": "Yopo Negro",
+      "scientific_name": "Anadenanthera peregrina",
+      "altitude": "0-1.000",
+      "uses": [
+        "Maderable",
+        "Ornamental",
+        "Leña",
+        "Cercas vivas",
+        "Reforestación Ambiental",
+        "Sombrío"
+      ],
+      "category": "forrajeras",
+      "image": "assets/Catalogo/Yopo Negro.jpg"
+    }
+  ]
+}

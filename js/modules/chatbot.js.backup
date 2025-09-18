@@ -1,0 +1,854 @@
+// Debug: Confirm script is loading
+console.log('🔧 CHATBOT.JS LOADING...');
+
+// IMMEDIATELY expose functions - no delays, no conditions
+window.askBot = function(question) {
+    console.log('🤖 askBot called with question:', question);
+    
+    // Open chat popup if hidden
+    const chatPopup = document.getElementById('chat-popup');
+    if (chatPopup && chatPopup.classList.contains('hidden')) {
+        chatPopup.classList.remove('hidden');
+        console.log('Chat popup opened');
+        document.body.classList.add('chat-open'); // Add class for mobile
+    }
+    
+    // Add user message to chat
+    addMessage(question, 'user');
+    
+    // Start conversation flow
+    startConversationFlow(question);
+};
+
+window.sendMessage = async function() {
+    console.log('📤 sendMessage called');
+    const input = document.getElementById('chat-input');
+    const message = input ? input.value.trim() : '';
+    
+    if (!message) {
+        console.log('No message to send');
+        return;
+    }
+    
+    console.log('Sending message:', message);
+    
+    // Add user message
+    addMessage(message, 'user');
+    input.value = '';
+    
+    // Handle conversation flow
+    if (conversationState.isActive) {
+        handleConversationResponse(message);
+    } else {
+        // Show typing indicator
+        addMessage('Escribiendo...', 'bot');
+        
+        try {
+            // Get AI response using consistent session ID
+            const aiResponse = await getAIResponse(message, conversationState.sessionId);
+            
+            // Remove typing indicator
+            const messages = document.querySelectorAll('.message');
+            const lastMessage = messages[messages.length - 1];
+            if (lastMessage && lastMessage.textContent.includes('Escribiendo...')) {
+                lastMessage.remove();
+            }
+            
+            // Check for special WhatsApp redirect response
+            if (aiResponse === 'WHATSAPP_REDIRECT') {
+                addMessage('¡Perfecto! Te conecto con nuestros expertos ahora mismo 😊', 'bot');
+                // Add delay before showing WhatsApp button to feel more natural
+                setTimeout(() => {
+                    addMessage('', 'bot', true); // Empty message with WhatsApp button
+                }, 2000);
+                return;
+            }
+            
+            // Check for COMPLETED format with summary
+            if (aiResponse.startsWith('COMPLETED|')) {
+                const parts = aiResponse.split('|');
+                if (parts.length >= 3) {
+                    const summary = parts[1];
+                    const message = parts[2];
+                    
+                    // Store summary for WhatsApp
+                    window.consultationSummary = summary;
+                    
+                    // Show completion message with WhatsApp button
+                    addMessage(message, 'bot', true);
+                    return;
+                }
+            }
+            
+            // Check if response indicates completion - multiple patterns for safety
+            const completionKeywords = ['cotización', 'cotizacion', 'preparo', 'preparar', 'Te preparo la'];
+            const isCompletion = completionKeywords.some(keyword => aiResponse.includes(keyword));
+            
+            if (isCompletion) {
+                console.log('🎯 Completion detected! Showing WhatsApp button with message:', aiResponse);
+                // Show message WITH WhatsApp button immediately
+                addMessage(aiResponse, 'bot', true);
+                return;
+            }
+            
+            // Check if user directly requests structured consultation
+            if (shouldStartConsultation(message, aiResponse)) {
+                // First show AI response with recommendations
+                addMessage(aiResponse, 'bot');
+                
+                // Then automatically start structured flow after a short delay
+                setTimeout(() => {
+                    conversationState.userIntent = message;
+                    startConversationFlow(message);
+                }, 1200); // Short delay for natural flow
+            } else {
+                // Add AI response normally
+                addMessage(aiResponse, 'bot');
+            }
+            
+        } catch (error) {
+            console.error('Error getting AI response:', error);
+            
+            // Remove typing indicator
+            const messages = document.querySelectorAll('.message');
+            const lastMessage = messages[messages.length - 1];
+            if (lastMessage && lastMessage.textContent.includes('Escribiendo...')) {
+                lastMessage.remove();
+            }
+            
+            // Fallback response
+            addMessage('¿En qué puedo ayudarte con tus plantas? Pregúntame sobre especies, cuidados, recomendaciones por clima, envíos...', 'bot');
+        }
+    }
+};
+
+window.handleChatKeyPress = function(event) {
+    console.log('⌨️ Key pressed:', event.key);
+    if (event.key === 'Enter') {
+        window.sendMessage();
+    }
+};
+
+window.talkToExpert = function() {
+    console.log('💬 Talk to expert called');
+    const message = `¡Hola! Me gustaría hablar con un experto de CENPROFOREST sobre sus plantas y servicios.
+
+¿Podrían ayudarme con información sobre:
+- Recomendaciones de plantas para mi proyecto
+- Precios y disponibilidad
+- Asesoría técnica
+
+Gracias!`;
+
+    const whatsappUrl = `https://wa.me/573212402088?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+};
+
+// Help flow function to guide users who need assistance
+window.startHelpFlow = function() {
+    console.log('🆘 Help flow started');
+    
+    // Add user message showing they clicked "Ayúdame"
+    addMessage('Ayúdame', 'user');
+    
+    // Start the help conversation flow
+    setTimeout(() => {
+        const helpMessage = `¡Por supuesto! Estoy aquí para ayudarte 😊
+
+¿Con cuál de estos temas necesitas ayuda?`;
+
+        addHelpMessageWithButtons(helpMessage);
+    }, 800);
+};
+
+// Function to add help message with clickable buttons
+function addHelpMessageWithButtons(text) {
+    const messagesContainer = document.getElementById('chat-messages');
+    if (!messagesContainer) {
+        console.error('Chat messages container not found');
+        return;
+    }
+    
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'message bot-message';
+    
+    messageDiv.innerHTML = `
+        <div class="message-avatar">
+            <img src="assets/images/soloLogo.png" alt="CENPROFOREST Logo" />
+        </div>
+        <div class="message-content">
+            <p>${text}</p>
+            <div class="help-options" style="margin-top: 15px;">
+                <button class="help-btn" onclick="handleHelpChoice('plantas')" style="display: block; width: 100%; margin: 5px 0; padding: 10px; background: #f8f9fa; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; text-align: left;">🌱 Selección de plantas</button>
+                <button class="help-btn" onclick="handleHelpChoice('precios')" style="display: block; width: 100%; margin: 5px 0; padding: 10px; background: #f8f9fa; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; text-align: left;">💰 Precios y cotizaciones</button>
+                <button class="help-btn" onclick="handleHelpChoice('cuidados')" style="display: block; width: 100%; margin: 5px 0; padding: 10px; background: #f8f9fa; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; text-align: left;">🌿 Cuidados y mantenimiento</button>
+                <button class="help-btn" onclick="handleHelpChoice('envios')" style="display: block; width: 100%; margin: 5px 0; padding: 10px; background: #f8f9fa; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; text-align: left;">🚚 Envíos y entrega</button>
+                <button class="help-btn" onclick="handleHelpChoice('asesoria')" style="display: block; width: 100%; margin: 5px 0; padding: 10px; background: #f8f9fa; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; text-align: left;">📋 Asesoría técnica</button>
+                <button class="help-btn" onclick="handleHelpChoice('otra')" style="display: block; width: 100%; margin: 5px 0; padding: 10px; background: #e3f2fd; border: 1px solid #2196f3; border-radius: 8px; cursor: pointer; text-align: left; color: #1976d2;">❓ Otra consulta</button>
+            </div>
+        </div>
+    `;
+    
+    messagesContainer.appendChild(messageDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+// Handle help choice selection
+window.handleHelpChoice = async function(choice) {
+    console.log('🎯 Help choice selected:', choice);
+    
+    const choiceTexts = {
+        'plantas': 'Selección de plantas',
+        'precios': 'Precios y cotizaciones',
+        'cuidados': 'Cuidados y mantenimiento',
+        'envios': 'Envíos y entrega',
+        'asesoria': 'Asesoría técnica',
+        'otra': 'Otra consulta'
+    };
+    
+    // Add user message showing their choice
+    addMessage(choiceTexts[choice], 'user');
+    
+    // Handle each choice
+    if (choice === 'otra') {
+        setTimeout(() => {
+            addMessage('Perfecto! Cuéntame específicamente en qué necesitas ayuda y con gusto te asisto 😊', 'bot');
+        }, 800);
+    } else {
+        // Generate AI response for the specific topic
+        setTimeout(async () => {
+            const topicQuestions = {
+                'plantas': '¿Me puedes ayudar con selección de plantas? ¿Qué especies me recomiendas?',
+                'precios': '¿Podrías darme información sobre precios y cotizaciones?',
+                'cuidados': '¿Puedes darme consejos sobre cuidados y mantenimiento de plantas?',
+                'envios': '¿Cómo funcionan los envíos y la entrega de plantas?',
+                'asesoria': '¿Ofrecen asesoría técnica para proyectos forestales?'
+            };
+            
+            try {
+                const aiResponse = await getAIResponse(topicQuestions[choice], conversationState.sessionId);
+                addMessage(aiResponse, 'bot');
+            } catch (error) {
+                console.error('Error getting AI response for help topic:', error);
+                // Fallback responses for each topic - concise and direct to WhatsApp
+                const fallbackResponses = {
+                    'plantas': 'Para recomendaciones exactas según tu ubicación, contacta por WhatsApp. Te ayudo mejor con detalles específicos.',
+                    'precios': 'Para precios y cotizaciones, contacta por WhatsApp con tu ubicación y cantidad. Te respondo rápido.',
+                    'cuidados': 'Los cuidados varían por especie. Contacta por WhatsApp con tu planta específica para consejos detallados.',
+                    'envios': 'Sí, enviamos a todo Colombia con transporte especializado. Contacta por WhatsApp para cotizar envío a tu ciudad.',
+                    'asesoria': 'Ofrecemos asesoría técnica completa. Contacta por WhatsApp para hablar con nuestros expertos forestales.'
+                };
+                addMessage(fallbackResponses[choice], 'bot', true); // true = show WhatsApp button
+            }
+        }, 800);
+    }
+};
+
+window.openWhatsAppWithContext = function() {
+    console.log('📱 Opening WhatsApp with context');
+    
+    let whatsappMessage = '';
+    
+    // Check if we have a consultation summary from the backend
+    if (window.consultationSummary) {
+        // Use the backend-generated summary (it's already formatted)
+        whatsappMessage = `Hola! Vengo del sitio web.\n\n${window.consultationSummary}`;
+    } else {
+        // Fallback to extracting from conversation
+        whatsappMessage = `Hola! Vengo del sitio web de CENPROFOREST.\n\n`;
+        
+        // Extract ONLY the user messages to create summary
+        const chatMessages = document.querySelectorAll('.user-message');
+        const userTexts = [];
+        
+        chatMessages.forEach(msg => {
+            const content = msg.querySelector('.message-content p')?.textContent?.trim() || '';
+            if (content) userTexts.push(content);
+        });
+        
+        console.log('User messages found:', userTexts);
+        
+        // Create concrete summary for sales manager
+        if (userTexts.length >= 1) {
+            whatsappMessage += `CLIENTE NECESITA:\n`;
+            
+            // Extract key data from messages
+            let ciudad = '';
+            let tipo = '';
+            let area = '';
+            let persona = '';
+            
+            userTexts.forEach(msg => {
+                const lower = msg.toLowerCase();
+                // Expanded city detection including Ibagué
+                if (lower.includes('ipiales') || lower.includes('cali') || lower.includes('bogota') || 
+                    lower.includes('medellin') || lower.includes('ibague') || lower.includes('ibagué')) {
+                    ciudad = msg;
+                } else if (lower.includes('cercar') || lower.includes('reforestar') || lower.includes('forestal')) {
+                    tipo = msg;
+                } else if (lower.includes('hectarea') || lower.includes('hectárea') || 
+                          lower.includes('metro') || lower.includes('fanegada') || /\d+/.test(msg)) {
+                    area = msg;
+                } else if (lower.includes('natural') || lower.includes('empresa')) {
+                    persona = msg;
+                }
+            });
+            
+            if (ciudad) whatsappMessage += `🏙️ Ciudad: ${ciudad}\n`;
+            if (tipo) whatsappMessage += `🌲 Propósito: ${tipo}\n`; 
+            if (area) whatsappMessage += `📏 Área: ${area}\n`;
+            if (persona) whatsappMessage += `👤 Cliente: ${persona}\n`;
+            
+            whatsappMessage += `\n⚡ COTIZAR URGENTE`;
+        } else {
+            whatsappMessage += `Cliente interesado en árboles forestales`;
+        }
+    }
+    
+    console.log('Final WhatsApp message:', whatsappMessage);
+    
+    const whatsappNumber = "573212402088";
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+    
+    window.open(whatsappUrl, '_blank');
+};
+
+// Colombian cities altitude database
+const COLOMBIA_CITIES_ALTITUDE = {
+    // Major cities
+    'bogota': { altitude: 2640, climate: 'frío' },
+    'bogotá': { altitude: 2640, climate: 'frío' },
+    'medellin': { altitude: 1495, climate: 'templado' },
+    'medellín': { altitude: 1495, climate: 'templado' },
+    'cali': { altitude: 1000, climate: 'templado' },
+    'barranquilla': { altitude: 18, climate: 'cálido' },
+    'cartagena': { altitude: 2, climate: 'cálido' },
+    'bucaramanga': { altitude: 959, climate: 'cálido' },
+    'ibague': { altitude: 1285, climate: 'templado' },
+    'ibagué': { altitude: 1285, climate: 'templado' },
+    'pereira': { altitude: 1411, climate: 'templado' },
+    'manizales': { altitude: 2153, climate: 'frío' },
+    'armenia': { altitude: 1551, climate: 'templado' },
+    'villavicencio': { altitude: 467, climate: 'cálido' },
+    'neiva': { altitude: 442, climate: 'cálido' },
+    'pasto': { altitude: 2527, climate: 'frío' },
+    'popayan': { altitude: 1760, climate: 'templado' },
+    'popayán': { altitude: 1760, climate: 'templado' },
+    'tunja': { altitude: 2820, climate: 'frío' },
+    'monteria': { altitude: 13, climate: 'cálido' },
+    'montería': { altitude: 13, climate: 'cálido' },
+    'valledupar': { altitude: 169, climate: 'cálido' },
+    'sincelejo': { altitude: 213, climate: 'cálido' },
+    'santa marta': { altitude: 2, climate: 'cálido' },
+    'cucuta': { altitude: 320, climate: 'cálido' },
+    'cúcuta': { altitude: 320, climate: 'cálido' },
+    'florencia': { altitude: 242, climate: 'cálido' },
+    'soledad': { altitude: 5, climate: 'cálido' },
+    'palmira': { altitude: 1001, climate: 'templado' },
+    'buenaventura': { altitude: 7, climate: 'cálido' },
+    'barrancabermeja': { altitude: 76, climate: 'cálido' },
+    'tulua': { altitude: 960, climate: 'cálido' },
+    'tuluá': { altitude: 960, climate: 'cálido' },
+    'ipiales': { altitude: 2897, climate: 'frío' },
+    'duitama': { altitude: 2590, climate: 'frío' },
+    'sogamoso': { altitude: 2569, climate: 'frío' },
+    'rionegro': { altitude: 2125, climate: 'frío' },
+    'zipaquira': { altitude: 2650, climate: 'frío' },
+    'zipaquirá': { altitude: 2650, climate: 'frío' },
+    'facatativa': { altitude: 2586, climate: 'frío' },
+    'facatativá': { altitude: 2586, climate: 'frío' },
+    'chia': { altitude: 2564, climate: 'frío' },
+    'chía': { altitude: 2564, climate: 'frío' },
+    'girardot': { altitude: 289, climate: 'cálido' },
+    'fusagasuga': { altitude: 1728, climate: 'templado' },
+    'fusagasugá': { altitude: 1728, climate: 'templado' },
+    'soacha': { altitude: 2566, climate: 'frío' },
+    'cajica': { altitude: 2558, climate: 'frío' },
+    'cajicá': { altitude: 2558, climate: 'frío' },
+    'mosquera': { altitude: 2516, climate: 'frío' },
+    'madrid': { altitude: 2554, climate: 'frío' },
+    'funza': { altitude: 2548, climate: 'frío' },
+    'la calera': { altitude: 2718, climate: 'frío' },
+    'tocancipa': { altitude: 2606, climate: 'frío' },
+    'tocancipá': { altitude: 2606, climate: 'frío' },
+    'ubate': { altitude: 2556, climate: 'frío' },
+    'ubaté': { altitude: 2556, climate: 'frío' },
+    'guatavita': { altitude: 2680, climate: 'frío' },
+    'cogua': { altitude: 2600, climate: 'frío' },
+    'gachancipa': { altitude: 2568, climate: 'frío' },
+    'gachancipá': { altitude: 2568, climate: 'frío' },
+    'tabio': { altitude: 2569, climate: 'frío' },
+    'tenjo': { altitude: 2587, climate: 'frío' },
+    'sibate': { altitude: 2700, climate: 'frío' },
+    'sibaté': { altitude: 2700, climate: 'frío' },
+    'bojaca': { altitude: 2598, climate: 'frío' },
+    'bojacá': { altitude: 2598, climate: 'frío' }
+};
+
+// Function to get city altitude and climate
+function getCityInfo(cityName) {
+    const normalizedCity = cityName.toLowerCase().trim();
+    return COLOMBIA_CITIES_ALTITUDE[normalizedCity] || null;
+}
+
+// Generate consistent session ID
+const SESSION_ID = 'session_' + Math.random().toString(36).substr(2, 9);
+
+// Initialize conversation storage
+const conversationStorage = new ConversationStorage();
+
+// Conversation state management
+let conversationState = {
+    isActive: false,
+    step: 0,
+    userIntent: '',
+    responses: {
+        area: '',
+        quantity: '',
+        height: '',
+        zone: '',
+        entityType: ''
+    },
+    conversationHistory: [], // Add conversation memory
+    sessionId: SESSION_ID, // Consistent session for AI memory
+    detectedLocation: null
+};
+
+// Conversation questions
+// Function to check if response contains a city and extract info
+function extractCityFromResponse(response) {
+    const words = response.toLowerCase().split(/\s+/);
+    for (let word of words) {
+        const cityInfo = getCityInfo(word);
+        if (cityInfo) {
+            return {
+                city: word,
+                altitude: cityInfo.altitude,
+                climate: cityInfo.climate
+            };
+        }
+    }
+    return null;
+}
+
+const conversationQuestions = [
+    {
+        id: 'area',
+        ask: (intent) => {
+            // Check if the initial message already contained a city
+            const cityInfo = extractCityFromResponse(intent);
+            if (cityInfo) {
+                conversationState.detectedLocation = cityInfo;
+                conversationState.responses.zone = cityInfo.city;
+                conversationState.responses.height = `${cityInfo.altitude} msnm`;
+                // Skip directly to area question
+                return `Perfecto! Para ${cityInfo.city} (${cityInfo.altitude}m), ¿qué área vas a plantar?`;
+            }
+            return `Perfecto! Para prepararte una cotización exacta, ¿qué área vas a plantar?`;
+        },
+        field: 'area',
+        process: (response) => {
+            return response;
+        }
+    },
+    {
+        id: 'quantity',
+        ask: (response) => {
+            return `Excelente. ¿Cuántos árboles necesitas aproximadamente?`;
+        },
+        field: 'quantity',
+        process: (response) => {
+            return response;
+        }
+    },
+    {
+        id: 'location',
+        ask: (response) => {
+            // Only ask if we don't have location yet
+            return `¿En qué ciudad está tu proyecto?`;
+        },
+        field: 'zone',
+        skip: () => conversationState.detectedLocation !== null,
+        process: (response) => {
+            // Check if response contains a city
+            const cityInfo = extractCityFromResponse(response);
+            if (cityInfo) {
+                conversationState.detectedLocation = cityInfo;
+                conversationState.responses.height = `${cityInfo.altitude} msnm`;
+                return cityInfo.city;
+            }
+            return response;
+        }
+    },
+    {
+        id: 'entityType',
+        ask: (response) => {
+            return `¿Eres persona natural o empresa?`;
+        },
+        field: 'entityType',
+        process: (response) => {
+            const lowerResponse = response.toLowerCase();
+            if (lowerResponse.includes('empresa') || lowerResponse.includes('compañía') || lowerResponse.includes('negocio')) {
+                return 'empresa';
+            } else if (lowerResponse.includes('persona') || lowerResponse.includes('natural') || lowerResponse.includes('particular')) {
+                return 'persona natural';
+            }
+            return response;
+        }
+    }
+];
+
+function startConversationFlow(question) {
+    conversationState.isActive = true;
+    conversationState.step = 0;
+    conversationState.userIntent = question;
+    
+    // Initialize conversation storage
+    conversationStorage.startConversation(conversationState.sessionId);
+    conversationStorage.updateUserData('initialIntent', question);
+    
+    // Add to conversation history
+    conversationState.conversationHistory.push({
+        type: 'user_intent',
+        content: question,
+        timestamp: new Date().toISOString()
+    });
+    
+    // Generate first question
+    setTimeout(() => {
+        const firstQuestion = conversationQuestions[0].ask(question);
+        addMessage(firstQuestion, 'bot');
+        
+        // Add to conversation history
+        conversationState.conversationHistory.push({
+            type: 'bot_question',
+            step: 0,
+            content: firstQuestion,
+            timestamp: new Date().toISOString()
+        });
+    }, 800);
+}
+
+function handleConversationResponse(userResponse) {
+    if (!conversationState.isActive) {
+        return false; // Not in conversation
+    }
+    
+    // Add response to conversation history
+    conversationState.conversationHistory.push({
+        type: 'user_response',
+        step: conversationState.step,
+        content: userResponse,
+        timestamp: new Date().toISOString()
+    });
+    
+    // Get current question
+    let currentQuestion = conversationQuestions[conversationState.step];
+    if (!currentQuestion) return false;
+    
+    // Process and store the response
+    let processedResponse = userResponse;
+    if (currentQuestion.process) {
+        processedResponse = currentQuestion.process(userResponse);
+    }
+    
+    conversationState.responses[currentQuestion.field] = processedResponse;
+    
+    // Update conversation storage with collected data
+    conversationStorage.updateUserData(currentQuestion.field, processedResponse);
+    if (conversationState.detectedLocation) {
+        conversationStorage.updateUserData('detectedCity', conversationState.detectedLocation.city);
+        conversationStorage.updateUserData('height', `${conversationState.detectedLocation.altitude} msnm`);
+    }
+    
+    conversationState.step++;
+    
+    // Find next unanswered question
+    let nextQuestion = null;
+    while (conversationState.step < conversationQuestions.length) {
+        const q = conversationQuestions[conversationState.step];
+        
+        // Check if this question should be skipped
+        if (q.skip && q.skip()) {
+            conversationState.step++;
+            continue;
+        }
+        
+        // Check if we already have this answer
+        if (conversationState.responses[q.field]) {
+            conversationState.step++;
+            continue;
+        }
+        
+        nextQuestion = q;
+        break;
+    }
+    
+    // Check if conversation is complete
+    const hasAllInfo = conversationState.responses.area && 
+                      conversationState.responses.quantity && 
+                      conversationState.responses.zone && 
+                      conversationState.responses.entityType;
+    
+    if (!nextQuestion || hasAllInfo) {
+        // Conversation finished - show summary and WhatsApp button
+        setTimeout(() => {
+            showConversationSummary();
+        }, 1500);
+        return true;
+    }
+    
+    // Ask next question
+    setTimeout(() => {
+        const questionText = nextQuestion.ask(processedResponse);
+        addMessage(questionText, 'bot');
+        
+        // Add to conversation history
+        conversationState.conversationHistory.push({
+            type: 'bot_question',
+            step: conversationState.step,
+            content: questionText,
+            timestamp: new Date().toISOString()
+        });
+    }, 1200);
+    
+    return true;
+}
+
+async function showConversationSummary() {
+    // Ensure all required info is collected
+    if (!conversationState.responses.area || 
+        !conversationState.responses.quantity || 
+        !conversationState.responses.zone || 
+        !conversationState.responses.entityType) {
+        console.error('Missing required information for summary');
+        return;
+    }
+    
+    const chatSummary = `¡Perfecto! Ya tengo la información de tu proyecto:
+
+• Área: ${conversationState.responses.area}
+• Cantidad: ${conversationState.responses.quantity}
+• Ubicación: ${conversationState.responses.zone}
+• Tipo: ${conversationState.responses.entityType}
+
+Nuestros expertos te van a preparar una cotización personalizada con las mejores opciones para tu zona.`;
+
+    // Show summary with WhatsApp button
+    addMessage(chatSummary, 'bot', true); // true = show WhatsApp button
+    
+    // IMPORTANT: Send consultation data to AI memory so it remembers for future questions
+    await sendConsultationDataToAI(conversationState.sessionId, {
+        area: conversationState.responses.area,
+        quantity: conversationState.responses.quantity,
+        zone: conversationState.responses.zone,
+        entityType: conversationState.responses.entityType,
+        height: conversationState.responses.height
+    });
+    
+    // Finalize conversation storage
+    const conversationExport = conversationStorage.endConversation();
+    console.log('📊 Conversation completed and exported:', conversationExport);
+    
+    // Add summary to conversation history
+    conversationState.conversationHistory.push({
+        type: 'conversation_complete',
+        content: chatSummary,
+        responses: {...conversationState.responses},
+        timestamp: new Date().toISOString()
+    });
+    
+    conversationState.isActive = false; // End conversation
+}
+
+// Essential functions for immediate use
+// Function to detect if user needs structured consultation  
+function shouldStartConsultation(userMessage, aiResponse) {
+    const message = userMessage.toLowerCase();
+    const response = aiResponse.toLowerCase();
+    
+    // Exclude care and shipping queries from quotation flow
+    const excludeKeywords = [
+        // Care keywords
+        'cuidados', 'cuidado', 'como cuidar', 'cómo cuidar',
+        'mantenimiento', 'regar', 'podar', 'fertilizar',
+        'plagas', 'enfermedades', 'nutrientes',
+        // Shipping keywords
+        'envios', 'envíos', 'envian', 'envían', 'transporte',
+        'mi ciudad', 'todo el pais', 'todo el país',
+        // General info keywords
+        'epoca', 'época', 'cuando siembro', 'cuándo siembro',
+        'mejor época', 'cuando sembrar', 'cuándo sembrar',
+        // General greetings and help requests
+        'hola', 'buenos', 'buenas', 'saludos', 'ayuda', 'ayudar',
+        'que hacen', 'qué hacen', 'información', 'informacion'
+    ];
+    
+    const isExcludedQuery = excludeKeywords.some(keyword => message.includes(keyword));
+    if (isExcludedQuery) {
+        return false; // Don't trigger quotation flow for info questions
+    }
+    
+    // Keywords that indicate clear need for structured consultation
+    const strongConsultationKeywords = [
+        'cotizacion', 'cotización', 'precio', 'precios', 'cuanto cuesta', 'cuánto cuesta',
+        'necesito plantas', 'quiero plantar', 'voy a plantar', 'proyecto de siembra',
+        'proyecto forestal', 'reforestacion', 'reforestación',
+        'asesoría forestal', 'consulta forestal'
+    ];
+    
+    const hasStrongKeyword = strongConsultationKeywords.some(keyword => message.includes(keyword));
+    
+    // Only trigger consultation flow for explicit requests or when user shows clear commercial intent
+    // Remove automatic triggering on plant recommendations to allow for more natural conversation
+    return hasStrongKeyword;
+}
+
+// Function to call the AI API
+async function getAIResponse(message, sessionId) {
+    try {
+        console.log('🤖 Calling AI API with message:', message);
+        const response = await fetch('http://localhost:3000/api/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                message: message,
+                sessionId: sessionId || 'default'
+            })
+        });
+
+        const data = await response.json();
+        console.log('🤖 AI Response:', data);
+
+        // Store conversation summary for WhatsApp if provided by backend
+        if (data.conversationSummary) {
+            window.consultationSummary = data.conversationSummary;
+            console.log('💾 Stored consultation summary:', data.conversationSummary);
+        }
+
+        if (data.reply) {
+            return data.reply;
+        } else {
+            console.error('AI API error:', data.error);
+            return 'Lo siento, tengo problemas técnicos temporales. ¿Puedo ayudarte con algo específico sobre nuestras plantas?';
+        }
+    } catch (error) {
+        console.error('Error calling AI API:', error);
+        return 'Parece que tengo problemas de conexión. Mientras tanto, ¿qué plantas te interesan?';
+    }
+}
+
+// Function to send consultation data to AI memory
+async function sendConsultationDataToAI(sessionId, consultationData) {
+    try {
+        console.log('📝 Sending consultation data to AI memory');
+        
+        const contextMessage = `INFORMACIÓN DE CONSULTA COMPLETADA:
+- Área: ${consultationData.area}
+- Cantidad: ${consultationData.quantity}
+- Ubicación: ${consultationData.zone}
+- Tipo de cliente: ${consultationData.entityType}
+- Altura detectada: ${consultationData.height || 'No especificada'}
+
+Esta información fue recopilada durante la consulta estructurada. Recuerda estos datos para futuras preguntas del usuario.`;
+
+        await fetch('http://localhost:3000/api/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                message: contextMessage,
+                sessionId: sessionId,
+                is_system_message: true // Flag to indicate this is context, not user input
+            })
+        });
+        
+        console.log('✅ Consultation data sent to AI memory');
+    } catch (error) {
+        console.error('Error sending consultation data to AI:', error);
+    }
+}
+
+function addMessage(text, sender, showWhatsAppButton = false) {
+    const messagesContainer = document.getElementById('chat-messages');
+    if (!messagesContainer) {
+        console.error('Chat messages container not found');
+        return;
+    }
+    
+    // Store message in conversation storage
+    conversationStorage.addMessage(sender, text, { showWhatsAppButton });
+    
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${sender}-message`;
+    
+    const whatsappButtonHtml = showWhatsAppButton ? `
+        <div class="whatsapp-button-container" style="margin-top: 15px;">
+            <button class="contact-btn" onclick="openWhatsAppWithContext()" style="background: #25D366; color: white; border: none; padding: 12px 24px; border-radius: 25px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                <span>📱 Contactar por WhatsApp</span>
+            </button>
+        </div>
+    ` : '';
+    
+    messageDiv.innerHTML = `
+        <div class="message-avatar">
+            ${sender === 'user' ? '👤' : '<img src="assets/images/soloLogo.png" alt="CENPROFOREST Logo" />'}
+        </div>
+        <div class="message-content">
+            <p style="white-space: pre-line;">${text}</p>
+            ${whatsappButtonHtml}
+        </div>
+    `;
+    
+    messagesContainer.appendChild(messageDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+// Initialize when DOM is loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('✅ Chatbot initialized on DOMContentLoaded');
+    });
+} else {
+    console.log('✅ Chatbot initialized immediately');
+}
+
+// Function to open chat popup
+window.openChatPopup = function() {
+    console.log('🔧 DEBUG: openChatPopup called');
+    const chatPopup = document.getElementById('chat-popup');
+    console.log('🔧 DEBUG: chatPopup element:', chatPopup);
+    
+    if (chatPopup) {
+        chatPopup.classList.remove('hidden');
+        document.body.classList.add('chat-open');
+        console.log('🔧 DEBUG: Chat popup opened');
+        
+        // Show greeting immediately when chat opens
+        const chatMessages = document.getElementById('chat-messages');
+        if (chatMessages && chatMessages.children.length === 0) {
+            const greetingMessage = "¡Hola! Soy tu consultor forestal de CENPROFOREST 🌳\n\n¿En qué puedo ayudarte hoy?";
+            addMessage(greetingMessage, 'bot');
+        }
+        
+        // Focus on input field
+        const chatInput = document.getElementById('chat-input');
+        if (chatInput) {
+            setTimeout(() => chatInput.focus(), 100);
+        }
+    } else {
+        console.log('🔧 DEBUG: chatPopup element NOT found');
+    }
+};
+
+console.log('✅ CHATBOT.JS LOADED SUCCESSFULLY');
+console.log('Functions available:', {
+    askBot: typeof window.askBot,
+    sendMessage: typeof window.sendMessage,
+    handleChatKeyPress: typeof window.handleChatKeyPress,
+    openWhatsAppWithContext: typeof window.openWhatsAppWithContext,
+    openChatPopup: typeof window.openChatPopup
+});

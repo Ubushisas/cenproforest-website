@@ -1,0 +1,6 @@
+g4f
+pandas
+requests
+sqlite3
+flask
+flask-cors

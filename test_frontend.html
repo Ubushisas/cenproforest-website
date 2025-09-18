@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+
+    <meta charset="UTF-8">
+    <title>Test Frontend Detection</title>
+</head>
+<body>
+    <script>
+        // Test the exact detection logic
+        const testResponse = "Perfecto! 700 metros forestales en Medellín, empresa. Te preparo la cotización.";
+        
+        console.log("Testing response:", testResponse);
+        console.log("Contains 'cotización':", testResponse.includes('cotización'));
+        console.log("Contains 'cotizacion':", testResponse.includes('cotizacion')); 
+        console.log("Contains 'preparo':", testResponse.includes('preparo'));
+        console.log("Contains 'preparar':", testResponse.includes('preparar'));
+        
+        // Test the condition
+        if (testResponse.includes('cotización') || testResponse.includes('cotizacion') || testResponse.includes('preparo') || testResponse.includes('preparar')) {
+            console.log("✅ SHOULD SHOW WHATSAPP BUTTON!");
+        } else {
+            console.log("❌ Button detection failed");
+        }
+    </script>
+
+    </div>
+
+        </div>
+      <button class="close-chat" onclick="closeChatPopup()">×</button>
+    </div>
+    <div id="chat-messages" class="chat-messages">
+      <!-- Messages will be populated by JavaScript -->
+    </div>
+    <div class="chat-input-container">
+      <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." onkeypress="handleChatKeyPress(event)">
+      <button onclick="sendMessage()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+
+  </body>
+</html>

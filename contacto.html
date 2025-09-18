@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - CENPROFOREST</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/soloLogo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/soloLogo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/soloLogo.png">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-logo">
+      <a href="index.html">
+        <img src="assets/images/Logo_Nuevo.png" alt="CENPROFOREST" class="nav-logo-img">
+      </a>
+    </div>
+    <div class="nav-right">
+      <!-- Desktop Menu -->
+      <div class="nav-menu desktop-menu">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="nosotros.html" class="nav-link">Nosotros</a>
+        <a href="ayuda.html" class="nav-link">Ayuda</a>
+        <a href="contacto.html" class="nav-link active">Contacto</a>
+      </div>
+      <div class="nav-cta desktop-cta">
+        <a href="catalogo.html" class="nav-button">
+          <span>Consultar catálogo completo</span>
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </a>
+      </div>
+      
+      <!-- Mobile Hamburger Menu -->
+      <div class="mobile-menu-toggle" id="nav-toggle">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="nav-menu">
+      <div class="mobile-menu-content">
+        <a href="index.html" class="mobile-nav-link">Inicio</a>
+        <a href="nosotros.html" class="mobile-nav-link">Nosotros</a>
+        <a href="ayuda.html" class="mobile-nav-link">Ayuda</a>
+        <a href="contacto.html" class="mobile-nav-link">Contacto</a>
+        <a href="catalogo.html" class="mobile-cta-button">
+          <span>Consultar catálogo completo</span>
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header" style="background-image: url('assets/images/cenproforest_aerial_3.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative; min-height: 50vh; display: flex; align-items: center;">
+    <div class="header-overlay" style="background: linear-gradient(135deg, rgba(45,80,22,0.7) 0%, rgba(74,124,35,0.6) 100%); position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+      <h1 style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Contacto</h1>
+      <p style="color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Estamos aquí para ayudarte con todas tus necesidades forestales</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h3>Ubicación</h3>
+              <p>Vivero forestal cenproforest Sas<br>
+              Ibagué - Tolima - Colombia</p>
+              <button class="map-btn" onclick="window.open('https://maps.app.goo.gl/kvgtWszgc8kUcT2Z9', '_blank')">Ver en Mapa</button>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <h3>Teléfono</h3>
+              <p>(57) 321 240 2088</p>
+              <p>(57) 300 210 4471</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <h3>Email</h3>
+              <p>cenproforest@gmail.com</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form" style="display: flex; align-items: center; justify-content: center; min-height: 300px;">
+          <div style="text-align: center; padding: 20px;">
+            <h3 style="margin-bottom: 15px;">¿Tienes preguntas?</h3>
+            <p style="margin-bottom: 20px;">Contáctanos directamente por WhatsApp para una respuesta rápida</p>
+            <a href="https://wa.me/573212402088?text=Hola,%20vengo%20de%20la%20página%20web%20de%20Cenproforest." target="_blank" class="submit-btn" style="display: inline-block; background-color: #6ba832; text-decoration: none; padding: 15px 30px; border-radius: 5px; color: white; font-weight: 600;">
+              💬 Contactar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Modal -->
+  <div id="map-modal" class="map-modal hidden">
+    <div class="map-modal-content">
+      <div class="map-modal-header">
+        <h3>📍 Ubicación CENPROFOREST</h3>
+        <button class="close-map-btn" onclick="closeMap()">✕</button>
+      </div>
+      <div class="map-container-modal">
+        <iframe
+          id="map-iframe"
+          src="about:blank"
+          frameborder="0"
+          style="border:0;"
+          allowfullscreen=""
+          aria-hidden="false"
+          tabindex="0">
+        </iframe>
+      </div>
+      <div class="map-modal-footer">
+        <p><strong>Dirección:</strong> Vivero forestal cenproforest Sas - Ibagué - Tolima - Colombia</p>
+        <div class="map-actions">
+          <button onclick="openGoogleMaps()">🗺️ Abrir en Google Maps</button>
+          <button onclick="openWaze()">🚗 Abrir en Waze</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat Bot Floating Button -->
+  <div class="chat-float-btn" onclick="openChatPopup()">
+    <span class="chat-icon">💬</span>
+    <span class="chat-pulse"></span>
+  </div>
+
+  <!-- Chat Bot Popup -->
+  
+        <div>
+          <h3>CENPROFOREST</h3>
+          <span class="chat-status">💬 Asistente Virtual</span>
+        </div>
+      </div>
+      <button class="chat-close-btn" onclick="closeChatPopup()">✕</button>
+    </div>
+    
+    <div class="chat-messages" id="chat-messages">
+      <div class="message bot-message">
+        <div class="message-avatar">
+          <img src="logo.png" alt="CENPROFOREST Logo" />
+        </div>
+        <div class="message-content">
+          <p>¿Necesitas contactarnos? ¡Estoy aquí para ayudarte!</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="chat-input-container">
+      <div class="chat-input-group">
+        <input type="text" id="chat-input" placeholder="Escribe tu pregunta aquí..." onkeypress="handleChatKeyPress(event)">
+        <button id="send-btn" onclick="sendMessage()">Enviar</button>
+      </div>
+      <div class="expert-option">
+        <button class="expert-btn" onclick="talkToExpert()">🧑‍🌾 Hablar con Experto</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Cenproforest S.A.S.</h3>
+          <p>Empresa 100% Colombiana líder en producción de plantas forestales, frutales y ornamentales.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Enlaces</h4>
+          <a href="index.html">Inicio</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a href="catalogo.html">Catálogo</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+        <div class="footer-section">
+          <h4>Contacto</h4>
+          <p>(57) 321 240 2088</p>
+          <p>(57) 300 210 4471</p>
+          <p>✉️ cenproforest@gmail.com</p>
+          <p>📍 Ibagué, Tolima, Colombia</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 CENPROFOREST S.A.S. Todos los derechos reservados. | Creado por <a href="https://ubushi.com" target="_blank" style="color: #4A7C23; text-decoration: none;">Ubushi.com</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modular JavaScript files -->
+  <script src="js/config/catalog-data.js"></script>
+  <script src="js/modules/utils.js"></script>
+  <script src="js/modules/navigation.js"></script>
+  <script src="js/modules/hero-video.js"></script>
+  <script src="js/modules/catalog.js"></script>
+  <script src="js/modules/contact-form.js"></script>
+  <script src="js/modules/scroll-effects.js"></script>
+  <script src="js/modules/plant-finder.js"></script>
+  <script src="js/modules/faq.js"></script>
+  <script src="js/modules/misc-functions.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

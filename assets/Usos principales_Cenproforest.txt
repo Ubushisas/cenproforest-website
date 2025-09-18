@@ -1,0 +1,28 @@
+﻿CONVENCIONES DE USOS
+* A: Aglomerado
+* AL: Alimento
+* AV: Abono verde
+* CA: Carbón
+* CAR: Carpintería
+* CH: Chapas
+* CV: Cercas vivas
+* CO: Colorantes
+* EA: Elementos Aislantes
+* EE: Embalajes Especiales
+* F: Forraje
+* I: Industrial
+* L: Leña
+* M: Maderable
+* ME: Melífera
+* MU: Muebles
+* O: Ornamental
+* PI: Pilotes
+* PF: Producción de Fibra
+* PO: Postes
+* PU: Pulpa
+* RA: Reforestación Ambiental
+* S: Sombrío
+* SA: Sistemas Agroforestales
+* SE: Setos
+* T: Taninos
+* TA: Tableros

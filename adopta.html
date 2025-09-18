@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adopta un Árbol - CENPROFOREST</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/soloLogo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/soloLogo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/soloLogo.png">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <h2>CENPROFOREST</h2>
+      </div>
+      <div class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="catalogo.html" class="nav-link">Catálogo</a>
+        <a href="adopta.html" class="nav-link">Adopta un Árbol</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
+      </div>
+      <div class="nav-toggle" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>🌳 Adopta un Árbol</h1>
+      <p>Contribuye al medio ambiente adoptando un árbol y siguiendo su crecimiento</p>
+    </div>
+  </section>
+
+  <!-- Adopta un Árbol Section -->
+  <section id="adopt" class="adopt-section">
+    <div class="container">
+      <div class="adopt-intro">
+        <div class="adopt-info">
+          <h3>¿Cómo funciona?</h3>
+          <div class="adopt-steps">
+            <div class="adopt-step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Elige tu árbol</h4>
+                <p>Selecciona la especie que quieres adoptar de nuestro catálogo</p>
+              </div>
+            </div>
+            <div class="adopt-step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Realiza tu adopción</h4>
+                <p>Completa el proceso de adopción con una contribución económica</p>
+              </div>
+            </div>
+            <div class="adopt-step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Recibe actualizaciones</h4>
+                <p>Obtén fotos y reportes del crecimiento de tu árbol adoptado</p>
+              </div>
+            </div>
+            <div class="adopt-step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Visita tu árbol</h4>
+                <p>Coordina una visita para conocer tu árbol en persona</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="adopt-benefits">
+          <h3>Beneficios de adoptar</h3>
+          <ul class="benefits-list">
+            <li>🌱 Contribuyes a la reforestación</li>
+            <li>🌍 Reduces tu huella de carbono</li>
+            <li>📱 Recibes actualizaciones mensuales</li>
+            <li>📜 Obtienes certificado de adopción</li>
+            <li>🏷️ Tu árbol tendrá una placa con tu nombre</li>
+            <li>👨‍👩‍👧‍👦 Experiencia educativa para toda la familia</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="adopt-options">
+        <h3>Opciones de Adopción</h3>
+        <div class="adopt-grid">
+          <div class="adopt-card">
+            <div class="adopt-card-header">
+              <div class="adopt-icon">🌱</div>
+              <h4>Adopción Básica</h4>
+            </div>
+            <div class="adopt-price">$50.000</div>
+            <div class="adopt-features">
+              <p>• Plántula de 6 meses</p>
+              <p>• Certificado de adopción</p>
+              <p>• 3 actualizaciones por año</p>
+              <p>• Placa identificatoria</p>
+            </div>
+            <button class="adopt-btn" onclick="adoptTree('basica')">Adoptar Ahora</button>
+          </div>
+          
+          <div class="adopt-card featured">
+            <div class="adopt-card-header">
+              <div class="adopt-icon">🌳</div>
+              <h4>Adopción Premium</h4>
+              <div class="popular-badge">Más Popular</div>
+            </div>
+            <div class="adopt-price">$100.000</div>
+            <div class="adopt-features">
+              <p>• Árbol joven de 1 año</p>
+              <p>• Certificado personalizado</p>
+              <p>• Actualizaciones mensuales</p>
+              <p>• Placa metálica personalizada</p>
+              <p>• Visita guiada incluida</p>
+            </div>
+            <button class="adopt-btn" onclick="adoptTree('premium')">Adoptar Ahora</button>
+          </div>
+          
+          <div class="adopt-card">
+            <div class="adopt-card-header">
+              <div class="adopt-icon">🌲</div>
+              <h4>Adopción Familiar</h4>
+            </div>
+            <div class="adopt-price">$200.000</div>
+            <div class="adopt-features">
+              <p>• 3 árboles de diferentes especies</p>
+              <p>• Certificados para toda la familia</p>
+              <p>• Actualizaciones mensuales</p>
+              <p>• Placas personalizadas</p>
+              <p>• 2 visitas guiadas al año</p>
+              <p>• Kit educativo para niños</p>
+            </div>
+            <button class="adopt-btn" onclick="adoptTree('familiar')">Adoptar Ahora</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="adopt-gallery">
+        <h3>Árboles Adoptados Recientemente</h3>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <div class="gallery-image">
+              <div class="image-placeholder">
+                <span>🌱</span>
+                <p>Eucalipto de María</p>
+              </div>
+            </div>
+            <p>Adoptado hace 3 meses</p>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-image">
+              <div class="image-placeholder">
+                <span>🌿</span>
+                <p>Guayacán de Carlos</p>
+              </div>
+            </div>
+            <p>Adoptado hace 1 mes</p>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-image">
+              <div class="image-placeholder">
+                <span>🌳</span>
+                <p>Ceiba Familiar González</p>
+              </div>
+            </div>
+            <p>Adoptado hace 6 meses</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chat Bot Floating Button -->
+  <div class="chat-float-btn" onclick="openChatPopup()">
+    <span class="chat-icon">💬</span>
+    <span class="chat-pulse"></span>
+  </div>
+
+  <!-- Chat Bot Popup -->
+  
+        <div>
+          <h3>CENPROFOREST</h3>
+          <span class="chat-status">💬 Asistente Virtual</span>
+        </div>
+      </div>
+      <button class="chat-close-btn" onclick="closeChatPopup()">✕</button>
+    </div>
+    
+    <div class="chat-messages" id="chat-messages">
+      <div class="message bot-message">
+        <div class="message-avatar">
+          <img src="logo.png" alt="CENPROFOREST Logo" />
+        </div>
+        <div class="message-content">
+          <p>¿Te interesa adoptar un árbol? ¡Te ayudo a elegir el plan perfecto!</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="chat-input-container">
+      <div class="chat-input-group">
+        <input type="text" id="chat-input" placeholder="Escribe tu pregunta aquí..." onkeypress="handleChatKeyPress(event)">
+        <button id="send-btn" onclick="sendMessage()">Enviar</button>
+      </div>
+      <div class="expert-option">
+        <button class="expert-btn" onclick="talkToExpert()">🧑‍🌾 Hablar con Experto</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modular JavaScript files -->
+  <script src="js/config/catalog-data.js"></script>
+  <script src="js/modules/utils.js"></script>
+  <script src="js/modules/navigation.js"></script>
+  <script src="js/modules/hero-video.js"></script>
+  <script src="js/modules/catalog.js"></script>
+  <script src="js/modules/contact-form.js"></script>
+  <script src="js/modules/scroll-effects.js"></script>
+  <script src="js/modules/plant-finder.js"></script>
+  <script src="js/modules/faq.js"></script>
+  <script src="js/modules/misc-functions.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

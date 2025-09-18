@@ -1,0 +1,470 @@
+{
+  "total_catalog_plants": 55,
+  "total_technical_sheets": 75,
+  "missing_cards": [],
+  "extra_cards": [
+    {
+      "number": 12,
+      "title": "Caracolí, Merey",
+      "scientific_name": "Anacardium excelsum",
+      "altitude": "0-1.300 m"
+    },
+    {
+      "number": 15,
+      "title": "Clavellino",
+      "scientific_name": "Caesalpinia pulcherrima",
+      "altitude": "0-1.600 m"
+    },
+    {
+      "number": 17,
+      "title": "Corono",
+      "scientific_name": "Xylosma spiculifera",
+      "altitude": "2.000-3.200 m"
+    },
+    {
+      "number": 22,
+      "title": "Clavellino",
+      "scientific_name": "Caesalpinia pulcherrima",
+      "altitude": "0-1.600 m"
+    },
+    {
+      "number": 24,
+      "title": "Corono",
+      "scientific_name": "Xylosma spiculifera",
+      "altitude": "2.000-3.200 m"
+    },
+    {
+      "number": 26,
+      "title": "Guayacán de Manizales",
+      "scientific_name": "Lafonesia speciosa",
+      "altitude": "1.400-2.800 m"
+    },
+    {
+      "number": 29,
+      "title": "Holly Liso, Holly Rojo",
+      "scientific_name": "Cotoneaster pannosa",
+      "altitude": "2.000-3.000 m"
+    },
+    {
+      "number": 32,
+      "title": "Laurel del Cera",
+      "scientific_name": "Morella pubescens",
+      "altitude": "1.700-3.900 m"
+    },
+    {
+      "number": 34,
+      "title": "Lluvia de Oro",
+      "scientific_name": "Cassia fistula",
+      "altitude": "0-1.500 m"
+    },
+    {
+      "number": 35,
+      "title": "Mango",
+      "scientific_name": "Mangifera indica",
+      "altitude": "0-1.200 m"
+    },
+    {
+      "number": 36,
+      "title": "Gualanday",
+      "scientific_name": "Jacaranda caucana",
+      "altitude": "0-1.500 m.s.n.m"
+    },
+    {
+      "number": 39,
+      "title": "Guácimo",
+      "scientific_name": "Guazuma ulmifolia",
+      "altitude": "0-1.500 m.s.n.m"
+    },
+    {
+      "number": 40,
+      "title": "Nacedero, Madre de Agua",
+      "scientific_name": "Trichanthera gigantea",
+      "altitude": "0-2.000 m.s.n.m"
+    },
+    {
+      "number": 42,
+      "title": "Ocobo Rosa",
+      "scientific_name": "Tabebuia rosea",
+      "altitude": "0-2.000 m.s.n.m"
+    },
+    {
+      "number": 49,
+      "title": "Urapán",
+      "scientific_name": "Fraxinus chinensis",
+      "altitude": "1.000-3.000 m.s.n.m"
+    },
+    {
+      "number": 50,
+      "title": "Yopo Café",
+      "scientific_name": "Piptadenia opacifolia",
+      "altitude": "0-1.000 m.s.n.m"
+    },
+    {
+      "number": 52,
+      "title": "Ocobo Morado",
+      "scientific_name": "Tabebuia rosea",
+      "altitude": "0-2.000 m.s.n.m"
+    },
+    {
+      "number": 55,
+      "title": "Pomarroso Brasilero",
+      "scientific_name": "Eugenia malaccensis",
+      "altitude": "0-1.500 m.s.n.m"
+    },
+    {
+      "number": 70,
+      "title": "Vainillo",
+      "scientific_name": "Senna spectabilis",
+      "altitude": "0-1.800 m.s.n.m"
+    },
+    {
+      "number": 75,
+      "title": "Ceiba",
+      "scientific_name": "Ceiba pentandra",
+      "altitude": "0-1.200 m.s.n.m"
+    }
+  ],
+  "mismatched_info": [
+    {
+      "number": 3,
+      "name": "ACACIA MANGIUM",
+      "mismatches": [
+        "Altitude: catalog='0-1.000 m.s.n.m' vs sheet='0-1.000 m'"
+      ]
+    },
+    {
+      "number": 4,
+      "name": "ACACIA NEGRA",
+      "mismatches": [
+        "Name: catalog='ACACIA NEGRA' vs sheet='Acacia Roja'",
+        "Scientific: catalog='Acacia mearnsii' vs sheet='Delonix regia'",
+        "Altitude: catalog='1.800-3.000 m.s.n.m' vs sheet='170-1.200 m'"
+      ]
+    },
+    {
+      "number": 5,
+      "name": "ACACIA ROJA",
+      "mismatches": [
+        "Name: catalog='ACACIA ROJA' vs sheet='Achiote, Onoto'",
+        "Scientific: catalog='Delonix regia' vs sheet='Bixa orellana'",
+        "Altitude: catalog='170-1.200 m.s.n.m' vs sheet='0-1.400 m'"
+      ]
+    },
+    {
+      "number": 6,
+      "name": "ALISO",
+      "mismatches": [
+        "Name: catalog='ALISO' vs sheet='Arrayan Común o Castilla'",
+        "Scientific: catalog='Alnus acuminata' vs sheet='Myrcianthes leucoxyla'",
+        "Altitude: catalog='1.700-3.500 m.s.n.m' vs sheet='2.000-3.300 m'"
+      ]
+    },
+    {
+      "number": 7,
+      "name": "ALMENDRO",
+      "mismatches": [
+        "Name: catalog='ALMENDRO' vs sheet='Búcaro, Cachimbo'",
+        "Scientific: catalog='Terminalia catappa' vs sheet='Erythrina fusca'",
+        "Altitude: catalog='0-1.500 m.s.n.m' vs sheet='0-1.600 m'"
+      ]
+    },
+    {
+      "number": 8,
+      "name": "ARRAYAN COMÚN O CASTILLA",
+      "mismatches": [
+        "Name: catalog='ARRAYAN COMÚN O CASTILLA' vs sheet='Cajeto, Garagay'",
+        "Scientific: catalog='Myrcianthes leucoxyla' vs sheet='Cytheraxylum subflavescens'",
+        "Altitude: catalog='2.000-3.300 m.s.n.m' vs sheet='1.400-2.800 m'"
+      ]
+    },
+    {
+      "number": 9,
+      "name": "BALSO",
+      "mismatches": [
+        "Name: catalog='BALSO' vs sheet='Cayeno'",
+        "Scientific: catalog='Ochroma pyramidale' vs sheet='Hibiscus rosasiensis'",
+        "Altitude: catalog='0-1.800 m.s.n.m' vs sheet='0-2.600 m'"
+      ]
+    },
+    {
+      "number": 10,
+      "name": "BÚCARO, CACHIMBO",
+      "mismatches": [
+        "Name: catalog='BÚCARO, CACHIMBO' vs sheet='Cedro de Altura'",
+        "Scientific: catalog='Erythrina fusca' vs sheet='Cedrela montana'",
+        "Altitude: catalog='0-1.600 m.s.n.m' vs sheet='1.600-3.000 m'"
+      ]
+    },
+    {
+      "number": 11,
+      "name": "CAOBA",
+      "mismatches": [
+        "Altitude: catalog='0-1.400 m.s.n.m' vs sheet='0-1.400 m'"
+      ]
+    },
+    {
+      "number": 13,
+      "name": "CASCO DE VACA",
+      "mismatches": [
+        "Altitude: catalog='0-1.600 m.s.n.m' vs sheet='0-1.600 m'"
+      ]
+    },
+    {
+      "number": 14,
+      "name": "CAYENO ✨\\n**Nombre científico:** *Hibiscus rosasiensis* \\n**Altitud:** 0-2.600 m.s.n.m \\n**Usos principales:** Ornamental \\n**Fuente:** \\n\\nHibiscus es un género de plantas con flores in the mallow familia, Malvaceae (familia de la malva). The género is quite grande, comprising varios cientos de especies that are nativo de warm templado, subtropical and tropical regiones throughout the world. their grande, vistoso flores and those especie are comúnmente conocido simply as \"hibiscus\", or less widely known as rose mallow. The género incluye both anual and perenne herbáceo plants, as well as leñoso arbustos and pequeño árboles.\\n\\nSeveral especie are ampliamente cultivado as plantas ornamentales, notably Hibiscus syriacus and Hibiscus × rosa-sinensis. The generic name is derived from the Greek name ἰβίσκος (ibískos) which Greek botanist Pedanius Dioscorides gave to a plant now scientifically labelled as Althaea officinalis. The hojas are alterno, ovalado to lanceolado, often with a dentado or lobulado margen (dentate). The flores are grande and conspicuo. They are forma de trompeta, with five or more pétalos, colour from blanco to rosa, rojo, azul, naranja, durazno, amarillo or púrpura, and from 4–18 cm ancho.\\n\\n\\n\\n---\\n\\n### 15. CEDRO DE ALTURA",
+      "mismatches": [
+        "Name: catalog='CAYENO ✨\\n**Nombre científico:** *Hibiscus rosasiensis* \\n**Altitud:** 0-2.600 m.s.n.m \\n**Usos principales:** Ornamental \\n**Fuente:** \\n\\nHibiscus es un género de plantas con flores in the mallow familia, Malvaceae (familia de la malva). The género is quite grande, comprising varios cientos de especies that are nativo de warm templado, subtropical and tropical regiones throughout the world. their grande, vistoso flores and those especie are comúnmente conocido simply as \"hibiscus\", or less widely known as rose mallow. The género incluye both anual and perenne herbáceo plants, as well as leñoso arbustos and pequeño árboles.\\n\\nSeveral especie are ampliamente cultivado as plantas ornamentales, notably Hibiscus syriacus and Hibiscus × rosa-sinensis. The generic name is derived from the Greek name ἰβίσκος (ibískos) which Greek botanist Pedanius Dioscorides gave to a plant now scientifically labelled as Althaea officinalis. The hojas are alterno, ovalado to lanceolado, often with a dentado or lobulado margen (dentate). The flores are grande and conspicuo. They are forma de trompeta, with five or more pétalos, colour from blanco to rosa, rojo, azul, naranja, durazno, amarillo or púrpura, and from 4–18 cm ancho.\\n\\n\\n\\n---\\n\\n### 15. CEDRO DE ALTURA' vs sheet='Ciro'",
+        "Scientific: catalog='Cedrela montana' vs sheet='Baccharis macrantha'",
+        "Altitude: catalog='1.600-3.000 m.s.n.m' vs sheet='1.800-3.200 m'"
+      ]
+    },
+    {
+      "number": 21,
+      "name": "CIRO ✨\\n**Nombre científico:** *Baccharis macrantha* \\n**Altitud:** 1.800-3.200 m.s.n.m \\n**Usos principales:** Leña, Carbón, Cercas vivas, Melífera, Reforestación Ambiental \\n**Fuente:** \\n\\nBaccharis /ˈbækərɪs/ es un género de perennials and arbustos in the aster familia (Asteraceae (familia del girasol)). They are comúnmente conocido as baccharises but sometimes referred to as \"brooms\", because many members have pequeño thin hojas resembling the true brooms. They are not at all related to these however, but belong to an entirely different lineage of eudicots. B. halimifolia is comúnmente conocido as \"groundsel bush\", however true groundsels are encontrado en the género Senecio.\\n\\nBaccharis, with over 500 especie, is one of the largest genera in the Asteraceae (familia del girasol). It is found throughout the América, distribuido mainly in the warmer regiones of Brasil, Argentina, Colombia, Chile and México, with B. halimifolia ranging northward along the Atlántico costa to the sur tip of Nova Scotia in Canada. If present, the hojas of Baccharis are borne along the stems in alterno fashion. flores are usually blanco or pinkish. There are no ray flores, but many disk flores which are either staminate or pistillate. algunas especies of Baccharis are toxic to animals; in particular, consumption of B. coridifolia may lead to necrosis in the gastrointestinal tract of cattle, horses, sheep, and rabbits.\\n\\n\\n\\n---\\n\\n### 22. CLAVELLINO",
+      "mismatches": [
+        "Scientific: catalog='Caesalpinia pulcherrima' vs sheet='Baccharis macrantha'",
+        "Altitude: catalog='0-1.600 m.s.n.m' vs sheet='1.800-3.200 m'"
+      ]
+    },
+    {
+      "number": 23,
+      "name": "CORAL, CORALITOS ✨\\n**Nombre científico:** *Adenanthera pavonica* \\n**Altitud:** 0-1.500 m.s.n.m \\n**Usos principales:** Ornamental, Cercas vivas \\n**Fuente:** \\n\\nAdenanthera es un género de plantas con flores in the familia Fabaceae (familia de las leguminosas). It contiene the following especie:\\n\\n \\n\\n\\n\\n---\\n\\n### 24. CORONO",
+      "mismatches": [
+        "Scientific: catalog='Xylosma spiculifera' vs sheet='Adenanthera pavonica'",
+        "Altitude: catalog='2.000-3.200 m.s.n.m' vs sheet='0-1.500 m.s.n.m'"
+      ]
+    },
+    {
+      "number": 25,
+      "name": "CROTON ORNAMENTAL",
+      "mismatches": [
+        "Name: catalog='CROTON ORNAMENTAL' vs sheet='Guayacán Amarillo'",
+        "Scientific: catalog='Codiaeum variegatum' vs sheet='Tabebuia chrysantha'",
+        "Altitude: catalog='0-1.500 m.s.n.m' vs sheet='0-1.800 m.s.n.m'"
+      ]
+    },
+    {
+      "number": 28,
+      "name": "DINDE MORA ✨\\n**Nombre científico:** *Chiorophora tinctoria* \\n**Altitud:** 0-1.200 m.s.n.m \\n**Usos principales:** Maderable, Industrial, Reforestación Ambiental, Leña, Sombrío \\n**Fuente:** \\n\\nChiorophora tinctoria es una especie forestal utilizada en Colombia según el catálogo de CENPROFOREST. Se encuentra en altitudes de 0-1.200 metros sobre el nivel del mar. Sus principales usos incluyen: Maderable, Industrial, Reforestación Ambiental, Leña, Sombrío. Esta especie forma parte del inventario de especies forestales disponibles para proyectos de reforestación y sistemas agroforestales en Colombia.\\n\\n**Usos:** Principales usos en Colombia: Maderable, Industrial, Reforestación Ambiental, Leña, Sombrío\\n\\n*Información básica del catálogo CENPROFOREST*\\n\\n---\\n\\n### 29. DURAZNILLO",
+      "mismatches": [
+        "Name: catalog='DINDE MORA ✨\\n**Nombre científico:** *Chiorophora tinctoria* \\n**Altitud:** 0-1.200 m.s.n.m \\n**Usos principales:** Maderable, Industrial, Reforestación Ambiental, Leña, Sombrío \\n**Fuente:** \\n\\nChiorophora tinctoria es una especie forestal utilizada en Colombia según el catálogo de CENPROFOREST. Se encuentra en altitudes de 0-1.200 metros sobre el nivel del mar. Sus principales usos incluyen: Maderable, Industrial, Reforestación Ambiental, Leña, Sombrío. Esta especie forma parte del inventario de especies forestales disponibles para proyectos de reforestación y sistemas agroforestales en Colombia.\\n\\n**Usos:** Principales usos en Colombia: Maderable, Industrial, Reforestación Ambiental, Leña, Sombrío\\n\\n*Información básica del catálogo CENPROFOREST*\\n\\n---\\n\\n### 29. DURAZNILLO' vs sheet='Hayuelo, Chanamo'",
+        "Scientific: catalog='Abatia parviflora' vs sheet='Dodonea viscosa'",
+        "Altitude: catalog='2.000-2.900 m.s.n.m' vs sheet='2.200-2.900 m'"
+      ]
+    },
+    {
+      "number": 30,
+      "name": "EUCALYPTUS GLOBULUS",
+      "mismatches": [
+        "Name: catalog='EUCALYPTUS GLOBULUS' vs sheet='Iguá, Nauno'",
+        "Scientific: catalog='Eucalyptus globulus' vs sheet='Pseudosamanea guachapele'",
+        "Altitude: catalog='1.600-2.900 m.s.n.m' vs sheet='0-1.500 m.s.n.m'"
+      ]
+    },
+    {
+      "number": 31,
+      "name": "EUCALYPTUS GRANDIS",
+      "mismatches": [
+        "Name: catalog='EUCALYPTUS GRANDIS' vs sheet='Jazmín del cabo, Laurel Huesito'",
+        "Scientific: catalog='Eucalyptus grandis' vs sheet='Pittosporum undulatum'",
+        "Altitude: catalog='100-2.100 m.s.n.m' vs sheet='1.700-2.800 m'"
+      ]
+    },
+    {
+      "number": 33,
+      "name": "EUGENIA-ARRAYÁN EXTRANJERO ✨\\n**Nombre científico:** *Eugenia myrtifolia Sims* \\n**Altitud:** 1.000-2.900 m.s.n.m \\n**Usos principales:** Cercas vivas, Setos, Ornamental \\n**Fuente:** \\n\\nEugenia es un género de plantas con flores in the myrtle familia Myrtaceae (familia del mirto). It has a worldwide, although highly uneven, distribution in tropical and subtropical regiones. The bulk of the aproximadamente 1,100 especie occur in the New World tropics, especially in the este Brasil's norte Andes, the Caribe, and the Atlántico Forest (costero forests). Other centers of diversity include New Caledonia and Madagascar. muchas especies in the Old World have received a new clasificación into the género Syzygium.\\n\\nAll especie are leñoso perenne árboles and arbustos. Several are cultivado como plantas ornamentales for their atractivo brillante follaje, and a few produce edible fruto that are eaten fresh or used in jams and jellies. The género was named in honor of Prince Eugene of Savoy. and are in the process of being described from these regiones. For example, 37 new especie of Eugenia have been described from Mesoamerica in the past few years. being described from New Caledonia, and new to science may occur in Madagascar. of the myrtle familia in Australia (e.g. Eucalyptus, Corymbia, Angophora, Melaleuca, Callistemon, Rhodamnia, Gossia), only one especie of Eugenia, E. reinwardtiana, occurs on that continent. The género also is represented in Africa south of the Sahara, but it is relatively especie-poor on that continent. in the honeysuckle familia Caprifoliaceae.\\n\\nThe member especie are perenne or caducifolio arbustos or (in a few cases) pequeño árboles nativo throughout the templado norte Hemisphere, with a few especie extendiéndose into tropical montane regiones in Sudamérica and southeast Asia. In Africa, the género is confined to the Atlas Mountains. , in which it referred to V. lantana. The hojas are opuesto, simple, and entero, with dentado or lobulado margins. Cool templado especie are caducifolio, while most of the warm templado especie are perenne. algunas especies have densely hairy shoots and hojas covered in star-shaped hairs.\\n\\n\\n\\n---\\n\\n### 36. GUALANDAY",
+      "mismatches": [
+        "Name: catalog='EUGENIA-ARRAYÁN EXTRANJERO ✨\\n**Nombre científico:** *Eugenia myrtifolia Sims* \\n**Altitud:** 1.000-2.900 m.s.n.m \\n**Usos principales:** Cercas vivas, Setos, Ornamental \\n**Fuente:** \\n\\nEugenia es un género de plantas con flores in the myrtle familia Myrtaceae (familia del mirto). It has a worldwide, although highly uneven, distribution in tropical and subtropical regiones. The bulk of the aproximadamente 1,100 especie occur in the New World tropics, especially in the este Brasil's norte Andes, the Caribe, and the Atlántico Forest (costero forests). Other centers of diversity include New Caledonia and Madagascar. muchas especies in the Old World have received a new clasificación into the género Syzygium.\\n\\nAll especie are leñoso perenne árboles and arbustos. Several are cultivado como plantas ornamentales for their atractivo brillante follaje, and a few produce edible fruto that are eaten fresh or used in jams and jellies. The género was named in honor of Prince Eugene of Savoy. and are in the process of being described from these regiones. For example, 37 new especie of Eugenia have been described from Mesoamerica in the past few years. being described from New Caledonia, and new to science may occur in Madagascar. of the myrtle familia in Australia (e.g. Eucalyptus, Corymbia, Angophora, Melaleuca, Callistemon, Rhodamnia, Gossia), only one especie of Eugenia, E. reinwardtiana, occurs on that continent. The género also is represented in Africa south of the Sahara, but it is relatively especie-poor on that continent. in the honeysuckle familia Caprifoliaceae.\\n\\nThe member especie are perenne or caducifolio arbustos or (in a few cases) pequeño árboles nativo throughout the templado norte Hemisphere, with a few especie extendiéndose into tropical montane regiones in Sudamérica and southeast Asia. In Africa, the género is confined to the Atlas Mountains. , in which it referred to V. lantana. The hojas are opuesto, simple, and entero, with dentado or lobulado margins. Cool templado especie are caducifolio, while most of the warm templado especie are perenne. algunas especies have densely hairy shoots and hojas covered in star-shaped hairs.\\n\\n\\n\\n---\\n\\n### 36. GUALANDAY' vs sheet='Leucaena, Acacia Forrajera'",
+        "Scientific: catalog='Jacaranda caucana' vs sheet='Leucaena leucocephala'",
+        "Altitude: catalog='0-1.500 m.s.n.m' vs sheet='0-1.800 m'"
+      ]
+    },
+    {
+      "number": 38,
+      "name": "GUAYACÁN DE MANIZALES ✨\\n**Nombre científico:** *Lafonesia speciosa* \\n**Altitud:** 1.400-2.800 m.s.n.m \\n**Usos principales:** Leña, Ornamental, Setos, Cercas vivas, Reforestación Ambiental \\n**Fuente:** \\n\\nLafonesia es un género monoespecífico de árboles de la familia Lythraceae.\\n\\nLafonesia speciosa es una especie del género Lafonesia, utilizada en sistemas forestales colombianos.\\n\\n**Usos:** Esta especie se utiliza en Colombia para diversos propósitos forestales según el catálogo de CENPROFOREST.\\n\\n*Información botánica básica generada a partir del conocimiento del género*\\n\\n---\\n\\n### 39. GUÁCIMO",
+      "mismatches": [
+        "Scientific: catalog='Guazuma ulmifolia' vs sheet='Lafonesia speciosa'",
+        "Altitude: catalog='0-1.500 m.s.n.m' vs sheet='1.400-2.800 m.s.n.m'"
+      ]
+    },
+    {
+      "number": 41,
+      "name": "HOLLY ESPINOSO",
+      "mismatches": [
+        "Name: catalog='HOLLY ESPINOSO' vs sheet='Nogal Cafetero'",
+        "Scientific: catalog='Pyracantha coccinea' vs sheet='Cordia alliodora'",
+        "Altitude: catalog='1.800-3.000 m.s.n.m' vs sheet='0-1.900 m.s.n.m'"
+      ]
+    },
+    {
+      "number": 43,
+      "name": "IGUÁ, NAUNO",
+      "mismatches": [
+        "Name: catalog='IGUÁ, NAUNO' vs sheet='Ocobo, Flor Morada'",
+        "Scientific: catalog='Pseudosamanea guachapele' vs sheet='Tabebuia rosea'",
+        "Altitude: catalog='0-1.500 m.s.n.m' vs sheet='0-2.000 m.s.n.m'"
+      ]
+    },
+    {
+      "number": 44,
+      "name": "JAZMÍN DEL CABO, LAUREL HUESITO",
+      "mismatches": [
+        "Name: catalog='JAZMÍN DEL CABO, LAUREL HUESITO' vs sheet='Palma Mariposa'",
+        "Scientific: catalog='Pittosporum undulatum' vs sheet='Caryota mitis'",
+        "Altitude: catalog='1.700-2.800 m.s.n.m' vs sheet='0-1.200 m.s.n.m'"
+      ]
+    },
+    {
+      "number": 45,
+      "name": "LAUREL DEL CERA",
+      "mismatches": [
+        "Name: catalog='LAUREL DEL CERA' vs sheet='Payandé'",
+        "Scientific: catalog='Morella pubescens' vs sheet='Pithecellobium dulce'",
+        "Altitude: catalog='1.700-3.900 m.s.n.m' vs sheet='0-1.500 m.s.n.m'"
+      ]
+    },
+    {
+      "number": 46,
+      "name": "LEUCAENA, ACACIA FORRAJERA",
+      "mismatches": [
+        "Name: catalog='LEUCAENA, ACACIA FORRAJERA' vs sheet='Pomarroso Brasilero'",
+        "Scientific: catalog='Leucaena leucocephala' vs sheet='Eugenia malaccensis'",
+        "Altitude: catalog='0-1.800 m.s.n.m' vs sheet='0-1.500 m.s.n.m'"
+      ]
+    },
+    {
+      "number": 47,
+      "name": "LIMÓN ORNAMENTAL",
+      "mismatches": [
+        "Name: catalog='LIMÓN ORNAMENTAL' vs sheet='Tamarindo'",
+        "Scientific: catalog='Swinglea glutinosa' vs sheet='Tamarindus indica'",
+        "Altitude: catalog='0-1.700 m.s.n.m' vs sheet='0-1.400 m.s.n.m'"
+      ]
+    },
+    {
+      "number": 48,
+      "name": "LLUVIA DE ORO",
+      "mismatches": [
+        "Name: catalog='LLUVIA DE ORO' vs sheet='Teca'",
+        "Scientific: catalog='Cassia fistula' vs sheet='Tectona grandis'",
+        "Altitude: catalog='0-1.500 m.s.n.m' vs sheet='0-1.000 m.s.n.m'"
+      ]
+    },
+    {
+      "number": 54,
+      "name": "NOGAL CAFETERO, CANALETE, PARDILLO ✨\\n**Nombre científico:** *Cordia alliadora* \\n**Altitud:** 0-1.900 m.s.n.m \\n**Usos principales:** Maderable, Leña, Sombrío, Industrial, Ornamental, Reforestación Ambiental, Chapas, Sistemas Agroforestales, Melífera \\n**Fuente:** \\n\\nCordia es un género de plantas con flores in the borage familia, Boraginaceae (familia de la borraja). It contiene 228 especie of arbustos and árboles, that are encontrado en tropical and subtropical regiones worldwide. Many of the especie are commonly called manjack, while bocote may refer to several Central American especie in Spanish.\\n\\nThe generic name honours German botanist and pharmacist Valerius Cordus (1515–1544). Like most other Boraginaceae (familia de la borraja), the majority have trichomes (hairs) on the hojas. The taxonomía of Cordia is complex and controversial. Gottschling et al. (2005) say this is partly due to \"extraordinarily high intraspecific variability\" in some groups of especie, making identification difficult, and partly due to new taxa having been \"airily described on the basis of poorly preserved herbarium specimens\". Cordia especie are usado como food plants by the caterpillars of some Lepidoptera especie, such as Endoclita malabaricus, Bucculatrix caribbea, and Bucculatrix cordiaella. The wild olive tortoise beetle (Physonota alutacea) feeds on C. boissieri, C. dentata, C. inermis, and C. macrostachya.\\n\\n\\n\\n---\\n\\n### 55. OCOBO, FLOR MORADO, ROBLE",
+      "mismatches": [
+        "Name: catalog='NOGAL CAFETERO, CANALETE, PARDILLO ✨\\n**Nombre científico:** *Cordia alliadora* \\n**Altitud:** 0-1.900 m.s.n.m \\n**Usos principales:** Maderable, Leña, Sombrío, Industrial, Ornamental, Reforestación Ambiental, Chapas, Sistemas Agroforestales, Melífera \\n**Fuente:** \\n\\nCordia es un género de plantas con flores in the borage familia, Boraginaceae (familia de la borraja). It contiene 228 especie of arbustos and árboles, that are encontrado en tropical and subtropical regiones worldwide. Many of the especie are commonly called manjack, while bocote may refer to several Central American especie in Spanish.\\n\\nThe generic name honours German botanist and pharmacist Valerius Cordus (1515–1544). Like most other Boraginaceae (familia de la borraja), the majority have trichomes (hairs) on the hojas. The taxonomía of Cordia is complex and controversial. Gottschling et al. (2005) say this is partly due to \"extraordinarily high intraspecific variability\" in some groups of especie, making identification difficult, and partly due to new taxa having been \"airily described on the basis of poorly preserved herbarium specimens\". Cordia especie are usado como food plants by the caterpillars of some Lepidoptera especie, such as Endoclita malabaricus, Bucculatrix caribbea, and Bucculatrix cordiaella. The wild olive tortoise beetle (Physonota alutacea) feeds on C. boissieri, C. dentata, C. inermis, and C. macrostachya.\\n\\n\\n\\n---\\n\\n### 55. OCOBO, FLOR MORADO, ROBLE' vs sheet='Payandé'",
+        "Scientific: catalog='Tabebuia rosea' vs sheet='Pithecellobium dulce'",
+        "Altitude: catalog='0-2.000 m.s.n.m' vs sheet='0-1.500 m.s.n.m'"
+      ]
+    },
+    {
+      "number": 56,
+      "name": "OITÍ",
+      "mismatches": [
+        "Name: catalog='OITÍ' vs sheet='Tamarindo'",
+        "Scientific: catalog='Licania tomentosa' vs sheet='Tamarindus indica'",
+        "Altitude: catalog='0-1.000 m.s.n.m' vs sheet='0-1.400 m.s.n.m'"
+      ]
+    },
+    {
+      "number": 68,
+      "name": "SAUCO",
+      "mismatches": [
+        "Name: catalog='SAUCO' vs sheet='Tulipán Africano'",
+        "Scientific: catalog='Sambucus nigra' vs sheet='Spathodea campanulata'",
+        "Altitude: catalog='1.800-3.200 m.s.n.m' vs sheet='0-1.800 m.s.n.m'"
+      ]
+    },
+    {
+      "number": 69,
+      "name": "SURIBIO ✨\\n**Nombre científico:** *Zygia longifolium* \\n**Altitud:** 0-1.600 m.s.n.m \\n**Usos principales:** Maderable, Sombrío, Reforestación Ambiental \\n**Fuente:** \\n\\nZygia es un género de plantas con flores in the familia Fabaceae (familia de las leguminosas). It incluye 60 especie of tres and arbustos nativo de the tropical América, from sur México and Cuba to norte Argentina. Typical habitats are tropical forest and costero zones, generally below 900 meters elevation with a few especie extendiéndose up to 2800 meters. It pertenece a the mimosoid clade of the subfamily Caesalpinioideae.\\n\\nThis article on a tree of the Fabaceae (familia de las leguminosas) familia is a stub. \\n\\n\\n\\n---\\n\\n### 70. TECA",
+      "mismatches": [
+        "Name: catalog='SURIBIO ✨\\n**Nombre científico:** *Zygia longifolium* \\n**Altitud:** 0-1.600 m.s.n.m \\n**Usos principales:** Maderable, Sombrío, Reforestación Ambiental \\n**Fuente:** \\n\\nZygia es un género de plantas con flores in the familia Fabaceae (familia de las leguminosas). It incluye 60 especie of tres and arbustos nativo de the tropical América, from sur México and Cuba to norte Argentina. Typical habitats are tropical forest and costero zones, generally below 900 meters elevation with a few especie extendiéndose up to 2800 meters. It pertenece a the mimosoid clade of the subfamily Caesalpinioideae.\\n\\nThis article on a tree of the Fabaceae (familia de las leguminosas) familia is a stub. \\n\\n\\n\\n---\\n\\n### 70. TECA' vs sheet='Urapán'",
+        "Scientific: catalog='Tectona grandis' vs sheet='Fraxinus chinensis'",
+        "Altitude: catalog='0-1.000 m.s.n.m' vs sheet='1.000-3.000 m.s.n.m'"
+      ]
+    },
+    {
+      "number": 71,
+      "name": "TULIPÁN AFRICANO",
+      "mismatches": [
+        "Name: catalog='TULIPÁN AFRICANO' vs sheet='Yopo Café'",
+        "Scientific: catalog='Spathodea campanulata' vs sheet='Piptadenia opacifolia'",
+        "Altitude: catalog='0-1.800 m.s.n.m' vs sheet='0-1.000 m.s.n.m'",
+        "Description: sheet seems incomplete (97 chars)"
+      ]
+    },
+    {
+      "number": 72,
+      "name": "URAPÁN",
+      "mismatches": [
+        "Name: catalog='URAPÁN' vs sheet='Yopo Negro'",
+        "Scientific: catalog='Fraxinus chinensis' vs sheet='Anadenanthera peregrina'",
+        "Altitude: catalog='1.000-3.000 m.s.n.m' vs sheet='0-1.000 m.s.n.m'"
+      ]
+    },
+    {
+      "number": 73,
+      "name": "VAINILLO, MUCÁTANO, VELERO",
+      "mismatches": [
+        "Name: catalog='VAINILLO, MUCÁTANO, VELERO' vs sheet='Cedro Rosado'",
+        "Scientific: catalog='Senna spectabilis' vs sheet='Cedrela odorata'"
+      ]
+    },
+    {
+      "number": 74,
+      "name": "YOPO CAFÉ ✨\\n**Nombre científico:** *Piptadenia opacifolia* \\n**Altitud:** 0-1.000 m.s.n.m \\n**Usos principales:** Maderable, Ornamental, Leña, Postes, Cercas vivas, Reforestación Ambiental, Sombrío \\n**Fuente:** \\n\\nPiptadenia es un género de tropical arbustos and árboles of the familia Fabaceae (familia de las leguminosas). It incluye 28 especie nativo de the tropical América, desde central México to sur Brasil and northwestern Argentina.\\n\\nSeveral especie formerly placed in this género (such as those used to prepare the psychotomimetic snuffs vilca and yopo/parica) are now considered to be in the género Anadenanthera. Three especie have also been placed in género Adenopodia. Others have been moved to the género Pityrocarpa. \\n\\n\\n\\n---\\n\\n### 75. YOPO NEGRO",
+      "mismatches": [
+        "Name: catalog='YOPO CAFÉ ✨\\n**Nombre científico:** *Piptadenia opacifolia* \\n**Altitud:** 0-1.000 m.s.n.m \\n**Usos principales:** Maderable, Ornamental, Leña, Postes, Cercas vivas, Reforestación Ambiental, Sombrío \\n**Fuente:** \\n\\nPiptadenia es un género de tropical arbustos and árboles of the familia Fabaceae (familia de las leguminosas). It incluye 28 especie nativo de the tropical América, desde central México to sur Brasil and northwestern Argentina.\\n\\nSeveral especie formerly placed in this género (such as those used to prepare the psychotomimetic snuffs vilca and yopo/parica) are now considered to be in the género Anadenanthera. Three especie have also been placed in género Adenopodia. Others have been moved to the género Pityrocarpa. \\n\\n\\n\\n---\\n\\n### 75. YOPO NEGRO' vs sheet='Caoba'",
+        "Scientific: catalog='Anadenanthera peregrina' vs sheet='Swietenia macrophylla'",
+        "Altitude: catalog='0-1.000 m.s.n.m' vs sheet='0-1.500 m.s.n.m'"
+      ]
+    }
+  ],
+  "perfect_matches": [
+    1,
+    2,
+    16,
+    18,
+    19,
+    20,
+    27,
+    37,
+    51,
+    53,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67
+  ],
+  "catalog_gaps": [
+    12,
+    15,
+    17,
+    22,
+    24,
+    26,
+    29,
+    32,
+    34,
+    35,
+    36,
+    39,
+    40,
+    42,
+    49,
+    50,
+    52,
+    55,
+    70
+  ]
+}

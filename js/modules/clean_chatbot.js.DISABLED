@@ -1,0 +1,256 @@
+// Simple Chatbot for CENPROFOREST - No AI, just 4-step qualification
+console.log('🌱 Simple Chatbot Loading...');
+
+// Session ID for conversation tracking
+let sessionId = 'session_' + Date.now();
+
+// Simple placeholder text
+const simplePlaceholder = "Escribe tu mensaje...";
+
+// Simple placeholder setup
+function startPlaceholderAnimation() {
+    const input = document.getElementById('chat-input');
+    if (input) {
+        input.placeholder = simplePlaceholder;
+    }
+}
+
+// No need to stop animation
+function stopPlaceholderAnimation() {
+    // Do nothing - keep simple placeholder
+}
+
+// Expose functions globally
+window.askBot = function(question) {
+    console.log('🤖 askBot called:', question);
+    
+    // Open chat popup
+    const chatPopup = document.getElementById('chat-popup');
+    if (chatPopup && chatPopup.classList.contains('hidden')) {
+        chatPopup.classList.remove('hidden');
+        document.body.classList.add('chat-open');
+        
+        // Show greeting immediately when chat opens
+        const chatMessages = document.getElementById('chat-messages');
+        if (chatMessages && chatMessages.children.length === 0) {
+            const greetingMessage = "Hola! Soy de CENPROFOREST. ¿Para qué ciudad necesitas árboles?";
+            addMessage(greetingMessage, 'bot');
+        }
+        
+        // Start placeholder animation
+        startPlaceholderAnimation();
+        
+        // Add event listeners for input
+        const input = document.getElementById('chat-input');
+        if (input) {
+            input.addEventListener('focus', () => {
+                stopPlaceholderAnimation();
+            });
+            input.addEventListener('input', () => {
+                stopPlaceholderAnimation();
+            });
+        }
+        
+        // Then handle the question if provided
+        if (question) {
+            setTimeout(() => {
+                addMessage(question, 'user');
+                getAIResponse(question);
+            }, 500);
+        }
+    } else if (question) {
+        // Chat already open, just handle the question
+        addMessage(question, 'user');
+        getAIResponse(question);
+    }
+};
+
+// Store conversation summary for WhatsApp
+let conversationSummary = '';
+
+// Simple sendMessage function - no complex flows
+window.sendMessage = async function() {
+    const input = document.getElementById('chat-input');
+    const message = input ? input.value.trim() : '';
+    
+    if (!message) return;
+    
+    // Add user message and clear input
+    addMessage(message, 'user');
+    input.value = '';
+    
+    // Get AI response
+    await getAIResponse(message);
+};
+
+window.handleChatKeyPress = function(event) {
+    if (event.key === 'Enter') {
+        window.sendMessage();
+    }
+};
+
+async function getAIResponse(message) {
+    try {
+        // Show typing indicator
+        addMessage('Escribiendo...', 'bot', false, true);
+        
+        console.log('🤖 Calling Backend API with message:', message);
+        const response = await fetch('http://localhost:3000/api/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                message: message,
+                sessionId: sessionId
+            })
+        });
+
+        const data = await response.json();
+        console.log('🤖 Backend API Response:', data);
+
+        // Store conversation summary if provided
+        if (data.conversationSummary) {
+            conversationSummary = data.conversationSummary;
+            console.log('💾 Stored conversation summary:', conversationSummary);
+        }
+
+        // Remove typing indicator
+        removeTypingIndicator();
+
+        if (data.reply) {
+            // Check for WhatsApp redirect
+            if (data.showWhatsAppButton || data.reply.includes("Te conecto con nuestro especialista")) {
+                addMessage(data.reply, 'bot', true);
+            } else {
+                addMessage(data.reply, 'bot');
+            }
+        } else {
+            addMessage('¿En qué te puedo ayudar? 🌱', 'bot');
+        }
+
+    } catch (error) {
+        console.error('Error getting AI response:', error);
+        removeTypingIndicator();
+        addMessage('Disculpa, tengo problemas técnicos. ¿Podrías repetir tu pregunta?', 'bot');
+    }
+}
+
+function addMessage(message, sender, showWhatsApp = false, isTyping = false) {
+    console.log('🔧 DEBUG: addMessage called with:', { message, sender, showWhatsApp, isTyping });
+    const chatMessages = document.getElementById('chat-messages');
+    console.log('🔧 DEBUG: addMessage chatMessages element:', chatMessages);
+    if (!chatMessages) {
+        console.log('🔧 DEBUG: addMessage FAILED - no chatMessages element found');
+        return;
+    }
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${sender}-message`;
+    
+    if (isTyping) {
+        messageDiv.id = 'typing-indicator';
+    }
+
+    // Add avatar and content structure
+    const avatar = sender === 'user' ? '👤' : '<img src="assets/images/soloLogo.png" alt="CENPROFOREST Logo" />';
+    
+    const whatsappButtonHtml = showWhatsApp ? `
+        <div class="whatsapp-button-container" style="margin-top: 15px;">
+            <button class="contact-btn" onclick="openWhatsAppWithSummary()" style="background: #25D366; color: white; border: none; padding: 12px 24px; border-radius: 25px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                <span>📱 Contactar por WhatsApp</span>
+            </button>
+        </div>
+    ` : '';
+    
+    messageDiv.innerHTML = `
+        <div class="message-avatar">
+            ${avatar}
+        </div>
+        <div class="message-content">
+            <p style="white-space: pre-line;">${message}</p>
+            ${whatsappButtonHtml}
+        </div>
+    `;
+
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function removeTypingIndicator() {
+    const typingIndicator = document.getElementById('typing-indicator');
+    if (typingIndicator) {
+        typingIndicator.remove();
+    }
+}
+
+// Initialize with greeting when chat opens
+window.initializeChat = async function() {
+    const chatMessages = document.getElementById('chat-messages');
+    if (chatMessages && chatMessages.children.length === 0) {
+        // Show simple greeting asking for city
+        const greetingMessage = "Hola! Soy de CENPROFOREST. ¿Para qué ciudad necesitas árboles?";
+        addMessage(greetingMessage, 'bot');
+    }
+};
+
+// Also add function to open chat popup
+window.openChatPopup = function() {
+    console.log('🔧 DEBUG: openChatPopup called');
+    const chatPopup = document.getElementById('chat-popup');
+    console.log('🔧 DEBUG: chatPopup element:', chatPopup);
+    
+    if (chatPopup) {
+        chatPopup.classList.remove('hidden');
+        document.body.classList.add('chat-open');
+        console.log('🔧 DEBUG: Chat popup opened');
+        
+        // Show greeting immediately when chat opens
+        const chatMessages = document.getElementById('chat-messages');
+        
+        if (chatMessages && chatMessages.children.length === 0) {
+            const greetingMessage = "¡Hola! Soy el asistente virtual de CENPROFOREST 🌳\n\n¿Te interesa información sobre árboles, consejos de cultivo, o necesitas una cotización?";
+            addMessage(greetingMessage, 'bot');
+        }
+        
+        // Start placeholder animation
+        startPlaceholderAnimation();
+        
+        // Add event listeners to stop animation when user types
+        const input = document.getElementById('chat-input');
+        if (input) {
+            input.addEventListener('focus', () => {
+                stopPlaceholderAnimation();
+            });
+            input.addEventListener('input', () => {
+                stopPlaceholderAnimation();
+            });
+        }
+    } else {
+        console.log('🔧 DEBUG: chatPopup element NOT found');
+    }
+};
+
+// WhatsApp function with conversation summary
+window.openWhatsAppWithSummary = function() {
+    console.log('📱 Opening WhatsApp with summary:', conversationSummary);
+    
+    let whatsappMessage = '';
+    
+    if (conversationSummary && conversationSummary.trim()) {
+        // Use backend-generated summary only
+        whatsappMessage = conversationSummary;
+    } else {
+        // Fallback message
+        whatsappMessage = 'Hola, vengo del sitio web de Cenproforest. Estoy interesado en sus servicios forestales.';
+    }
+    
+    console.log('📱 Final WhatsApp message:', whatsappMessage);
+    
+    const whatsappNumber = "573212402088";
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+    
+    window.open(whatsappUrl, '_blank');
+};
+
+console.log('✅ Simple Chatbot Ready!');
