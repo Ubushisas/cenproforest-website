@@ -461,6 +461,12 @@ function getFilteredItems() {
                 case 'sombra':
                     hasMatchingUse = itemUses.includes('sombrío');
                     break;
+                case 'RA':
+                    hasMatchingUse = itemUses.includes('reforestación ambiental');
+                    break;
+                case 'SA':
+                    hasMatchingUse = itemUses.includes('sistemas agroforestales');
+                    break;
             }
             
             if (!hasMatchingUse) {
@@ -616,7 +622,9 @@ function updateActiveFiltersDisplay() {
             'reforestacion': '🌲 Reforestación',
             'cercas': '🌿 Cercas Vivas',
             'maderable': '🪵 Maderable',
-            'sombra': '🌴 Sombra'
+            'sombra': '🌴 Sombra',
+            'RA': '🌱 Reforestación',
+            'SA': '🌿 Sistemas Agroforestales'
         };
         activeFilters.push({
             type: 'use',
