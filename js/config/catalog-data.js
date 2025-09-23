@@ -34,7 +34,7 @@ function parseUses(useString) {
     return useString.split('-').map(code => useCodes[code] || code);
 }
 
-// Function to get image path for plant with normalized names
+// Function to get image path for plant with normalized names (UPDATED)
 function getPlantImage(plantName, scientificName = '') {
     // Mapping from plant names to their normalized image filenames
     const imageNameMappings = {
