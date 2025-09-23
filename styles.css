@@ -1911,10 +1911,6 @@ body {
     transform: translateY(0);
 }
 
-.clear-filters-btn::before {
-    content: '🗑️';
-    margin-right: 0.2rem;
-}
 
 .active-filters-list {
     display: flex;
