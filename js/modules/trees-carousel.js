@@ -239,7 +239,7 @@ function initTreesCarousel() {
                     window.location.href = `./fichas-tecnicas/plant-${plantId}.html`;
                 } else {
                     console.log('Tree card clicked but no mapping found, going to general catalog...');
-                    window.location.href = './catalogo.html';
+                    window.location.href = './catalogo';
                 }
                 return; // Exit early to prevent other actions
             }
@@ -326,7 +326,7 @@ function initTreesCarousel() {
                     window.location.href = `./fichas-tecnicas/plant-${plantId}.html`;
                 } else {
                     console.log('Tree card tapped but no mapping found, going to general catalog...');
-                    window.location.href = './catalogo.html';
+                    window.location.href = './catalogo';
                 }
                 return; // Exit early to prevent other actions
             }
@@ -425,7 +425,7 @@ function initTreesCarousel() {
                     window.location.href = `./fichas-tecnicas/plant-${plantId}.html`;
                 } else {
                     console.log('Tree card clicked but no mapping found, going to general catalog...');
-                    window.location.href = './catalogo.html';
+                    window.location.href = './catalogo';
                 }
             }
         } else {

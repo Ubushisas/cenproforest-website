@@ -55,84 +55,84 @@ function clearCatalogState() {
 // This mapping ensures each catalog plant links to the correct technical sheet
 // Updated for alphabetically sorted catalog data
 const plantTechnicalSheetMapping = {
-  1: 'plant-1.html',     // Abarco
-  2: 'plant-2.html',     // Acacia Amarilla
-  3: 'plant-3.html',     // Acacia Japonesa
-  4: 'plant-4.html',     // Acacia Mangium
-  5: 'plant-5.html',     // Acacia Negra
-  6: 'plant-6.html',     // Acacia Roja
-  7: 'plant-7.html',     // Achiote, Onoto
-  8: 'plant-8.html',     // Aliso
-  9: 'plant-9.html',     // Almendro
-  10: 'plant-10.html',     // Arrayán Común
-  11: 'plant-11.html',     // Balso
-  12: 'plant-12.html',     // Búcaro
-  13: 'plant-13.html',     // Cajeto
-  14: 'plant-14.html',     // Cámbulo
-  15: 'plant-15.html',     // Caoba
-  16: 'plant-16.html',     // Caracolí
-  17: 'plant-17.html',     // Casco De Vaca
-  18: 'plant-18.html',     // Cayeno
-  19: 'plant-19.html',     // Cedro de Altura
-  20: 'plant-20.html',     // Cedro Rosado
-  21: 'plant-21.html',     // Ceiba
-  22: 'plant-22.html',     // Cerezo
-  23: 'plant-23.html',     // Chicalá
-  24: 'plant-24.html',     // Ciprés
-  25: 'plant-25.html',     // Ciro
-  26: 'plant-26.html',     // Clavellino
-  27: 'plant-27.html',     // Coral, Coralitos
-  28: 'plant-28.html',     // Corono
-  29: 'plant-29.html',     // Croton Ornamental
-  30: 'plant-30.html',     // Cucharo
-  31: 'plant-31.html',     // Dinde Mora
-  32: 'plant-32.html',     // Duraznillo
-  33: 'plant-33.html',     // Eucalyptus Globulus
-  34: 'plant-34.html',     // Eucalyptus Grandis
-  35: 'plant-35.html',     // Eucalyptus Pellita
-  36: 'plant-36.html',     // Eugenia-Arrayán extranjero
-  37: 'plant-37.html',     // Falso Pimiento
-  38: 'plant-38.html',     // Garrocho-Chuque
-  39: 'plant-39.html',     // Guácimo
-  40: 'plant-40.html',     // Gualanday
-  41: 'plant-41.html',     // Guayacán Amarillo
-  42: 'plant-42.html',     // Guayacán de Manizales
-  43: 'plant-43.html',     // Hayuelo
-  44: 'plant-44.html',     // Holly Espinoso
-  45: 'plant-45.html',     // Holly Liso
-  46: 'plant-46.html',     // Iguá, Nauno
-  47: 'plant-47.html',     // Jazmín del cabo, Laurel Huesito
-  48: 'plant-48.html',     // Laurel del Cera
-  49: 'plant-49.html',     // Leucaena
-  50: 'plant-50.html',     // Limón Ornamental
-  51: 'plant-51.html',     // Lluvia de Oro
-  52: 'plant-52.html',     // Mano de Oso, Pata de Gallina
-  53: 'plant-53.html',     // Mataratón
-  54: 'plant-54.html',     // Melina
-  55: 'plant-55.html',     // Mortiño
-  56: 'plant-56.html',     // Nacedero
-  57: 'plant-57.html',     // Nogal Cafetero, Canalete, Pardillo
-  58: 'plant-58.html',     // Ocobo
-  59: 'plant-59.html',     // Oiti
-  60: 'plant-60.html',     // Orejero
-  61: 'plant-61.html',     // Palma Abanico
-  62: 'plant-62.html',     // Palma Areca
-  63: 'plant-63.html',     // Palma Botella, Palma Real
-  64: 'plant-64.html',     // Palma Mariposa
-  65: 'plant-65.html',     // Payande
-  66: 'plant-66.html',     // Pino Pátula
-  67: 'plant-67.html',     // Pomarroso Brasilero
-  68: 'plant-68.html',     // Roble
-  69: 'plant-69.html',     // Saman
-  70: 'plant-70.html',     // Sauce llorón
-  71: 'plant-71.html',     // Sauco
-  72: 'plant-72.html',     // Suribio
-  73: 'plant-73.html',     // Teca
-  74: 'plant-74.html',     // Tulipán Africano
-  75: 'plant-75.html',     // Urapan
-  76: 'plant-76.html',     // Vainillo
-  77: 'plant-77.html',     // Yopo Café
-  78: 'plant-78.html',     // Yopo Negro
+  1: 'plant-1',     // Abarco
+  2: 'plant-2',     // Acacia Amarilla
+  3: 'plant-3',     // Acacia Japonesa
+  4: 'plant-4',     // Acacia Mangium
+  5: 'plant-5',     // Acacia Negra
+  6: 'plant-6',     // Acacia Roja
+  7: 'plant-7',     // Achiote, Onoto
+  8: 'plant-8',     // Aliso
+  9: 'plant-9',     // Almendro
+  10: 'plant-10',     // Arrayán Común
+  11: 'plant-11',     // Balso
+  12: 'plant-12',     // Búcaro
+  13: 'plant-13',     // Cajeto
+  14: 'plant-14',     // Cámbulo
+  15: 'plant-15',     // Caoba
+  16: 'plant-16',     // Caracolí
+  17: 'plant-17',     // Casco De Vaca
+  18: 'plant-18',     // Cayeno
+  19: 'plant-19',     // Cedro de Altura
+  20: 'plant-20',     // Cedro Rosado
+  21: 'plant-21',     // Ceiba
+  22: 'plant-22',     // Cerezo
+  23: 'plant-23',     // Chicalá
+  24: 'plant-24',     // Ciprés
+  25: 'plant-25',     // Ciro
+  26: 'plant-26',     // Clavellino
+  27: 'plant-27',     // Coral, Coralitos
+  28: 'plant-28',     // Corono
+  29: 'plant-29',     // Croton Ornamental
+  30: 'plant-30',     // Cucharo
+  31: 'plant-31',     // Dinde Mora
+  32: 'plant-32',     // Duraznillo
+  33: 'plant-33',     // Eucalyptus Globulus
+  34: 'plant-34',     // Eucalyptus Grandis
+  35: 'plant-35',     // Eucalyptus Pellita
+  36: 'plant-36',     // Eugenia-Arrayán extranjero
+  37: 'plant-37',     // Falso Pimiento
+  38: 'plant-38',     // Garrocho-Chuque
+  39: 'plant-39',     // Guácimo
+  40: 'plant-40',     // Gualanday
+  41: 'plant-41',     // Guayacán Amarillo
+  42: 'plant-42',     // Guayacán de Manizales
+  43: 'plant-43',     // Hayuelo
+  44: 'plant-44',     // Holly Espinoso
+  45: 'plant-45',     // Holly Liso
+  46: 'plant-46',     // Iguá, Nauno
+  47: 'plant-47',     // Jazmín del cabo, Laurel Huesito
+  48: 'plant-48',     // Laurel del Cera
+  49: 'plant-49',     // Leucaena
+  50: 'plant-50',     // Limón Ornamental
+  51: 'plant-51',     // Lluvia de Oro
+  52: 'plant-52',     // Mano de Oso, Pata de Gallina
+  53: 'plant-53',     // Mataratón
+  54: 'plant-54',     // Melina
+  55: 'plant-55',     // Mortiño
+  56: 'plant-56',     // Nacedero
+  57: 'plant-57',     // Nogal Cafetero, Canalete, Pardillo
+  58: 'plant-58',     // Ocobo
+  59: 'plant-59',     // Oiti
+  60: 'plant-60',     // Orejero
+  61: 'plant-61',     // Palma Abanico
+  62: 'plant-62',     // Palma Areca
+  63: 'plant-63',     // Palma Botella, Palma Real
+  64: 'plant-64',     // Palma Mariposa
+  65: 'plant-65',     // Payande
+  66: 'plant-66',     // Pino Pátula
+  67: 'plant-67',     // Pomarroso Brasilero
+  68: 'plant-68',     // Roble
+  69: 'plant-69',     // Saman
+  70: 'plant-70',     // Sauce llorón
+  71: 'plant-71',     // Sauco
+  72: 'plant-72',     // Suribio
+  73: 'plant-73',     // Teca
+  74: 'plant-74',     // Tulipán Africano
+  75: 'plant-75',     // Urapan
+  76: 'plant-76',     // Vainillo
+  77: 'plant-77',     // Yopo Café
+  78: 'plant-78',     // Yopo Negro
 };
 
 // Function to get technical sheet for plant ID
