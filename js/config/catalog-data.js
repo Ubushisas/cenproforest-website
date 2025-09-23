@@ -34,31 +34,98 @@ function parseUses(useString) {
     return useString.split('-').map(code => useCodes[code] || code);
 }
 
-// Function to get image path for plant
+// Function to get image path for plant with normalized names
 function getPlantImage(plantName, scientificName = '') {
+    // Mapping from plant names to their normalized image filenames
+    const imageNameMappings = {
+        'Abarco': 'abarco_1',
+        'Acacia Amarilla': 'acacia_amarilla',
+        'Acacia Japonesa': 'acacia_japonesa',
+        'Acacia Mangium': 'acacia_mangium',
+        'Acacia Negra': 'acacia_negra',
+        'Acacia Roja': 'acacia_roja',
+        'Achiote, Onoto': 'achiote_onoto',
+        'Aliso': 'aliso_1',
+        'Almendro': 'almendro_1_2',
+        'Arrayán Común': 'arrayan_comun',
+        'Balso': 'balso_1',
+        'Búcaro': 'bucaro',
+        'Cajeto': 'cajeto_caragay',
+        'Caoba': 'caoba_1',
+        'Caracolí': 'caracoli',
+        'Casco De Vaca': 'casco_de_vaca',
+        'Cayeno': 'cayeno_1',
+        'Cedro Rosado': 'cedro_rosado',
+        'Cedro de Altura': 'cedro_de_altura',
+        'Ceiba': 'ceiba_1',
+        'Cerezo': 'cerezo_1_2',
+        'Chicalá': 'chicala',
+        'Ciprés': 'cipres',
+        'Ciro': 'ciro_1',
+        'Clavellino': 'clavellino_1',
+        'Coral, Coralitos': 'coral_coralitos',
+        'Corono': 'corono_1',
+        'Crotón Ornamental': 'croton_ornamental',
+        'Cucharo': 'cucharo_1',
+        'Cámbulo': 'cambulo',
+        'Dinde Mora': 'dinde_mora',
+        'Duraznillo': 'duraznillo_1',
+        'Eucalyptus Globulus': 'eucalyptus_globulus',
+        'Eucalyptus Grandis': 'eucalyptus_grandis',
+        'Eucalyptus Pellita': 'eucalyptus_pellita',
+        'Eugenia-Arrayán extranjero': 'eugenia-arrayan_extranjero',
+        'Falso Pimiento': 'falso_pimiento',
+        'Garrocho-Chuque': 'garrocho-chuque_1',
+        'Gualanday': 'gualanday_1',
+        'Guayacán Amarillo': 'guayacan_amarillo',
+        'Guayacán de Manizales': 'guayacan_de_manizales',
+        'Guácimo': 'guacimo',
+        'Hayuelo': 'hayuelo_1',
+        'Holly Espinoso': 'holly_espinoso',
+        'Holly Liso': 'holly_liso',
+        'Iguá, Nauno': 'igua_nauno',
+        'Jazmín del cabo, Laurel Huesito': 'jazmin_del_cabo_laurel_huesito',
+        'Laurel del Cera': 'laurel_del_cera',
+        'Leucaena': 'leucaena_1',
+        'Limón Ornamental': 'limon_ornamental',
+        'Lluvia de Oro': 'lluvia_de_oro',
+        'Mano de Oso, Pata de Gallina': 'mano_de_oso_pata_de_gallina',
+        'Matarratón': 'matarraton',
+        'Melina': 'melina_1',
+        'Mortiño': 'mortino',
+        'Nacedero': 'nacedero_1_2',
+        'Nogal Cafetero, Canalete, Pardillo': 'nogal_cafetero_canalete_pardillo',
+        'Ocobo': 'ocobo_1_2',
+        'Oití': 'oiti',
+        'Orejero': 'orejero_1_2',
+        'Palma Abanico': 'palma_abanico',
+        'Palma Areca': 'palma_areca',
+        'Palma Botella, Palma Real': 'palma_botella_palma_real',
+        'Palma Mariposa': 'palma_mariposa',
+        'Payandé': 'payande',
+        'Pino Pátula': 'pino_patula',
+        'Pomarroso Brasilero': 'pomarroso_brasilero',
+        'Roble': 'roble_1_2',
+        'Samán': 'saman',
+        'Sauce llorón': 'sauce_lloron',
+        'Sauco': 'sauco_1_2',
+        'Suribio': 'suribio_1',
+        'Teca': 'teca_1_2',
+        'Tulipán Africano': 'tulipan_africano',
+        'Urapán': 'urapan',
+        'Vainillo, Mucátano, Velero': 'vainillo_mucatano_velero',
+        'Yopo Café': 'yopo_cafe',
+        'Yopo Negro': 'yopo_negro'
+    };
+
     // Handle special case for Búcaro folder name (has trailing space)
     if (plantName === 'Búcaro') {
-        return `assets/Catalogo/Búcaro /${plantName}.jpg`;
+        return `assets/Catalogo/Búcaro /bucaro.jpg`;
     }
-    // Handle special case for Cajeto (folder is named "Cajeto, Caragay")
-    if (plantName === 'Cajeto') {
-        return `assets/Catalogo/Cajeto, Caragay/cajeto_caragay.jpg`;
-    }
-    // Handle special case for Urapan (image name is "Urapán.jpg")
-    if (plantName === 'Urapan') {
-        return `assets/Catalogo/Urapán/Urapán.jpg`;
-    }
-    // Handle special case for Vainillo (image name is "Vainillo, Mucátano, Velero.jpg")
-    if (plantName === 'Vainillo') {
-        return `assets/Catalogo/Vainillo, Mucátano, Velero/Vainillo, Mucátano, Velero.jpg`;
-    }
-    // Handle special case for Matarratón (folder name has accent)
-    if (plantName === 'Matarratón') {
-        return `assets/Catalogo/Matarratón/Matarratón.jpg`;
-    }
+
     // Handle special cases for Eucalyptus species
     if (plantName === 'Eucalipto Blanco' || (plantName === 'Eucalipto' && scientificName === 'Eucalyptus globulus')) {
-        return `assets/Catalogo/Eucalyptus Globulus/Arbolito/eucalyptus_globulus.jpg`;
+        return `assets/Catalogo/Eucalyptus Globulus/eucalyptus_globulus.jpg`;
     }
     if (plantName === 'Eucalipto Rojo' || (plantName === 'Eucalipto' && scientificName === 'Eucalyptus grandis')) {
         return `assets/Catalogo/Eucalyptus Grandis/eucalyptus_grandis.jpg`;
@@ -66,11 +133,14 @@ function getPlantImage(plantName, scientificName = '') {
     if (plantName === 'Eucalipto Pellita' || (plantName === 'Eucalipto' && scientificName === 'Eucalyptus pellita')) {
         return `assets/Catalogo/Eucalyptus Pellita/eucalyptus_pellita.jpg`;
     }
-    // Handle special case for Eucalyptus Globulus - legacy support
-    if (plantName === 'Eucalyptus Globulus') {
-        return `assets/Catalogo/Eucalyptus Globulus/Arbolito/eucalyptus_globulus.jpg`;
+
+    // Get the normalized image name
+    const imageName = imageNameMappings[plantName];
+    if (imageName) {
+        return `assets/Catalogo/${plantName}/${imageName}.jpg`;
     }
-    // All other plants have images in their dedicated folders in assets/Catalogo/
+
+    // Fallback to original logic for any unmapped plants
     return `assets/Catalogo/${plantName}/${plantName}.jpg`;
 }
 
