@@ -10,7 +10,8 @@
 let currentFilters = {
     category: 'all',
     use: null,
-    altitude: null
+    altitude: null,
+    native: null
 };
 let searchQuery = '';
 let displayedItems = 12;
@@ -500,7 +501,28 @@ function getFilteredItems() {
                 return false;
             }
         }
-        
+
+        // Native filter
+        if (currentFilters.native) {
+            let matchesNative = false;
+
+            switch (currentFilters.native) {
+                case 'nativas':
+                    matchesNative = item.native_status === 'NATIVO';
+                    break;
+                case 'introducidas':
+                    matchesNative = item.native_status === 'INTRODUCIDA';
+                    break;
+                case 'todas':
+                    matchesNative = true; // Show all
+                    break;
+            }
+
+            if (!matchesNative) {
+                return false;
+            }
+        }
+
         return true;
     });
     

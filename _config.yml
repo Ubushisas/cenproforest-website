@@ -1,0 +1,28 @@
+# Jekyll configuration for GitHub Pages
+permalink: pretty
+plugins:
+  - jekyll-sitemap
+
+# Remove .html extension from URLs
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      permalink: /:basename/
+
+# Include all files
+include:
+  - _pages
+  - _data
+
+# Exclude development files
+exclude:
+  - "*.py"
+  - "venv/"
+  - "excel_sample.csv"
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/

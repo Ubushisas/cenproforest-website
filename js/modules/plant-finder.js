@@ -1,7 +1,7 @@
 // Plant Finder State
 let currentQuestion = 1;
 let userAnswers = {};
-const totalQuestions = 4;
+const totalQuestions = 5;
 
 // Plant Finder functionality
 function initPlantFinder() {
@@ -188,6 +188,7 @@ function generateRecommendations() {
     const altitude = userAnswers.question2;
     const area = userAnswers.question3;
     const timeline = userAnswers.question4;
+    const nativePreference = userAnswers.question5;
 
     console.log('User answers:', userAnswers);
 
@@ -268,6 +269,23 @@ function generateRecommendations() {
 
         if (matches && timeline === 'inmediato' && plant.category === 'ornamentales') {
             reasons.push('Efecto decorativo inmediato');
+        }
+
+        // Native preference filter
+        if (matches && nativePreference && plant.native_status) {
+            if (nativePreference === 'nativas' && plant.native_status !== 'NATIVO') {
+                matches = false;
+            } else if (nativePreference === 'introducidas' && plant.native_status !== 'INTRODUCIDA') {
+                matches = false;
+            }
+            // 'cualquiera' allows all types
+
+            // Add native status to reasons if it matches preference
+            if (matches && nativePreference === 'nativas' && plant.native_status === 'NATIVO') {
+                reasons.push('Especie nativa de Colombia');
+            } else if (matches && nativePreference === 'introducidas' && plant.native_status === 'INTRODUCIDA') {
+                reasons.push('Especie introducida adaptada');
+            }
         }
 
         // Area considerations
@@ -448,6 +466,11 @@ function getAnswerText(question, value) {
             'medio': 'Mediano plazo (3-7 años)',
             'largo': 'Largo plazo (7+ años)',
             'inmediato': 'Efecto inmediato'
+        },
+        question5: {
+            'nativas': 'Solo especies nativas',
+            'introducidas': 'Solo especies introducidas',
+            'cualquiera': 'Cualquier tipo'
         }
     };
     

@@ -170,6 +170,7 @@ const catalogData = [
         "uses": parseUses("PO-M-SA"),
         "category": "forestales",
         "description": "El Abarco (Cariniana pyriformis) es una especie forestal ideal para Postes, Maderable, Sistemas Agroforestales",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -180,6 +181,7 @@ const catalogData = [
         "uses": parseUses("O-I-L-F-RA"),
         "category": "forrajeras",
         "description": "La Acacia Amarilla (Cassia siamea) es una especie forrajera ideal para Ornamental, Industrial, Leña, Forraje y Reforestación Ambiental",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -190,6 +192,7 @@ const catalogData = [
         "uses": parseUses("I-PO-TA-L-PU-F-O"),
         "category": "forestales",
         "description": "La Acacia Japonesa (Acacia melanoxylon) es una especie forestal ideal para Industrial, Postes, Tableros, Leña, Pulpa, Forraje y Ornamental",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -200,6 +203,7 @@ const catalogData = [
         "uses": parseUses("M-I-PU-CV-L-ME-A-F"),
         "category": "forestales",
         "description": "La Acacia Mangium (Acacia mangium) es una especie forestal ideal para Maderable, Industrial, Pulpa, Cercas vivas, Leña, Melífera, Aglomerado y Forraje",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -210,6 +214,7 @@ const catalogData = [
         "uses": parseUses("RA-F-T-L-PO-PU-CA"),
         "category": "forestales",
         "description": "La Acacia Negra (Acacia mearnsii) es una especie forestal ideal para Reforestación Ambiental, Forraje, Taninos, Leña, Postes, Pulpa y Carbón",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -220,6 +225,7 @@ const catalogData = [
         "uses": parseUses("O-L-SA-S-RA-CV"),
         "category": "forrajeras",
         "description": "La Acacia Roja (Delonix regia) es una especie ornamental ideal para Ornamental, Leña, Sistemas Agroforestales, Sombrío, Reforestación Ambiental y Cercas vivas",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -230,6 +236,7 @@ const catalogData = [
         "uses": parseUses("CO-O-F-I"),
         "category": "forrajeras",
         "description": "El Achiote, Onoto (Bixa orellana) es una especie forrajera ideal para Colorantes, Ornamental, Forraje e Industrial",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -240,6 +247,7 @@ const catalogData = [
         "uses": parseUses("M-RA-TA-CH-PU-CV"),
         "category": "forestales",
         "description": "El Aliso (Alnus acuminata) es una especie forestal ideal para Maderable, Reforestación Ambiental, Tableros, Chapas, Pulpa y Cercas vivas",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -250,6 +258,7 @@ const catalogData = [
         "uses": parseUses("I-O-L-S-PI-RA"),
         "category": "ornamentales",
         "description": "El Almendro (Terminalia catappa) es una especie ornamental ideal para Industrial, Ornamental, Leña, Sombrío, Pilotes y Reforestación Ambiental",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -270,6 +279,7 @@ const catalogData = [
         "uses": parseUses("M-PU-EA-EE-CAR-CV"),
         "category": "forestales",
         "description": "El Balso (Ochroma pyramidale) es una especie forestal ideal para Maderable, Pulpa, Elementos Aislantes, Embalajes Especiales, Carpintería y Cercas vivas",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -300,6 +310,7 @@ const catalogData = [
         "uses": parseUses("O-CV-M-CAR-S-F-RA"),
         "category": "forrajeras",
         "description": "Cámbulo (<i>Erythrina poeppigiana</i>) - Especie forrajera ideal para Ornamental, Cercas vivas, Maderable...",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -310,6 +321,7 @@ const catalogData = [
         "uses": parseUses("M-O-SA-ME-PU-PO-L"),
         "category": "forestales",
         "description": "Caoba (<i>Swietenia macrophylla</i>) - Especie forestale ideal para Maderable, Ornamental, Sistemas Agroforestales...",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -340,6 +352,7 @@ const catalogData = [
         "uses": parseUses("O"),
         "category": "ornamentales",
         "description": "Cayeno (<i>Hibiscus rosasiensis</i>) - Especie ornamentale ideal para Ornamental",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -350,6 +363,7 @@ const catalogData = [
         "uses": parseUses("M-O-L-CV-CH-RA"),
         "category": "forestales",
         "description": "Cedro de Altura (<i>Cedrela montana</i>) - Especie forrajera ideal para Maderable, Ornamental, Leña...",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -360,6 +374,7 @@ const catalogData = [
         "uses": parseUses("M-A-CH-RA-O-ME"),
         "category": "forestales",
         "description": "Cedro Rosado (<i>Cedrela odorata</i>) - Especie forestale ideal para Maderable, Aglomerado, Chapas...",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -370,6 +385,7 @@ const catalogData = [
         "uses": parseUses("A-M"),
         "category": "forestales",
         "description": "Ceiba (<i>Pachira quinata</i>) - Especie forestale ideal para Aglomerado, Maderable",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -400,6 +416,7 @@ const catalogData = [
         "uses": parseUses("O-RA"),
         "category": "forestales",
         "description": "Ciprés (<i>Cupressus lusitanica</i>) - Especie forestale ideal para Ornamental, Reforestación Ambiental",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -410,6 +427,7 @@ const catalogData = [
         "uses": parseUses("L-CA-CV-ME-RA"),
         "category": "forrajeras",
         "description": "Ciro (<i>Baccharis macrantha</i>) - Especie forrajera ideal para Leña, Carbón, Cercas vivas...",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -420,6 +438,7 @@ const catalogData = [
         "uses": parseUses("O"),
         "category": "ornamentales",
         "description": "Clavellino (<i>Caesalpinia pulcherrima</i>) - Especie ornamentale ideal para Ornamental",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -430,6 +449,7 @@ const catalogData = [
         "uses": parseUses("O-CV"),
         "category": "ornamentales",
         "description": "Coral, Coralitos (<i>Adenanthera pavonica</i>) - Especie forrajera ideal para Ornamental, Cercas vivas",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -440,6 +460,7 @@ const catalogData = [
         "uses": parseUses("CV-O"),
         "category": "ornamentales",
         "description": "Corono (<i>Xylosma spiculifera</i>) - Especie forrajera ideal para Cercas vivas, Ornamental",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -460,6 +481,7 @@ const catalogData = [
         "uses": parseUses("RA-O"),
         "category": "ornamentales",
         "description": "Cucharo (<i>Myrsine quinanensis</i>) - Especie ornamentale ideal para Reforestación Ambiental, Ornamental",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -470,6 +492,7 @@ const catalogData = [
         "uses": parseUses("M-I-RA-L-S"),
         "category": "forrajeras",
         "description": "Dinde Mora (<i>Chiorophora tinctoria</i>) - Especie forestale ideal para Maderable, Industrial, Reforestación Ambiental...",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -480,6 +503,7 @@ const catalogData = [
         "uses": parseUses("M-RA-M-CV"),
         "category": "ornamentales",
         "description": "Duraznillo (<i>Abatia parviflora</i>) - Especie forrajera ideal para Maderable, Reforestación Ambiental, Maderable...",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -520,6 +544,7 @@ const catalogData = [
         "uses": parseUses("CV-SE-O"),
         "category": "ornamentales",
         "description": "Eugenia-Arrayán extranjero (<i>Eugenia myrtifolia Sims</i>) - Especie forrajera ideal para Cercas vivas, Setos, Ornamental",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -530,6 +555,7 @@ const catalogData = [
         "uses": parseUses("O-CAR-L-CA-PO-CV-RA-ME"),
         "category": "ornamentales",
         "description": "Falso Pimiento (<i>Shinus molle</i>) - Especie forrajera ideal para Ornamental, Carpintería, Leña...",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -540,6 +566,7 @@ const catalogData = [
         "uses": parseUses("CAR-O-CV"),
         "category": "forrajeras",
         "description": "Garrocho-Chuque (<i>Viburnum triphyllum Bentham</i>) - Especie forrajera ideal para Carpintería, Ornamental, Cercas vivas",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -550,6 +577,7 @@ const catalogData = [
         "uses": parseUses("O-RA"),
         "category": "forrajeras",
         "description": "Guácimo (<i>Guazuma ulmifolia</i>) - Especie forestale ideal para Ornamental, Reforestación Ambiental",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -560,6 +588,7 @@ const catalogData = [
         "uses": parseUses("O-L-M-RA-CAR-CV"),
         "category": "ornamentales",
         "description": "Gualanday (<i>Jacaranda caucana</i>) - Especie forrajera ideal para Ornamental, Leña, Maderable...",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -570,6 +599,7 @@ const catalogData = [
         "uses": parseUses("M-L-O-CAR-RA-CV"),
         "category": "forestales",
         "description": "Guayacán Amarillo (<i>Tabebuia chrysantha</i>) - Especie forrajera ideal para Maderable, Leña, Ornamental...",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -580,6 +610,7 @@ const catalogData = [
         "uses": parseUses("L-O-SE-CV-RA"),
         "category": "forestales",
         "description": "Guayacán de Manizales (<i>Lafonesia speciosa</i>) - Especie forrajera ideal para Leña, Ornamental, Setos...",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -600,6 +631,7 @@ const catalogData = [
         "uses": parseUses("O-CV"),
         "category": "ornamentales",
         "description": "Holly Espinoso (<i>Pyracantha coccinea</i>) - Especie forrajera ideal para Ornamental, Cercas vivas",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -620,6 +652,7 @@ const catalogData = [
         "uses": parseUses("M-S-L-I-CV-F"),
         "category": "forestales",
         "description": "Iguá, Nauno (<i>Pseudosamanea guachapele</i>) - Especie forrajera ideal para Maderable, Sombrío, Leña...",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -630,6 +663,7 @@ const catalogData = [
         "uses": parseUses("O-I-RA-ME"),
         "category": "ornamentales",
         "description": "Jazmín del cabo, Laurel Huesito (<i>Pittosporum undulatum</i>) - Especie forestale ideal para Ornamental, Industrial, Reforestación Ambiental...",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -640,6 +674,7 @@ const catalogData = [
         "uses": parseUses("O-I-RA"),
         "category": "forestales",
         "description": "Laurel del Cera (<i>Morella pubescens</i>) - Especie forestale ideal para Ornamental, Industrial, Reforestación Ambiental",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -660,6 +695,7 @@ const catalogData = [
         "uses": parseUses("O-CV-SE"),
         "category": "ornamentales",
         "description": "Limón Ornamental (<i>Swinglea glutinosa</i>) - Especie forrajera ideal para Ornamental, Cercas vivas, Setos",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -670,6 +706,7 @@ const catalogData = [
         "uses": parseUses("O"),
         "category": "ornamentales",
         "description": "Lluvia de Oro (<i>Cassia fistula</i>) - Especie ornamentale ideal para Ornamental",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -680,6 +717,7 @@ const catalogData = [
         "uses": parseUses("O-RA-CV-S-I"),
         "category": "forrajeras",
         "description": "Mano de Oso, Pata de Gallina (<i>Oreopanax floribundum</i>) - Especie forrajera ideal para Ornamental, Reforestación Ambiental, Cercas vivas...",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -700,6 +738,7 @@ const catalogData = [
         "uses": parseUses("M-CV-CH-A-PU-PO-L-CA-F"),
         "category": "forestales",
         "description": "Melina (<i>Gmelina arborea</i>) - Especie forrajera ideal para Maderable, Cercas vivas, Chapas...",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -710,6 +749,7 @@ const catalogData = [
         "uses": parseUses("O-RA"),
         "category": "forrajeras",
         "description": "Mortiño (<i>Hesperomeles goudotiana</i>) - Especie forestale ideal para Ornamental, Reforestación Ambiental",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -730,6 +770,7 @@ const catalogData = [
         "uses": parseUses("M-L-S-I-O-RA-CH-SA-ME"),
         "category": "forestales",
         "description": "Nogal Cafetero, Canalete, Pardillo (<i>Cordia alliadora</i>) - Especie forestale ideal para Maderable, Leña, Sombrío...",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -750,6 +791,7 @@ const catalogData = [
         "uses": parseUses("O-S"),
         "category": "ornamentales",
         "description": "Oiti (<i>Licania tomentosa</i>) - Especie ornamentale ideal para Ornamental, Sombrío",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -760,6 +802,7 @@ const catalogData = [
         "uses": parseUses("M-S-L-RA-CAR-I-CH-A"),
         "category": "forrajeras",
         "description": "Orejero (<i>Enterolobium cyclocarpum</i>) - Especie forestale ideal para Maderable, Sombrío, Leña...",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -770,6 +813,7 @@ const catalogData = [
         "uses": parseUses("O"),
         "category": "ornamentales",
         "description": "Palma Abanico (<i>Pritchardia pacifica</i>) - Especie ornamentale ideal para Ornamental",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -780,6 +824,7 @@ const catalogData = [
         "uses": parseUses("O"),
         "category": "ornamentales",
         "description": "Palma Areca (<i>Chrysalidocarpus lutescens</i>) - Especie ornamentale ideal para Ornamental",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -790,6 +835,7 @@ const catalogData = [
         "uses": parseUses("O-S"),
         "category": "ornamentales",
         "description": "Palma Botella, Palma Real (<i>Roystonea regia</i>) - Especie ornamentale ideal para Ornamental, Sombrío",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -800,6 +846,7 @@ const catalogData = [
         "uses": parseUses("O"),
         "category": "ornamentales",
         "description": "Palma Mariposa (<i>Caryota mitis</i>) - Especie ornamentale ideal para Ornamental",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -820,6 +867,7 @@ const catalogData = [
         "uses": parseUses("M-I-CH-CV-A-PU-PO-L-CA"),
         "category": "forestales",
         "description": "Pino Pátula (<i>Pinus patula</i>) - Especie forrajera ideal para Maderable, Industrial, Chapas...",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -830,6 +878,7 @@ const catalogData = [
         "uses": parseUses("O-AL-S"),
         "category": "ornamentales",
         "description": "Pomarroso Brasilero (<i>Eugenia malaccensis</i>) - Especie ornamentale ideal para Ornamental, Alimento, Sombrío",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -840,6 +889,7 @@ const catalogData = [
         "uses": parseUses("A-M-L-CAR-PO-RA"),
         "category": "forestales",
         "description": "Roble (<i>Quercus humboldtii</i>) - Especie forestale ideal para Aglomerado, Maderable, Leña...",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -860,6 +910,7 @@ const catalogData = [
         "uses": parseUses("CAR-RA-O"),
         "category": "ornamentales",
         "description": "Sauce llorón (<i>Salix humboldtii</i>) - Especie ornamentale ideal para Carpintería, Reforestación Ambiental, Ornamental",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -870,6 +921,7 @@ const catalogData = [
         "uses": parseUses("O-CV"),
         "category": "forrajeras",
         "description": "Sauco (<i>Sambucus nigra</i>) - Especie forrajera ideal para Ornamental, Cercas vivas",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -880,6 +932,7 @@ const catalogData = [
         "uses": parseUses("M-S-RA"),
         "category": "forrajeras",
         "description": "Suribio (<i>Zygia longifolium</i>) - Especie forestale ideal para Maderable, Sombrío, Reforestación Ambiental",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -890,6 +943,7 @@ const catalogData = [
         "uses": parseUses("M-MU-CH-CV-L"),
         "category": "forestales",
         "description": "Teca (<i>Tectona grandis</i>) - Especie forrajera ideal para Maderable, Muebles, Chapas...",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -900,6 +954,7 @@ const catalogData = [
         "uses": parseUses("O-RA-AV-F-L-M-MU-PO-CV"),
         "category": "ornamentales",
         "description": "Tulipán Africano (<i>Spathodea campanulata</i>) - Especie forrajera ideal para Ornamental, Reforestación Ambiental, Abono verde...",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -910,6 +965,7 @@ const catalogData = [
         "uses": parseUses("M-O-CH-PU-S"),
         "category": "forestales",
         "description": "Urapan (<i>Fraxinus chinensis</i>) - Especie forestale ideal para Maderable, Ornamental, Chapas...",
+        "native_status": "INTRODUCIDA",
         "price": "Consultar"
     },
     {
@@ -930,6 +986,7 @@ const catalogData = [
         "uses": parseUses("M-O-L-PO-CV-RA-S"),
         "category": "forrajeras",
         "description": "Yopo Café (<i>Piptadenia opacifolia</i>) - Especie forrajera ideal para Maderable, Ornamental, Leña...",
+        "native_status": "NATIVO",
         "price": "Consultar"
     },
     {
@@ -940,6 +997,7 @@ const catalogData = [
         "uses": parseUses("M-O-L-CV-RA-S"),
         "category": "forrajeras",
         "description": "Yopo Negro (<i>Anadenanthera peregrina</i>) - Especie forrajera ideal para Maderable, Ornamental, Leña...",
+        "native_status": "NATIVO",
         "price": "Consultar"
     }
 ];
