@@ -237,15 +237,15 @@ function generateRecommendations() {
                 const maxAlt = parseInt(plantAltitudes[1]);
 
                 let altitudeMatch = false;
-                if (altitude === '0-800' && minAlt <= 800) {
+                if (altitude === '0-800' && minAlt <= 800 && maxAlt <= 1000) {
                     altitudeMatch = true;
                     reasons.push('Adaptada a tierra caliente (0-800m)');
                 }
-                if (altitude === '800-1800' && minAlt <= 1800 && maxAlt >= 800) {
+                if (altitude === '800-1800' && minAlt <= 1800 && maxAlt >= 800 && maxAlt <= 2000) {
                     altitudeMatch = true;
                     reasons.push('Perfecta para tierra templada (800-1800m)');
                 }
-                if (altitude === '1800-3000' && maxAlt >= 1800) {
+                if (altitude === '1800-3000' && minAlt >= 1500) {
                     altitudeMatch = true;
                     reasons.push('Resistente a tierra fría (1800-3000m)');
                 }
