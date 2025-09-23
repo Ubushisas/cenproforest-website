@@ -113,6 +113,7 @@ function getPlantImage(plantName, scientificName = '') {
         'Teca': 'teca_1_2',
         'Tulipán Africano': 'tulipan_africano',
         'Urapán': 'urapan',
+        'Vainillo': 'vainillo_mucatano_velero',
         'Vainillo, Mucátano, Velero': 'vainillo_mucatano_velero',
         'Yopo Café': 'yopo_cafe',
         'Yopo Negro': 'yopo_negro'
@@ -121,6 +122,21 @@ function getPlantImage(plantName, scientificName = '') {
     // Handle special case for Búcaro folder name (has trailing space)
     if (plantName === 'Búcaro') {
         return `assets/Catalogo/Búcaro /bucaro.jpg`;
+    }
+
+    // Handle special case for Urapán folder name (renamed to remove accent)
+    if (plantName === 'Urapán') {
+        return `assets/Catalogo/Urapan/urapan.jpg`;
+    }
+
+    // Handle special case for Cajeto folder name (folder includes ", Caragay")
+    if (plantName === 'Cajeto') {
+        return `assets/Catalogo/Cajeto, Caragay/cajeto_caragay.jpg`;
+    }
+
+    // Handle special case for Vainillo folder name (full name with commas)
+    if (plantName === 'Vainillo') {
+        return `assets/Catalogo/Vainillo, Mucátano, Velero/vainillo_mucatano_velero.jpg`;
     }
 
     // Handle special cases for Eucalyptus species

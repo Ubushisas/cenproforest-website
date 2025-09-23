@@ -142,7 +142,7 @@ body {
 }
 
 .nav-logo-img {
-    height: 38px;
+    height: 55px;
     width: auto;
     margin-top: 3px;
 }
@@ -337,7 +337,7 @@ body {
     }
     
     .nav-logo-img {
-        height: 32px;
+        height: 60px;
     }
 }
 
@@ -346,11 +346,15 @@ body {
     .nav {
         padding: 0.6rem 2rem;
     }
-    
+
+    .nav-logo-img {
+        height: 50px;
+    }
+
     .nav-menu {
         gap: 1rem;
     }
-    
+
     .nav-menu a {
         font-size: 0.9rem;
     }

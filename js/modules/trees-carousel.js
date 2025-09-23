@@ -211,8 +211,8 @@ function initTreesCarousel() {
         currentX = e.clientX;
         const deltaX = currentX - startX;
         
-        // Mark as dragged if movement is significant (more than 10px for less sensitivity)
-        if (Math.abs(deltaX) > 10) {
+        // Mark as dragged if movement is significant (more than 15px for less sensitivity)
+        if (Math.abs(deltaX) > 15) {
             hasDragged = true;
         }
         
@@ -227,19 +227,24 @@ function initTreesCarousel() {
         if (!isDragging) return;
         
         // Check if this was a click (no significant drag) and handle navigation
+        console.log(`Mouse up - hasDragged: ${hasDragged}, isDragging: ${isDragging}`);
         if (!hasDragged) {
             const card = e.target.closest('.tree-card');
+            console.log(`Found card element:`, card);
             if (card) {
                 const plantId = getTreeTechnicalSheetId(card);
+                console.log(`Plant ID from mapping: ${plantId}`);
                 if (plantId) {
                     console.log(`Tree card clicked: Plant ID ${plantId}, navigating to technical sheet...`);
-                    window.location.href = `./Fichas Técnicas/plant-${plantId}.html`;
+                    window.location.href = `./fichas-tecnicas/plant-${plantId}.html`;
                 } else {
                     console.log('Tree card clicked but no mapping found, going to general catalog...');
                     window.location.href = './catalogo.html';
                 }
                 return; // Exit early to prevent other actions
             }
+        } else {
+            console.log('Navigation blocked - user was dragging');
         }
         
         isDragging = false;
@@ -290,8 +295,8 @@ function initTreesCarousel() {
         currentX = touch.clientX;
         const deltaX = currentX - startX;
         
-        // Mark as dragged if movement is significant (more than 10px for less sensitivity)
-        if (Math.abs(deltaX) > 10) {
+        // Mark as dragged if movement is significant (more than 15px for less sensitivity)
+        if (Math.abs(deltaX) > 15) {
             hasDragged = true;
         }
         
@@ -309,19 +314,24 @@ function initTreesCarousel() {
         if (!isDragging) return;
         
         // Check if this was a tap (no significant drag) and handle navigation
+        console.log(`Touch end - hasDragged: ${hasDragged}, isDragging: ${isDragging}`);
         if (!hasDragged) {
             const card = e.target.closest('.tree-card');
+            console.log(`Found card element (touch):`, card);
             if (card) {
                 const plantId = getTreeTechnicalSheetId(card);
+                console.log(`Plant ID from mapping (touch): ${plantId}`);
                 if (plantId) {
                     console.log(`Tree card tapped: Plant ID ${plantId}, navigating to technical sheet...`);
-                    window.location.href = `./Fichas Técnicas/plant-${plantId}.html`;
+                    window.location.href = `./fichas-tecnicas/plant-${plantId}.html`;
                 } else {
                     console.log('Tree card tapped but no mapping found, going to general catalog...');
                     window.location.href = './catalogo.html';
                 }
                 return; // Exit early to prevent other actions
             }
+        } else {
+            console.log('Navigation blocked (touch) - user was dragging');
         }
         
         isDragging = false;
@@ -385,7 +395,6 @@ function initTreesCarousel() {
             'nacedero-madre-de-agua-bg': 56,
             'nogal-cafetero-canalete-pardillo-bg': 57,
             'ocobo-flor-morado-roble-bg': 58,
-            'ocobo-rosa-bg': 58,
             'palma-mariposa-bg': 64,
             'payande-chiminango-bg': 65,
             'pomarroso-brasilero-bg': 67,
@@ -413,7 +422,7 @@ function initTreesCarousel() {
                 const plantId = getTreeTechnicalSheetId(card);
                 if (plantId) {
                     console.log(`Tree card clicked: Plant ID ${plantId}, navigating to technical sheet...`);
-                    window.location.href = `./Fichas Técnicas/plant-${plantId}.html`;
+                    window.location.href = `./fichas-tecnicas/plant-${plantId}.html`;
                 } else {
                     console.log('Tree card clicked but no mapping found, going to general catalog...');
                     window.location.href = './catalogo.html';

@@ -16,6 +16,40 @@ let searchQuery = '';
 let displayedItems = 12;
 const itemsPerLoad = 12;
 
+// State persistence for better UX
+const CATALOG_STATE_KEY = 'cenproforest_catalog_state';
+
+function saveCatalogState() {
+    const state = {
+        displayedItems: displayedItems,
+        scrollPosition: window.scrollY,
+        filters: currentFilters,
+        searchQuery: searchQuery,
+        timestamp: Date.now()
+    };
+    localStorage.setItem(CATALOG_STATE_KEY, JSON.stringify(state));
+}
+
+function loadCatalogState() {
+    try {
+        const savedState = localStorage.getItem(CATALOG_STATE_KEY);
+        if (savedState) {
+            const state = JSON.parse(savedState);
+            // Only restore state if it's less than 30 minutes old
+            if (Date.now() - state.timestamp < 30 * 60 * 1000) {
+                return state;
+            }
+        }
+    } catch (e) {
+        console.log('Could not load catalog state:', e);
+    }
+    return null;
+}
+
+function clearCatalogState() {
+    localStorage.removeItem(CATALOG_STATE_KEY);
+}
+
 // Plant ID to Technical Sheet mapping
 // This mapping ensures each catalog plant links to the correct technical sheet
 // Updated for alphabetically sorted catalog data
@@ -112,12 +146,67 @@ function initCatalog() {
         console.log('Catalog grid not found, skipping catalog initialization');
         return;
     }
-    
-    renderCatalogItems();
-    initFilterButtons();
-    initInfiniteScroll();
-    updateActiveFiltersDisplay();
-    
+
+    // Try to restore previous catalog state
+    const savedState = loadCatalogState();
+    if (savedState) {
+        console.log('Restoring catalog state:', savedState);
+
+        // Show loading indicator for large state restoration
+        if (savedState.displayedItems > 12) {
+            showCatalogLoadingIndicator();
+        }
+
+        displayedItems = savedState.displayedItems;
+        currentFilters = savedState.filters;
+        searchQuery = savedState.searchQuery;
+
+        // Restore search input if exists
+        const searchInput = document.getElementById('catalog-search');
+        if (searchInput && searchQuery) {
+            searchInput.value = searchQuery;
+        }
+    }
+
+    // For large restorations, use progressive loading
+    if (savedState && savedState.displayedItems > 12) {
+        // Show first batch immediately
+        displayedItems = 12;
+        renderCatalogItems();
+        initFilterButtons();
+        initInfiniteScroll();
+        updateActiveFiltersDisplay();
+
+        // Then load remaining items progressively
+        setTimeout(() => {
+            displayedItems = savedState.displayedItems;
+            renderCatalogItems();
+            hideCatalogLoadingIndicator();
+
+            // Restore scroll position after all items are loaded
+            if (savedState.scrollPosition) {
+                setTimeout(() => {
+                    window.scrollTo(0, savedState.scrollPosition);
+                    console.log('Restored scroll position:', savedState.scrollPosition);
+                }, 100);
+            }
+        }, 100);
+    } else {
+        // Normal initialization for small loads
+        renderCatalogItems();
+        initFilterButtons();
+        initInfiniteScroll();
+        updateActiveFiltersDisplay();
+
+        // Restore scroll position after items are loaded
+        if (savedState && savedState.scrollPosition) {
+            setTimeout(() => {
+                window.scrollTo(0, savedState.scrollPosition);
+                console.log('Restored scroll position:', savedState.scrollPosition);
+            }, 300);
+        }
+    }
+
     // Check if we need to scroll to a specific tree (from carousel click)
     scrollToTreeFromHash();
 }
@@ -255,7 +344,7 @@ function createCatalogItem(item) {
     catalogItem.classList.add(bgClass);
     
     // Create technical sheet link using proper mapping
-    const technicalSheetUrl = `Fichas Técnicas/${getTechnicalSheetUrl(item.id)}`;
+    const technicalSheetUrl = `fichas-tecnicas/${getTechnicalSheetUrl(item.id)}`;
     
     // Add background image if available
     const imagePath = getPlantImage(item.name, item.scientific_name);
@@ -308,6 +397,12 @@ function createCatalogItem(item) {
         display: block;
         cursor: pointer;
     `;
+
+    // Save catalog state when user clicks on a plant card
+    overlayLink.addEventListener('click', function() {
+        saveCatalogState();
+        console.log('Saved catalog state before navigating to:', technicalSheetUrl);
+    });
     catalogItem.appendChild(overlayLink);
     
     return catalogItem;
@@ -575,6 +670,7 @@ function clearAllFilters() {
         altitude: null,
         changed: true // Mark for smooth transition and refresh
     };
+    clearCatalogState(); // Clear saved state when filters are reset
     
     // Clear search query too
     searchQuery = '';
@@ -602,9 +698,12 @@ function clearAllFilters() {
 
 function initInfiniteScroll() {
     let isLoading = false;
-    
+
     function checkScrollAndLoad() {
         if (isLoading) return;
+
+        // Save scroll position periodically
+        saveCatalogState();
         
         const scrollHeight = document.documentElement.scrollHeight;
         const scrollTop = document.documentElement.scrollTop;
@@ -633,6 +732,7 @@ function initInfiniteScroll() {
                     currentFilters.changed = false;
                     
                     renderCatalogItems();
+                    saveCatalogState(); // Save state after loading more items
                     isLoading = false;
                 }, 100);
             }
@@ -841,6 +941,7 @@ function clearSearch() {
     
     searchQuery = '';
     displayedItems = itemsPerLoad;
+    clearCatalogState(); // Clear saved state when search is cleared
     renderCatalogItems();
 }
 
@@ -848,6 +949,77 @@ function handleSearchKeyPress(event) {
     if (event.key === 'Enter') {
         event.preventDefault();
         handleCatalogSearch();
+    }
+}
+
+// Loading indicator functions for catalog state restoration
+function showCatalogLoadingIndicator() {
+    const catalogGrid = document.getElementById('catalog-grid');
+    if (!catalogGrid) return;
+
+    // Create loading indicator if it doesn't exist
+    let loadingIndicator = document.getElementById('catalog-loading-indicator');
+    if (!loadingIndicator) {
+        loadingIndicator = document.createElement('div');
+        loadingIndicator.id = 'catalog-loading-indicator';
+        loadingIndicator.style.cssText = `
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            z-index: 100;
+            color: var(--primary-green);
+            font-weight: 500;
+        `;
+
+        loadingIndicator.innerHTML = `
+            <div style="
+                width: 40px;
+                height: 40px;
+                border: 3px solid rgba(74, 124, 35, 0.2);
+                border-top: 3px solid var(--primary-green);
+                border-radius: 50%;
+                animation: catalogSpin 1s linear infinite;
+            "></div>
+            <span style="font-size: 0.9rem;">Cargando plantas...</span>
+        `;
+
+        // Add CSS animation if not already present
+        if (!document.getElementById('catalog-loading-styles')) {
+            const style = document.createElement('style');
+            style.id = 'catalog-loading-styles';
+            style.textContent = `
+                @keyframes catalogSpin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        catalogGrid.parentElement.appendChild(loadingIndicator);
+    }
+
+    // Position relative to catalog grid's parent
+    catalogGrid.parentElement.style.position = 'relative';
+    loadingIndicator.style.display = 'flex';
+    catalogGrid.style.opacity = '0.3';
+}
+
+function hideCatalogLoadingIndicator() {
+    const loadingIndicator = document.getElementById('catalog-loading-indicator');
+    const catalogGrid = document.getElementById('catalog-grid');
+
+    if (loadingIndicator) {
+        loadingIndicator.style.display = 'none';
+    }
+
+    if (catalogGrid) {
+        catalogGrid.style.opacity = '1';
     }
 }
 
