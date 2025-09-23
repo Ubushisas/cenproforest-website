@@ -140,30 +140,8 @@
       </div>
     </div>
     
-    <div class="chat-input-container">
-      <div class="chat-input-group">
-        <input type="text" id="chat-input" placeholder="Escribe tu pregunta aquí..." onkeypress="handleChatKeyPress(event)">
-        <button id="send-btn" onclick="sendMessage()">Enviar</button>
-      </div>
-      <div class="expert-option">
-        <button class="expert-btn" onclick="talkToExpert()">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
-            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-          </svg>
-          Hablar con Experto
-        </button>
-      </div>
-    </div>
   </div>
 
-  <!-- Chat Bot Floating Button -->
-  <div class="chat-float-btn" onclick="openChatPopup()">
-    <svg viewBox="0 0 24 24" fill="none">
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2"/>
-    </svg>
-    <span class="chat-pulse"></span>
-  </div>
 
   <!-- Modular JavaScript files -->
   <script src="js/config/catalog-data.js"></script>
