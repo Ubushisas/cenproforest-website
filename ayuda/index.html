@@ -315,9 +315,29 @@
     }
     
     function restartFinder() {
-      // Reset the finder and go back to choices
-      if (typeof resetPlantFinder === 'function') {
-        resetPlantFinder();
+      // Reset the finder state completely
+      if (window.PlantFinder && typeof window.PlantFinder.restartFinder === 'function') {
+        window.PlantFinder.restartFinder();
+      } else {
+        // Fallback: manual reset
+        if (typeof currentQuestion !== 'undefined') currentQuestion = 1;
+        if (typeof userAnswers !== 'undefined') userAnswers = {};
+
+        // Hide results
+        const resultsSection = document.getElementById('finder-results');
+        if (resultsSection) resultsSection.classList.add('hidden');
+
+        // Show questions
+        const questionsSection = document.getElementById('finder-questions');
+        if (questionsSection) questionsSection.style.display = 'block';
+
+        // Reset all questions
+        document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
+        const firstQuestion = document.getElementById('question-1');
+        if (firstQuestion) firstQuestion.classList.add('active');
+
+        // Clear selections
+        document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
       }
       showChoice();
     }
