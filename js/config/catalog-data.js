@@ -42,7 +42,7 @@ function getPlantImage(plantName, scientificName = '') {
     }
     // Handle special case for Cajeto (folder is named "Cajeto, Caragay")
     if (plantName === 'Cajeto') {
-        return `assets/Catalogo/Cajeto, Caragay/Cajeto, Caragay.jpg`;
+        return `assets/Catalogo/Cajeto, Caragay/cajeto_caragay.jpg`;
     }
     // Handle special case for Urapan (image name is "Urapán.jpg")
     if (plantName === 'Urapan') {
@@ -58,17 +58,17 @@ function getPlantImage(plantName, scientificName = '') {
     }
     // Handle special cases for Eucalyptus species
     if (plantName === 'Eucalipto Blanco' || (plantName === 'Eucalipto' && scientificName === 'Eucalyptus globulus')) {
-        return `assets/Catalogo/Eucalyptus Globulus/Eucalyptus Globulus.jpg`;
+        return `assets/Catalogo/Eucalyptus Globulus/Arbolito/eucalyptus_globulus.jpg`;
     }
     if (plantName === 'Eucalipto Rojo' || (plantName === 'Eucalipto' && scientificName === 'Eucalyptus grandis')) {
-        return `assets/Catalogo/Eucalyptus Grandis/Eucalyptus Grandis.jpg`;
+        return `assets/Catalogo/Eucalyptus Grandis/eucalyptus_grandis.jpg`;
     }
     if (plantName === 'Eucalipto Pellita' || (plantName === 'Eucalipto' && scientificName === 'Eucalyptus pellita')) {
-        return `assets/Catalogo/Eucalyptus Pellita/Eucalyptus Pellita.jpg`;
+        return `assets/Catalogo/Eucalyptus Pellita/eucalyptus_pellita.jpg`;
     }
     // Handle special case for Eucalyptus Globulus - legacy support
     if (plantName === 'Eucalyptus Globulus') {
-        return `assets/Catalogo/Eucalyptus Globulus/Eucalyptus Globulus.jpg`;
+        return `assets/Catalogo/Eucalyptus Globulus/Arbolito/eucalyptus_globulus.jpg`;
     }
     // All other plants have images in their dedicated folders in assets/Catalogo/
     return `assets/Catalogo/${plantName}/${plantName}.jpg`;

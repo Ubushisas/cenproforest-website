@@ -47,7 +47,7 @@ class PlantCarousel {
             }
         }
 
-        // Check for special cases (like "Hayuelo .jpg" with extra space)
+        // Check for special cases (like "assets/Catalogo/Hayuelo/hayuelo.jpg" with extra space)
         const specialPath = `../assets/Catalogo/${folderName}/${this.plantName === 'BÚCARO' ? 'Búcaro' : this.plantName} .jpg`;
         if (await this.imageExists(specialPath)) {
             this.images.push({

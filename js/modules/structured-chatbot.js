@@ -99,7 +99,7 @@ function addMessage(text, sender) {
   
   messageDiv.innerHTML = `
     <div class="message-avatar">
-      ${sender === 'user' ? '👤' : '<img src="assets/images/soloLogo.png" alt="CENPROFOREST Logo" />'}
+      ${sender === 'user' ? '👤' : '<img src="assets/images/solologo_1.png" alt="CENPROFOREST Logo" />'}
     </div>
     <div class="message-content">
       <p style="white-space: pre-line;">${text}</p>
@@ -147,7 +147,7 @@ function addMessageWithButtons(text, sender, buttons = [], showWhatsApp = false)
   
   messageDiv.innerHTML = `
     <div class="message-avatar">
-      ${sender === 'user' ? '👤' : '<img src="assets/images/soloLogo.png" alt="CENPROFOREST Logo" />'}
+      ${sender === 'user' ? '👤' : '<img src="assets/images/solologo_1.png" alt="CENPROFOREST Logo" />'}
     </div>
     <div class="message-content">
       <p style="white-space: pre-line;">${text}</p>

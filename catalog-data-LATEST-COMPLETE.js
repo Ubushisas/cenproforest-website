@@ -42,7 +42,7 @@ function getPlantImage(plantName, scientificName = '') {
     }
     // Handle special case for Cajeto (folder is named "Cajeto, Caragay")
     if (plantName === 'Cajeto') {
-        return `assets/Catalogo/Cajeto, Caragay/Cajeto, Caragay.jpg`;
+        return `assets/Catalogo/Cajeto, Caragay/cajeto_caragay.jpg`;
     }
     // Handle special case for Urapan (image name is "Urapán.jpg")
     if (plantName === 'Urapan') {
