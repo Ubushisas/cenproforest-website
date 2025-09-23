@@ -231,10 +231,10 @@ function generateRecommendations() {
 
         // Altitude matching - precise matching with actual catalog data
         if (matches && plant.altitude && altitude !== 'no-se') {
-            const plantAltitudes = plant.altitude.match(/\d+/g);
+            const plantAltitudes = plant.altitude.match(/\d+\.?\d*/g);
             if (plantAltitudes && plantAltitudes.length >= 2) {
-                const minAlt = parseInt(plantAltitudes[0]);
-                const maxAlt = parseInt(plantAltitudes[1]);
+                const minAlt = parseInt(plantAltitudes[0].replace('.', ''));
+                const maxAlt = parseInt(plantAltitudes[1].replace('.', ''));
 
                 let altitudeMatch = false;
                 if (altitude === '0-800' && maxAlt <= 1200) {
