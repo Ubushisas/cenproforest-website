@@ -1,35 +1,35 @@
-// Simple GIF background - no complex video logic needed!
 function initHeroVideo() {
-    const heroGif = document.querySelector('.hero-gif');
     const heroVideo = document.querySelector('.hero-video');
-    const videoContainer = document.querySelector('.hero_video_background');
 
-    // If we still have a video element, hide it in favor of GIF
     if (heroVideo) {
-        heroVideo.style.display = 'none';
-        console.log('Video element hidden in favor of GIF');
-    }
+        console.log('Hero video initialized');
 
-    // Ensure GIF loads properly
-    if (heroGif && videoContainer) {
-        console.log('Hero GIF initialized - automatic playback guaranteed!');
+        // Ensure video plays automatically
+        const playVideo = () => {
+            heroVideo.play().catch(e => {
+                console.log('Video autoplay failed:', e);
+                // Fallback: try to play after user interaction
+                document.addEventListener('click', () => {
+                    heroVideo.play().catch(err => console.log('Manual play failed:', err));
+                }, { once: true });
+            });
+        };
 
-        // Optional: Add loading indicator while GIF loads
-        heroGif.addEventListener('load', () => {
-            console.log('Hero GIF loaded successfully');
-            heroGif.style.opacity = '1';
+        // Play immediately
+        playVideo();
+
+        // Also try to play when video metadata is loaded
+        heroVideo.addEventListener('loadedmetadata', playVideo);
+
+        // Ensure video loops
+        heroVideo.addEventListener('ended', () => {
+            heroVideo.currentTime = 0;
+            playVideo();
         });
 
-        // Set initial opacity for smooth loading
-        heroGif.style.opacity = '0.9';
-        heroGif.style.transition = 'opacity 0.5s ease-in-out';
-
-        // Ensure GIF is visible
-        setTimeout(() => {
-            heroGif.style.opacity = '1';
-        }, 100);
+        console.log('Hero video setup complete');
     } else {
-        console.log('Hero GIF element not found');
+        console.log('Hero video element not found');
     }
 }
 
