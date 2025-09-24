@@ -392,8 +392,8 @@ function createCatalogItem(item) {
     const bgClass = item.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + '-bg';
     catalogItem.classList.add(bgClass);
     
-    // Create technical sheet link using proper mapping
-    const technicalSheetUrl = `fichas-tecnicas/${getTechnicalSheetUrl(item.id)}`;
+    // Create technical sheet link using proper mapping (absolute path from root)
+    const technicalSheetUrl = `/fichas-tecnicas/${getTechnicalSheetUrl(item.id)}`;
     
     // Add background image if available
     const imagePath = getPlantImage(item.name, item.scientific_name);
