@@ -21,14 +21,23 @@ const itemsPerLoad = 12;
 const CATALOG_STATE_KEY = 'cenproforest_catalog_state';
 
 function saveCatalogState() {
+    // Get the current catalog grid element
+    const catalogGrid = document.getElementById('catalog-grid');
+    const firstVisibleCard = catalogGrid ? catalogGrid.querySelector('.catalog-item') : null;
+
     const state = {
         displayedItems: displayedItems,
         scrollPosition: window.scrollY,
         filters: currentFilters,
         searchQuery: searchQuery,
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        // Save viewport information for better restoration
+        viewportHeight: window.innerHeight,
+        documentHeight: document.documentElement.scrollHeight,
+        firstVisibleCardIndex: firstVisibleCard ? Array.from(catalogGrid.children).indexOf(firstVisibleCard) : 0
     };
     localStorage.setItem(CATALOG_STATE_KEY, JSON.stringify(state));
+    console.log('Catalog state saved:', state);
 }
 
 function loadCatalogState() {
@@ -38,11 +47,16 @@ function loadCatalogState() {
             const state = JSON.parse(savedState);
             // Only restore state if it's less than 30 minutes old
             if (Date.now() - state.timestamp < 30 * 60 * 1000) {
+                console.log('Loading catalog state:', state);
                 return state;
+            } else {
+                console.log('Catalog state expired, clearing');
+                clearCatalogState();
             }
         }
     } catch (e) {
         console.log('Could not load catalog state:', e);
+        clearCatalogState();
     }
     return null;
 }
@@ -169,29 +183,61 @@ function initCatalog() {
         }
     }
 
-    // For large restorations, use progressive loading
-    if (savedState && savedState.displayedItems > 12) {
-        // Show first batch immediately
-        displayedItems = 12;
+    // Enhanced restoration logic
+    if (savedState) {
+        // Always render all saved items first
         renderCatalogItems();
         initFilterButtons();
         initInfiniteScroll();
         updateActiveFiltersDisplay();
 
-        // Then load remaining items progressively
-        setTimeout(() => {
-            displayedItems = savedState.displayedItems;
-            renderCatalogItems();
+        // Hide loading indicator if it was shown
+        if (savedState.displayedItems > 12) {
             hideCatalogLoadingIndicator();
+        }
 
-            // Restore scroll position after all items are loaded
-            if (savedState.scrollPosition) {
-                setTimeout(() => {
-                    window.scrollTo(0, savedState.scrollPosition);
-                    console.log('Restored scroll position:', savedState.scrollPosition);
-                }, 100);
-            }
-        }, 100);
+        // Enhanced scroll restoration - try to position on the clicked card
+        if (savedState.scrollPosition || savedState.clickedPlantId) {
+            const restorePosition = () => {
+                let targetScrollPosition = savedState.scrollPosition || 0;
+
+                // If we have info about the clicked card, try to find it and scroll to it
+                if (savedState.clickedPlantId || savedState.clickedPlantName) {
+                    const catalogGrid = document.getElementById('catalog-grid');
+                    if (catalogGrid) {
+                        const cards = catalogGrid.querySelectorAll('.catalog-item');
+                        for (let card of cards) {
+                            const titleElement = card.querySelector('.catalog-item-title');
+                            if (titleElement) {
+                                const cardName = titleElement.textContent.trim();
+                                if (cardName === savedState.clickedPlantName) {
+                                    const cardRect = card.getBoundingClientRect();
+                                    // Position the card near the top of viewport for easy visibility
+                                    targetScrollPosition = window.scrollY + cardRect.top - 100;
+                                    console.log('Found clicked card:', cardName, 'scrolling to:', targetScrollPosition);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Scroll to the calculated position
+                window.scrollTo({
+                    top: Math.max(0, targetScrollPosition),
+                    behavior: 'auto'
+                });
+                console.log('Restored scroll to position:', targetScrollPosition);
+            };
+
+            // Multiple restoration attempts for better reliability
+            setTimeout(restorePosition, 100);
+            setTimeout(restorePosition, 300);
+            setTimeout(restorePosition, 600);
+
+            // Final attempt after images load
+            setTimeout(restorePosition, 1000);
+        }
     } else {
         // Normal initialization for small loads
         renderCatalogItems();
@@ -400,9 +446,31 @@ function createCatalogItem(item) {
     `;
 
     // Save catalog state when user clicks on a plant card
-    overlayLink.addEventListener('click', function() {
-        saveCatalogState();
-        console.log('Saved catalog state before navigating to:', technicalSheetUrl);
+    overlayLink.addEventListener('click', function(e) {
+        // Save the specific card information for better restoration
+        const clickedCardElement = e.target.closest('.catalog-item');
+        const clickedCardRect = clickedCardElement ? clickedCardElement.getBoundingClientRect() : null;
+
+        // Save enhanced state with clicked card info
+        const enhancedState = {
+            displayedItems: displayedItems,
+            scrollPosition: window.scrollY,
+            filters: currentFilters,
+            searchQuery: searchQuery,
+            timestamp: Date.now(),
+            viewportHeight: window.innerHeight,
+            documentHeight: document.documentElement.scrollHeight,
+            clickedPlantId: plant.id,
+            clickedPlantName: plant.name,
+            clickedCardRect: clickedCardRect ? {
+                top: clickedCardRect.top + window.scrollY,
+                left: clickedCardRect.left,
+                bottom: clickedCardRect.bottom + window.scrollY
+            } : null
+        };
+
+        localStorage.setItem(CATALOG_STATE_KEY, JSON.stringify(enhancedState));
+        console.log('Enhanced catalog state saved before navigating to:', technicalSheetUrl, enhancedState);
     });
     catalogItem.appendChild(overlayLink);
     
