@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initPlantFinder();
     initChoiceNavigation();
     initHeroVideo();
-    initIOSVideoFallback();
     initParallaxEffects();
     
     // New features
