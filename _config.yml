@@ -16,7 +16,7 @@ include:
   - _pages
   - _data
 
-# Exclude development files
+# Exclude development files and prevent Jekyll from processing assets
 exclude:
   - "*.py"
   - "venv/"
@@ -26,3 +26,23 @@ exclude:
   - Gemfile.lock
   - node_modules/
   - vendor/
+
+# Keep Jekyll from processing these files
+keep_files:
+  - assets
+  - js
+  - styles.css
+
+# Disable Jekyll processing for static assets
+plugins:
+  - jekyll-sitemap
+
+# Ensure CSS and JS are served correctly
+sass:
+  style: compressed
+
+# Markdown settings (minimal to avoid conflicts)
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
