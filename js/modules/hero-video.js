@@ -61,12 +61,47 @@ function initHeroVideo() {
     console.log('Video element found. Current state:', heroVideo.readyState);
     console.log('Video source:', heroVideo.currentSrc || heroVideo.src);
     
-    // Try to play the video (in case autoplay is blocked)
-    heroVideo.play().then(() => {
-        console.log('Video playing successfully');
-    }).catch(e => {
-        console.log('Autoplay was blocked, but video should still load:', e.message);
-    });
+    // Force autoplay for mobile and desktop
+    const forcePlay = () => {
+        heroVideo.play().then(() => {
+            console.log('Video playing successfully');
+        }).catch(e => {
+            console.log('Autoplay blocked, attempting to force play:', e.message);
+            // Try to play after user interaction
+            setTimeout(() => {
+                heroVideo.play().catch(err => console.log('Force play failed:', err));
+            }, 1000);
+        });
+    };
+
+    // Try to play immediately
+    forcePlay();
+
+    // Also try on user interaction events
+    const enableAutoplay = () => {
+        heroVideo.play();
+        // Remove listeners after first interaction
+        document.removeEventListener('touchstart', enableAutoplay);
+        document.removeEventListener('click', enableAutoplay);
+        document.removeEventListener('scroll', enableAutoplay);
+    };
+
+    // Add listeners for user interaction
+    document.addEventListener('touchstart', enableAutoplay, { once: true });
+    document.addEventListener('click', enableAutoplay, { once: true });
+    document.addEventListener('scroll', enableAutoplay, { once: true });
+
+    // Force play every few seconds if not playing
+    const checkPlayback = setInterval(() => {
+        if (heroVideo.paused && heroVideo.readyState >= 2) {
+            console.log('Video is paused, attempting to resume...');
+            heroVideo.play().catch(e => console.log('Resume failed:', e));
+        }
+        // Stop checking after video is playing consistently
+        if (!heroVideo.paused) {
+            clearInterval(checkPlayback);
+        }
+    }, 3000);
 }
 
 // Export for use in other modules
