@@ -27,8 +27,8 @@ function initNavigation() {
         navToggle.classList.toggle('active');
     });
 
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('.nav-link').forEach(link => {
+    // Close mobile menu when clicking on any navigation link
+    document.querySelectorAll('.nav-link, .mobile-nav-link, .mobile-cta-button').forEach(link => {
         link.addEventListener('click', function() {
             navMenu.classList.remove('active');
             navToggle.classList.remove('active');
