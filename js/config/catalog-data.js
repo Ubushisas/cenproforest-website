@@ -35,6 +35,19 @@ function parseUses(useString) {
 }
 
 // Function to get image path for plant with normalized names (UPDATED)
+// Get the correct base path for assets based on current page location
+function getBasePath() {
+    const currentPath = window.location.pathname;
+    // If we're in a subdirectory (like /catalogo/), use '../' prefix
+    if (currentPath.includes('/catalogo/') || currentPath.includes('/ayuda/') ||
+        currentPath.includes('/contacto/') || currentPath.includes('/nosotros/') ||
+        currentPath.includes('/index/')) {
+        return '../';
+    }
+    // If we're in the root or a direct file, no prefix needed
+    return '';
+}
+
 function getPlantImage(plantName, scientificName = '') {
     // Mapping from plant names to their normalized image filenames
     const imageNameMappings = {
@@ -119,45 +132,47 @@ function getPlantImage(plantName, scientificName = '') {
         'Yopo Negro': 'yopo_negro'
     };
 
+    const basePath = getBasePath();
+
     // Handle special case for Búcaro folder name (has trailing space)
     if (plantName === 'Búcaro') {
-        return `assets/Catalogo/Búcaro /bucaro.jpg`;
+        return `${basePath}assets/Catalogo/Búcaro /bucaro.jpg`;
     }
 
     // Handle special case for Urapán folder name (renamed to remove accent)
     if (plantName === 'Urapán') {
-        return `assets/Catalogo/Urapan/urapan.jpg`;
+        return `${basePath}assets/Catalogo/Urapan/urapan.jpg`;
     }
 
     // Handle special case for Cajeto folder name (folder includes ", Caragay")
     if (plantName === 'Cajeto') {
-        return `assets/Catalogo/Cajeto, Caragay/cajeto_caragay.jpg`;
+        return `${basePath}assets/Catalogo/Cajeto, Caragay/cajeto_caragay.jpg`;
     }
 
     // Handle special case for Vainillo folder name (full name with commas)
     if (plantName === 'Vainillo') {
-        return `assets/Catalogo/Vainillo, Mucátano, Velero/vainillo_mucatano_velero.jpg`;
+        return `${basePath}assets/Catalogo/Vainillo, Mucátano, Velero/vainillo_mucatano_velero.jpg`;
     }
 
     // Handle special cases for Eucalyptus species
     if (plantName === 'Eucalipto Blanco' || (plantName === 'Eucalipto' && scientificName === 'Eucalyptus globulus')) {
-        return `assets/Catalogo/Eucalyptus Globulus/eucalyptus_globulus.jpg`;
+        return `${basePath}assets/Catalogo/Eucalyptus Globulus/eucalyptus_globulus.jpg`;
     }
     if (plantName === 'Eucalipto Rojo' || (plantName === 'Eucalipto' && scientificName === 'Eucalyptus grandis')) {
-        return `assets/Catalogo/Eucalyptus Grandis/eucalyptus_grandis.jpg`;
+        return `${basePath}assets/Catalogo/Eucalyptus Grandis/eucalyptus_grandis.jpg`;
     }
     if (plantName === 'Eucalipto Pellita' || (plantName === 'Eucalipto' && scientificName === 'Eucalyptus pellita')) {
-        return `assets/Catalogo/Eucalyptus Pellita/eucalyptus_pellita.jpg`;
+        return `${basePath}assets/Catalogo/Eucalyptus Pellita/eucalyptus_pellita.jpg`;
     }
 
     // Get the normalized image name
     const imageName = imageNameMappings[plantName];
     if (imageName) {
-        return `assets/Catalogo/${plantName}/${imageName}.jpg`;
+        return `${basePath}assets/Catalogo/${plantName}/${imageName}.jpg`;
     }
 
     // Fallback to original logic for any unmapped plants
-    return `assets/Catalogo/${plantName}/${plantName}.jpg`;
+    return `${basePath}assets/Catalogo/${plantName}/${plantName}.jpg`;
 }
 
 // Complete catalog data - All 78 plants in correct alphabetical order from CSV

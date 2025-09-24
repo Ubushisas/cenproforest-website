@@ -9,6 +9,19 @@ class PlantCarousel {
         this.init();
     }
 
+    // Get the correct base path for assets based on current page location
+    getBasePath() {
+        const currentPath = window.location.pathname;
+        // If we're in a subdirectory (like /catalogo/), use '../' prefix
+        if (currentPath.includes('/catalogo/') || currentPath.includes('/ayuda/') ||
+            currentPath.includes('/contacto/') || currentPath.includes('/nosotros/') ||
+            currentPath.includes('/index/') || currentPath.includes('/fichas-tecnicas/')) {
+            return '../';
+        }
+        // If we're in the root or a direct file, no prefix needed
+        return '';
+    }
+
     async init() {
         await this.loadImages();
         if (this.images.length > 1) {
@@ -22,9 +35,12 @@ class PlantCarousel {
     async loadImages() {
         // Handle special case for Búcaro folder (has trailing space)
         const folderName = this.plantName === 'BÚCARO' ? 'Búcaro ' : this.plantName;
-        
+
+        // Get the correct base path for assets based on current page location
+        const basePath = this.getBasePath();
+
         // Load main image
-        const mainImagePath = `../assets/Catalogo/${folderName}/${this.plantName === 'BÚCARO' ? 'Búcaro' : this.plantName}.jpg`;
+        const mainImagePath = `${basePath}assets/Catalogo/${folderName}/${this.plantName === 'BÚCARO' ? 'Búcaro' : this.plantName}.jpg`;
         if (await this.imageExists(mainImagePath)) {
             this.images.push({
                 path: mainImagePath,
@@ -36,7 +52,7 @@ class PlantCarousel {
         for (let i = 1; i <= 4; i++) {
             const extensions = ['jpg', 'jpeg', 'png'];
             for (const ext of extensions) {
-                const imagePath = `../assets/Catalogo/${folderName}/${this.plantName === 'BÚCARO' ? 'Búcaro' : this.plantName} ${i}.${ext}`;
+                const imagePath = `${basePath}assets/Catalogo/${folderName}/${this.plantName === 'BÚCARO' ? 'Búcaro' : this.plantName} ${i}.${ext}`;
                 if (await this.imageExists(imagePath)) {
                     this.images.push({
                         path: imagePath,
@@ -48,7 +64,7 @@ class PlantCarousel {
         }
 
         // Check for special cases (like "assets/Catalogo/Hayuelo/hayuelo.jpg" with extra space)
-        const specialPath = `../assets/Catalogo/${folderName}/${this.plantName === 'BÚCARO' ? 'Búcaro' : this.plantName} .jpg`;
+        const specialPath = `${basePath}assets/Catalogo/${folderName}/${this.plantName === 'BÚCARO' ? 'Búcaro' : this.plantName} .jpg`;
         if (await this.imageExists(specialPath)) {
             this.images.push({
                 path: specialPath,
