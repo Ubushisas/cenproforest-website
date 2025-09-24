@@ -4,30 +4,62 @@ function initHeroVideo() {
     if (heroVideo) {
         console.log('Hero video initialized');
 
-        // Ensure video plays automatically
+        // Force video properties for better compatibility
+        heroVideo.muted = true;
+        heroVideo.loop = true;
+        heroVideo.playsInline = true;
+        heroVideo.autoplay = true;
+
+        // Mobile-specific optimizations
+        heroVideo.setAttribute('webkit-playsinline', '');
+        heroVideo.setAttribute('playsinline', '');
+        heroVideo.setAttribute('muted', '');
+
+        // Aggressive play attempts
         const playVideo = () => {
-            heroVideo.play().catch(e => {
+            heroVideo.play().then(() => {
+                console.log('Video playing successfully');
+            }).catch(e => {
                 console.log('Video autoplay failed:', e);
-                // Fallback: try to play after user interaction
-                document.addEventListener('click', () => {
-                    heroVideo.play().catch(err => console.log('Manual play failed:', err));
-                }, { once: true });
+
+                // Try different approaches for mobile
+                setTimeout(() => {
+                    heroVideo.play().catch(err => console.log('Delayed play failed:', err));
+                }, 1000);
+
+                // Fallback: play on any user interaction
+                const playOnInteraction = () => {
+                    heroVideo.play().then(() => {
+                        console.log('Video started after user interaction');
+                        document.removeEventListener('touchstart', playOnInteraction);
+                        document.removeEventListener('click', playOnInteraction);
+                    }).catch(err => console.log('Interaction play failed:', err));
+                };
+
+                document.addEventListener('touchstart', playOnInteraction, { once: true });
+                document.addEventListener('click', playOnInteraction, { once: true });
             });
         };
 
-        // Play immediately
+        // Multiple play attempts
         playVideo();
 
-        // Also try to play when video metadata is loaded
+        // Try again when metadata loads
         heroVideo.addEventListener('loadedmetadata', playVideo);
+        heroVideo.addEventListener('canplay', playVideo);
 
-        // Ensure video loops
+        // Force reload if needed
+        heroVideo.addEventListener('loadstart', () => {
+            console.log('Video started loading');
+        });
+
+        // Ensure video loops properly
         heroVideo.addEventListener('ended', () => {
             heroVideo.currentTime = 0;
             playVideo();
         });
 
-        console.log('Hero video setup complete');
+        console.log('Hero video setup complete with mobile optimizations');
     } else {
         console.log('Hero video element not found');
     }
