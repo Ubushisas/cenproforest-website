@@ -325,11 +325,13 @@ body {
 @media (max-width: 768px) {
     .desktop-menu,
     .desktop-cta {
-        display: none;
+        display: none !important;
     }
 
     .mobile-menu-toggle {
-        display: flex;
+        display: flex !important;
+        position: relative;
+        z-index: 1003;
     }
 
     .nav {
@@ -338,6 +340,36 @@ body {
 
     .nav-logo-img {
         height: 39px;
+    }
+
+    /* Force mobile menu overlay to be properly styled */
+    .mobile-menu-overlay {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100vh !important;
+        background: linear-gradient(135deg, rgba(45, 80, 22, 0.95) 0%, rgba(74, 124, 35, 0.95) 100%) !important;
+        z-index: 1001 !important;
+        display: none !important;
+    }
+
+    .mobile-menu-overlay.active {
+        display: flex !important;
+        opacity: 1 !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .mobile-nav-link {
+        color: white !important;
+        text-decoration: none !important;
+        font-size: 1.25rem !important;
+        font-weight: 500 !important;
+        padding: 0.75rem 1rem !important;
+        border-radius: 8px !important;
+        display: block !important;
+        text-align: center !important;
     }
 }
 
@@ -511,7 +543,8 @@ video::-moz-media-controls {
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, rgba(45,80,22,0.4) 0%, rgba(74,124,35,0.5) 100%);
-    z-index: 2;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .hero_content_overlay {
@@ -3597,13 +3630,33 @@ video::-moz-media-controls {
     }
 
     .catalog-filters {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        align-items: stretch;
+    }
+
+    .filter-section {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .filter-section h4 {
+        margin-bottom: var(--spacing-sm);
+        font-size: 1rem;
+        color: var(--dark-gray);
+    }
+
+    .filter-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
         justify-content: flex-start;
-        overflow-x: auto;
-        padding-bottom: var(--spacing-sm);
     }
 
     .filter-btn {
         white-space: nowrap;
+        margin-bottom: var(--spacing-xs);
+        font-size: 0.875rem;
+        padding: var(--spacing-xs) var(--spacing-sm);
     }
 
     .choice-options {
