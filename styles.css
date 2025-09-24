@@ -462,14 +462,21 @@ body {
     z-index: 1;
 }
 
-.hero_video_background video {
+.hero_video_background video,
+.hero_video_background img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Completely hide all video UI */
+    /* No interaction needed */
     pointer-events: none;
     -webkit-user-select: none;
     user-select: none;
+}
+
+/* Ensure GIF plays smoothly */
+.hero-gif {
+    animation: none;
+    display: block;
 }
 
 /* Aggressively hide ALL video controls */
