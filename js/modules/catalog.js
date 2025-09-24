@@ -151,7 +151,9 @@ const plantTechnicalSheetMapping = {
 
 // Function to get technical sheet for plant ID
 function getTechnicalSheetUrl(plantId) {
-  return plantTechnicalSheetMapping[plantId] || `plant-${plantId}.html`;
+  // Return without .html extension for Jekyll pretty URLs
+  const baseUrl = plantTechnicalSheetMapping[plantId] || `plant-${plantId}`;
+  return baseUrl.replace('.html', '');
 }
 
 // Catalog functionality
