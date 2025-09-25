@@ -4,12 +4,146 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cenproforest S.A.S. - Vivero Profesional</title>
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/solologo_1.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/solologo_1.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/solologo_1.png">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="tree_backgrounds.css">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/solologo_1.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/solologo_1.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/solologo_1.png">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../tree_backgrounds.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- iOS Safari Video Fix -->
+  <style>
+    /* Bulletproof video container for iOS Safari */
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      z-index: -1 !important;
+
+      /* Force hide all possible controls */
+      -webkit-appearance: none !important;
+      -moz-appearance: none !important;
+      appearance: none !important;
+
+      /* iOS Safari specific */
+      -webkit-media-controls: none !important;
+      -webkit-media-controls-panel: none !important;
+      -webkit-media-controls-enclosure: none !important;
+      -webkit-touch-callout: none !important;
+      -webkit-user-select: none !important;
+      user-select: none !important;
+      pointer-events: none !important;
+
+      /* Prevent any interaction */
+      outline: none !important;
+      border: none !important;
+      background: transparent !important;
+    }
+
+    /* Hide ALL webkit video controls completely */
+    .hero-video::-webkit-media-controls,
+    .hero-video::-webkit-media-controls-panel,
+    .hero-video::-webkit-media-controls-play-button,
+    .hero-video::-webkit-media-controls-overlay-play-button,
+    .hero-video::-webkit-media-controls-start-playback-button,
+    .hero-video::-webkit-media-controls-mute-button,
+    .hero-video::-webkit-media-controls-volume-slider,
+    .hero-video::-webkit-media-controls-timeline,
+    .hero-video::-webkit-media-controls-current-time-display,
+    .hero-video::-webkit-media-controls-time-remaining-display,
+    .hero-video::-webkit-media-controls-fullscreen-button,
+    .hero-video::-webkit-media-controls-enclosure {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+
+    /* Firefox controls */
+    .hero-video::-moz-video-controls {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+    }
+
+    /* IE/Edge controls */
+    .hero-video::-ms-media-controls {
+      display: none !important;
+    }
+
+    /* Make sure hero section is ready for video */
+    .hero {
+      position: relative !important;
+      overflow: hidden !important;
+      background: #000 !important; /* Fallback while video loads */
+    }
+
+    /* Prevent flash on load - critical for iOS */
+    .hero-video[poster] {
+      background-image: url('assets/images/video-poster.jpg') !important;
+      background-size: cover !important;
+      background-position: center !important;
+    }
+  
+    /* Chrome-specific video control fixes */
+    .hero-video::-webkit-media-controls-enclosure {
+      display: none !important;
+    }
+
+    .hero-video::-webkit-media-controls {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+
+    /* Force Chrome to never show controls */
+    .hero-video {
+      -webkit-media-controls-enclosure: none !important;
+      -webkit-media-controls: none !important;
+    }
+
+    /* Additional Chrome overrides */
+    video.hero-video[controls] {
+      -webkit-appearance: none !important;
+    }
+
+    /* Force hide on Chrome mobile */
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+      .hero-video::-webkit-media-controls {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+      }
+    }
+  </style>
+
+  <!-- iOS Safari video loading script -->
+  <script>
+    // Force video to be ready for iOS Safari
+    document.addEventListener('DOMContentLoaded', function() {
+      const video = document.querySelector('.hero-video');
+      if (video) {
+        // Ensure muted for autoplay
+        video.muted = true;
+        video.defaultMuted = true;
+
+        // Force play on iOS Safari
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.log('Video autoplay failed, but that's OK for iOS Safari');
+          });
+        }
+      }
+    });
+  </script>
+
+  <link href="ultimate_video_fix.css" rel="stylesheet">
+  <link href="simple-video-fix.css" rel="stylesheet">
 </head>
 <body>
   <!-- Navigation hover detection zone -->
@@ -19,7 +153,7 @@
   <nav class="nav">
     <div class="nav-logo">
       <a href="#home">
-        <img src="assets/images/Logo_Nuevo.png" alt="CENPROFOREST" class="nav-logo-img">
+        <img src="../assets/images/Logo_Nuevo.png" alt="CENPROFOREST" class="nav-logo-img">
       </a>
     </div>
     <div class="nav-right">
@@ -27,12 +161,11 @@
             <div class="nav-menu desktop-menu">
         <a href="nosotros" class="nav-link">Nosotros</a>
         <a href="ayuda" class="nav-link">Ayuda</a>
-        <a href="catalogo" class="nav-link">Catálogo</a>
         <a href="contacto" class="nav-link">Contacto</a>
       </div>
       <div class="nav-cta desktop-cta">
-        <a href="catalogo" class="nav-button">
-          <span>Consultar catálogo completo</span>
+        <a href="catalogo/" class="nav-button">
+          <span>Catálogo</span>
           <svg viewBox="0 0 24 24" fill="none">
             <path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="2"/>
           </svg>
@@ -54,8 +187,8 @@
       <a href="../nosotros/" class="mobile-nav-link">Nosotros</a>
       <a href="../ayuda/" class="mobile-nav-link">Ayuda</a>
       <a href="../contacto/" class="mobile-nav-link">Contacto</a>
-      <a href="../catalogo/" class="mobile-cta-button">
-        <span>Consultar catálogo completo</span>
+      <a href="catalogo/" class="mobile-cta-button">
+        <span>Catálogo</span>
         <svg viewBox="0 0 24 24" fill="none">
           <path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="2"/>
         </svg>
@@ -68,10 +201,20 @@
   <section id="home" class="hero">
     <!-- Full Background Video/GIF -->
     <div class="hero_video_background">
-      <video class="hero-video" muted loop autoplay playsinline preload="auto" webkit-playsinline controls="false">
-        <source src="assets/videos/17342967-uhd_4096_2160_30fps.mp4" type="video/mp4">
+      <video
+      class="hero-video"
+      muted
+      autoplay
+      loop
+      playsinline
+      preload="metadata"
+      disablePictureInPicture
+      controlslist="nodownload nofullscreen noremoteplayback"
+      poster="assets/images/video-poster.jpg"
+      webkit-playsinline="true">
+        <source src="../assets/videos/17342967-uhd_4096_2160_30fps.mp4" type="video/mp4">
         Your browser does not support the video tag.
-      </video>
+      </video><div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;"></div>
       <div class="video_overlay"></div>
     </div>
 
@@ -104,8 +247,8 @@
       <div class="hero_cta_section">
         <h2 class="hero_tagline">Damos vida a tu<br>proyecto forestal.</h2>
         <div class="button_box">
-          <a href="catalogo" class="button_link">
-            <span>Consultar catálogo completo</span>
+          <a href="catalogo/" class="button_link">
+            <span>Catálogo</span>
             <div class="circle_link">
               <div class="arrow_icon">
                 <svg viewBox="0 0 24 24" fill="none">
@@ -123,8 +266,8 @@
   <!-- About Summary Section -->
   <section class="about-summary-section">
     <div class="summary-content">
-      <a href="ayuda" class="summary-question">
-        <img src="assets/images/asterisk.png" alt="*" class="rotating-asterisk">
+      <a href="../ayuda/" class="summary-question">
+        <img src="../assets/images/asterisk.png" alt="*" class="rotating-asterisk">
         <span class="question-text">Ver sugerencias personalizadas</span>
       </a>
       <h2 class="summary-big-text" style="padding-bottom: 12px;">
@@ -151,55 +294,55 @@
             <div class="carousel-container">
               <div class="carousel-track">
                 <div class="carousel-item carousel-item-big">
-                  <img src="Carrusel_nuevo/1_1.jpg" alt="Vivero Cenproforest 1" loading="lazy">
+                  <img src="../Carrusel_nuevo/1_1.jpg" alt="Vivero Cenproforest 1" loading="lazy">
                 </div>
                 <div class="carousel-item carousel-item-small">
-                  <img src="Carrusel_nuevo/2_1.jpg" alt="Vivero Cenproforest 2" loading="lazy">
+                  <img src="../Carrusel_nuevo/2_1.jpg" alt="Vivero Cenproforest 2" loading="lazy">
                 </div>
                 <div class="carousel-item carousel-item-small">
-                  <img src="Carrusel_nuevo/3_1.jpg" alt="Vivero Cenproforest 3" loading="lazy">
+                  <img src="../Carrusel_nuevo/3_1.jpg" alt="Vivero Cenproforest 3" loading="lazy">
                 </div>
                 <div class="carousel-item carousel-item-small">
-                  <img src="Carrusel_nuevo/4_1.jpg" alt="Vivero Cenproforest 4" loading="lazy">
+                  <img src="../Carrusel_nuevo/4_1.jpg" alt="Vivero Cenproforest 4" loading="lazy">
                 </div>
                 <div class="carousel-item carousel-item-small">
-                  <img src="Carrusel_nuevo/5_1.jpg" alt="Vivero Cenproforest 5" loading="lazy">
+                  <img src="../Carrusel_nuevo/5_1.jpg" alt="Vivero Cenproforest 5" loading="lazy">
                 </div>
                 <div class="carousel-item carousel-item-small" style="display: none;">
-                  <img src="Carrusel_nuevo/6_1.jpg" alt="Vivero Cenproforest 6" loading="lazy">
+                  <img src="../Carrusel_nuevo/6_1.jpg" alt="Vivero Cenproforest 6" loading="lazy">
                 </div>
                 <div class="carousel-item carousel-item-small" style="display: none;">
-                  <img src="Carrusel_nuevo/7_1.jpg" alt="Vivero Cenproforest 7" loading="lazy">
+                  <img src="../Carrusel_nuevo/7_1.jpg" alt="Vivero Cenproforest 7" loading="lazy">
                 </div>
                 <div class="carousel-item carousel-item-small" style="display: none;">
-                  <img src="Carrusel_nuevo/8_1.jpg" alt="Vivero Cenproforest 8" loading="lazy">
+                  <img src="../Carrusel_nuevo/8_1.jpg" alt="Vivero Cenproforest 8" loading="lazy">
                 </div>
                 <div class="carousel-item carousel-item-small" style="display: none;">
-                  <img src="Carrusel_nuevo/9_1.jpg" alt="Vivero Cenproforest 9" loading="lazy">
+                  <img src="../Carrusel_nuevo/9_1.jpg" alt="Vivero Cenproforest 9" loading="lazy">
                 </div>
                 <div class="carousel-item carousel-item-small" style="display: none;">
-                  <img src="Carrusel_nuevo/11_1.jpg" alt="Vivero Cenproforest 11" loading="lazy">
+                  <img src="../Carrusel_nuevo/11_1.jpg" alt="Vivero Cenproforest 11" loading="lazy">
                 </div>
                 <div class="carousel-item carousel-item-small" style="display: none;">
-                  <img src="Carrusel_nuevo/12_1.jpg" alt="Vivero Cenproforest 12" loading="lazy">
+                  <img src="../Carrusel_nuevo/12_1.jpg" alt="Vivero Cenproforest 12" loading="lazy">
                 </div>
                 <div class="carousel-item carousel-item-small" style="display: none;">
-                  <img src="Carrusel_nuevo/13_1.jpg" alt="Vivero Cenproforest 13" loading="lazy">
+                  <img src="../Carrusel_nuevo/13_1.jpg" alt="Vivero Cenproforest 13" loading="lazy">
                 </div>
                 <div class="carousel-item carousel-item-small" style="display: none;">
-                  <img src="Carrusel_nuevo/14_1.jpg" alt="Vivero Cenproforest 14" loading="lazy">
+                  <img src="../Carrusel_nuevo/14_1.jpg" alt="Vivero Cenproforest 14" loading="lazy">
                 </div>
                 <div class="carousel-item carousel-item-small" style="display: none;">
-                  <img src="Carrusel_nuevo/15_1.jpg" alt="Vivero Cenproforest 15" loading="lazy">
+                  <img src="../Carrusel_nuevo/15_1.jpg" alt="Vivero Cenproforest 15" loading="lazy">
                 </div>
                 <div class="carousel-item carousel-item-small" style="display: none;">
-                  <img src="Carrusel_nuevo/16_1.jpg" alt="Vivero Cenproforest 16" loading="lazy">
+                  <img src="../Carrusel_nuevo/16_1.jpg" alt="Vivero Cenproforest 16" loading="lazy">
                 </div>
                 <div class="carousel-item carousel-item-small" style="display: none;">
-                  <img src="Carrusel_nuevo/17_1.jpg" alt="Vivero Cenproforest 17" loading="lazy">
+                  <img src="../Carrusel_nuevo/17_1.jpg" alt="Vivero Cenproforest 17" loading="lazy">
                 </div>
                 <div class="carousel-item carousel-item-small" style="display: none;">
-                  <img src="Carrusel_nuevo/8_1.jpg" alt="Vivero Cenproforest 18" loading="lazy">
+                  <img src="../Carrusel_nuevo/8_1.jpg" alt="Vivero Cenproforest 18" loading="lazy">
                 </div>
               </div>
             </div>
@@ -252,7 +395,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-73'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-73'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -275,7 +418,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-75'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-75'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -298,7 +441,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-77'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-77'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -321,7 +464,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-2'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-2'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -344,7 +487,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-3'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-3'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -367,7 +510,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-4'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-4'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -390,7 +533,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-6'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-6'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -413,7 +556,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-7'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-7'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -436,7 +579,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-10'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-10'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -459,7 +602,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-12'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-12'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -482,7 +625,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-13'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-13'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -505,7 +648,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-18'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-18'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -528,7 +671,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-19'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-19'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -551,7 +694,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-22'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-22'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -574,7 +717,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-23'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-23'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -597,7 +740,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-24'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-24'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -620,7 +763,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-25'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-25'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -643,7 +786,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-26'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-26'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -666,7 +809,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-27'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-27'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -689,7 +832,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-28'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-28'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -1252,7 +1395,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-73'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-73'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -1275,7 +1418,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-75'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-75'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -1298,7 +1441,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-77'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-77'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -1321,7 +1464,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-2'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-2'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -1344,7 +1487,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-3'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-3'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -1367,7 +1510,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-4'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-4'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -1390,7 +1533,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-6'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-6'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -1413,7 +1556,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-7'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-7'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -1436,7 +1579,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-10'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-10'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -1459,7 +1602,7 @@
             </div>
             <div class="tree-bottom-info">
               <div class="tree-cta-button">
-                <button class="ver-ficha-btn" onclick="window.location.href = 'fichas-tecnicas/plant-12'">Ver Ficha Técnica</button>
+                <button class="ver-ficha-btn" onclick="window.location.href = '/fichas-tecnicas/plant-12'">Ver Ficha Técnica</button>
               </div>
             </div>
           </div>
@@ -1487,9 +1630,8 @@
         </div>
         <div class="footer-section">
           <h4>Enlaces</h4>
-          <a href="index">Inicio</a>
+          <a href="../index/">Inicio</a>
           <a href="nosotros">Nosotros</a>
-          <a href="catalogo">Catálogo</a>
           <a href="contacto">Contacto</a>
         </div>
         <div class="footer-section">
@@ -1646,7 +1788,7 @@
       
       messageDiv.innerHTML = `
         <div class="message-avatar">
-          ${sender === 'user' ? '👤' : '<img src="assets/images/solologo_1.png" alt="Bot" />'}
+          ${sender === 'user' ? '👤' : '<img src="../assets/images/solologo_1.png" alt="Bot" />'}
         </div>
         <div class="message-content">
           <p style="white-space: pre-line;">${text}</p>
@@ -1802,7 +1944,7 @@ Haz clic en el botón de WhatsApp para contactar directamente con nuestro equipo
     <div class="chat-popup-header">
       <div class="chat-header-info">
         <div class="chat-avatar">
-          <img src="assets/images/solologo_1.png" alt="CENPROFOREST Logo" />
+          <img src="../assets/images/solologo_1.png" alt="CENPROFOREST Logo" />
         </div>
         <div>
           <h3>Cenproforest</h3>
@@ -1846,24 +1988,25 @@ Haz clic en el botón de WhatsApp para contactar directamente con nuestro equipo
   </div>
 
   <!-- Modular JavaScript files -->
-  <script src="js/config/catalog-data.js"></script>
-  <script src="js/modules/utils.js"></script>
-  <script src="js/modules/navigation.js"></script>
-  <script src="js/modules/hero-video.js"></script>
-  <script src="js/modules/catalog.js"></script>
-  <script src="js/modules/contact-form.js"></script>
-  <script src="js/modules/scroll-effects.js"></script>
-  <script src="js/modules/plant-finder.js"></script>
-  <script src="js/modules/conversation-storage.js"></script>
-  <script src="js/config/chatbot-flow.js"></script>
-  <script src="js/modules/structured-chatbot.js"></script>
-  <script src="js/modules/faq.js"></script>
-  <script src="js/modules/stats-animation.js"></script>
-  <script src="js/modules/vivero-animation.js"></script>
-  <script src="js/modules/photo-carousel.js"></script>
-  <script src="js/modules/vivero-carousel.js"></script>
-  <script src="js/modules/trees-carousel.js"></script>
-  <script src="js/modules/misc-functions.js"></script>
-  <script src="js/main.js"></script>
+  <script src="../js/config/catalog-data.js"></script>
+  <script src="../js/modules/utils.js"></script>
+  <script src="../js/modules/navigation.js"></script>
+  <script src="../js/modules/hero-video.js"></script>
+  <script src="../js/modules/ultra_video_controls_fix.js"></script>
+  <script src="../js/modules/catalog.js"></script>
+  <script src="../js/modules/contact-form.js"></script>
+  <script src="../js/modules/scroll-effects.js"></script>
+  <script src="../js/modules/plant-finder.js"></script>
+  <script src="../js/modules/conversation-storage.js"></script>
+  <script src="../js/config/chatbot-flow.js"></script>
+  <script src="../js/modules/structured-chatbot.js"></script>
+  <script src="../js/modules/faq.js"></script>
+  <script src="../js/modules/stats-animation.js"></script>
+  <script src="../js/modules/vivero-animation.js"></script>
+  <script src="../js/modules/photo-carousel.js"></script>
+  <script src="../js/modules/vivero-carousel.js"></script>
+  <script src="../js/modules/trees-carousel.js"></script>
+  <script src="../js/modules/misc-functions.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 </html>

@@ -236,7 +236,7 @@ function initTreesCarousel() {
                 console.log(`Plant ID from mapping: ${plantId}`);
                 if (plantId) {
                     console.log(`Tree card clicked: Plant ID ${plantId}, navigating to technical sheet...`);
-                    window.location.href = `./fichas-tecnicas/plant-${plantId}.html`;
+                    window.location.href = `/fichas-tecnicas/plant-${plantId}`;
                 } else {
                     console.log('Tree card clicked but no mapping found, going to general catalog...');
                     window.location.href = './catalogo';
@@ -323,7 +323,7 @@ function initTreesCarousel() {
                 console.log(`Plant ID from mapping (touch): ${plantId}`);
                 if (plantId) {
                     console.log(`Tree card tapped: Plant ID ${plantId}, navigating to technical sheet...`);
-                    window.location.href = `./fichas-tecnicas/plant-${plantId}.html`;
+                    window.location.href = `/fichas-tecnicas/plant-${plantId}`;
                 } else {
                     console.log('Tree card tapped but no mapping found, going to general catalog...');
                     window.location.href = './catalogo';
@@ -422,7 +422,7 @@ function initTreesCarousel() {
                 const plantId = getTreeTechnicalSheetId(card);
                 if (plantId) {
                     console.log(`Tree card clicked: Plant ID ${plantId}, navigating to technical sheet...`);
-                    window.location.href = `./fichas-tecnicas/plant-${plantId}.html`;
+                    window.location.href = `/fichas-tecnicas/plant-${plantId}`;
                 } else {
                     console.log('Tree card clicked but no mapping found, going to general catalog...');
                     window.location.href = './catalogo';

@@ -1,0 +1,60 @@
+/* Ultimate mobile video controls fix */
+.hero-video {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  -webkit-user-select: none !important;
+  -webkit-touch-callout: none !important;
+  pointer-events: none !important;
+  outline: none !important;
+  border: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.hero-video::-webkit-media-controls,
+.hero-video::-webkit-media-controls-panel,
+.hero-video::-webkit-media-controls-play-button,
+.hero-video::-webkit-media-controls-start-playback-button,
+.hero-video::-webkit-media-controls-overlay-play-button,
+.hero-video::-webkit-media-controls-enclosure,
+.hero-video::-webkit-media-controls-volume-slider,
+.hero-video::-webkit-media-controls-mute-button,
+.hero-video::-webkit-media-controls-timeline,
+.hero-video::-webkit-media-controls-current-time-display,
+.hero-video::-webkit-media-controls-time-remaining-display,
+.hero-video::-webkit-media-controls-fullscreen-button,
+.hero-video::-webkit-media-controls-toggle-closed-captions-button,
+.hero-video::-webkit-media-controls-play-button,
+.hero-video::-webkit-media-controls-rewind-button,
+.hero-video::-webkit-media-controls-return-to-realtime-button,
+.hero-video::-webkit-media-controls-seek-back-button,
+.hero-video::-webkit-media-controls-seek-forward-button,
+.hero-video::-webkit-media-controls-timeline-container {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+}
+
+/* Mobile specific */
+@media (max-width: 768px) {
+  .hero-video {
+    pointer-events: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  .hero-video:focus,
+  .hero-video:active,
+  .hero-video:hover {
+    outline: none !important;
+    border: none !important;
+  }
+}
